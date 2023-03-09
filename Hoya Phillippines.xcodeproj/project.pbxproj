@@ -1,0 +1,1162 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		80026E3229A0CD450021B603 /* giftboxAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 80026E3129A0CD450021B603 /* giftboxAnimation.json */; };
+		800BD855299F3A5200566B98 /* HYP_TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800BD854299F3A5200566B98 /* HYP_TabBarVC.swift */; };
+		800BD857299F3A7700566B98 /* HYP_ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800BD856299F3A7700566B98 /* HYP_ProfileVC.swift */; };
+		800BD859299F3A8E00566B98 /* HYP_SupportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800BD858299F3A8E00566B98 /* HYP_SupportVC.swift */; };
+		800BD85B299F3AB300566B98 /* HYP_SupportTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800BD85A299F3AB300566B98 /* HYP_SupportTVCell.swift */; };
+		800BD85D299F3AD100566B98 /* HYP_OffersTVcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800BD85C299F3AD100566B98 /* HYP_OffersTVcell.swift */; };
+		800BD85F299F3AEC00566B98 /* HYP_OffersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800BD85E299F3AEC00566B98 /* HYP_OffersVC.swift */; };
+		800BD861299F3B0500566B98 /* HYP_DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800BD860299F3B0500566B98 /* HYP_DashboardVC.swift */; };
+		800BD864299F4B5500566B98 /* HYP_OffersDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800BD863299F4B5500566B98 /* HYP_OffersDetailsVC.swift */; };
+		801BC715299F66590069B8AA /* HYP_QueryTopicListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801BC714299F66590069B8AA /* HYP_QueryTopicListVC.swift */; };
+		801BC717299F66770069B8AA /* HYP_QueryTopicListTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801BC716299F66770069B8AA /* HYP_QueryTopicListTVCell.swift */; };
+		8022F85429A0D7B90070C9D6 /* HYP_StoreOwnerMenuListCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8022F85229A0D7B90070C9D6 /* HYP_StoreOwnerMenuListCVCell.swift */; };
+		8022F85529A0D7B90070C9D6 /* HYP_StoreOwnerMenuListCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8022F85329A0D7B90070C9D6 /* HYP_StoreOwnerMenuListCVCell.xib */; };
+		802B8F86299F7ADE0062CDA7 /* HYP_CreateQueryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B8F85299F7ADE0062CDA7 /* HYP_CreateQueryVC.swift */; };
+		802B8F89299F97120062CDA7 /* HYP_MyEarningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B8F88299F97120062CDA7 /* HYP_MyEarningVC.swift */; };
+		802B8F8C299F97360062CDA7 /* HYP_MyEarningTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B8F8A299F97360062CDA7 /* HYP_MyEarningTVCell.swift */; };
+		802B8F8D299F97360062CDA7 /* HYP_MyEarningTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 802B8F8B299F97360062CDA7 /* HYP_MyEarningTVCell.xib */; };
+		802B8F90299F9C010062CDA7 /* HYP_MyRedemptionTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B8F8F299F9C010062CDA7 /* HYP_MyRedemptionTVCell.swift */; };
+		802B8F92299F9C1F0062CDA7 /* HYP_MyRedemptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802B8F91299F9C1F0062CDA7 /* HYP_MyRedemptionVC.swift */; };
+		803FCE9D299E5E8600B4B7A3 /* HYP_HelpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803FCE9C299E5E8600B4B7A3 /* HYP_HelpVC.swift */; };
+		8041EBD729B3475A00A0DA15 /* HYP_SuccessMessageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8041EBD629B3475A00A0DA15 /* HYP_SuccessMessageVC.swift */; };
+		8041EBD929B3685700A0DA15 /* String+Extenssion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8041EBD829B3685700A0DA15 /* String+Extenssion.swift */; };
+		805D8491299E493D00DF5FBF /* HYP_RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805D8490299E493D00DF5FBF /* HYP_RegisterVC.swift */; };
+		805F349829B1B3D0002F33AE /* HYP_PointsExpiryReportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805F349729B1B3D0002F33AE /* HYP_PointsExpiryReportVC.swift */; };
+		805F349A29B1B3F2002F33AE /* HYP_PointsExpiryReportTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805F349929B1B3F2002F33AE /* HYP_PointsExpiryReportTVCell.swift */; };
+		805F349D29B1B867002F33AE /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805F349C29B1B867002F33AE /* BaseViewController.swift */; };
+		805F34A529B1B88F002F33AE /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805F349E29B1B88B002F33AE /* URLRequest.swift */; };
+		805F34A629B1B88F002F33AE /* RestAPI_Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805F349F29B1B88C002F33AE /* RestAPI_Requests.swift */; };
+		805F34A729B1B88F002F33AE /* URLMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805F34A029B1B88C002F33AE /* URLMethods.swift */; };
+		805F34A829B1B88F002F33AE /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805F34A129B1B88D002F33AE /* ServiceError.swift */; };
+		805F34A929B1B88F002F33AE /* WebClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805F34A229B1B88D002F33AE /* WebClient.swift */; };
+		805F34AA29B1B88F002F33AE /* RequestMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805F34A329B1B88E002F33AE /* RequestMethod.swift */; };
+		805F34AB29B1B88F002F33AE /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805F34A429B1B88F002F33AE /* URLExtension.swift */; };
+		805F34B229B1B89C002F33AE /* ApiUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805F34AC29B1B89B002F33AE /* ApiUrls.swift */; };
+		805F34B329B1B89C002F33AE /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805F34AE29B1B89B002F33AE /* Reachability.swift */; };
+		805F34B429B1B89C002F33AE /* Reach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805F34AF29B1B89B002F33AE /* Reach.swift */; };
+		805F34B529B1B89C002F33AE /* MyCommonFunctionalUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805F34B129B1B89C002F33AE /* MyCommonFunctionalUtilities.swift */; };
+		805F34B829B1B8CC002F33AE /* HR_Chatvc2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805F34B729B1B8CC002F33AE /* HR_Chatvc2ViewController.swift */; };
+		805F34C829B1B8EF002F33AE /* senderInfoImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 805F34BC29B1B8EF002F33AE /* senderInfoImageTableViewCell.xib */; };
+		805F34C929B1B8EF002F33AE /* otherInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 805F34BD29B1B8EF002F33AE /* otherInfoTableViewCell.xib */; };
+		805F34CA29B1B8EF002F33AE /* senderInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805F34BE29B1B8EF002F33AE /* senderInfoTableViewCell.swift */; };
+		805F34CB29B1B8EF002F33AE /* senderInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 805F34BF29B1B8EF002F33AE /* senderInfoTableViewCell.xib */; };
+		805F34CC29B1B8EF002F33AE /* otherImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 805F34C029B1B8EF002F33AE /* otherImageTableViewCell.xib */; };
+		805F34CD29B1B8EF002F33AE /* senderInfoImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805F34C129B1B8EF002F33AE /* senderInfoImageTableViewCell.swift */; };
+		805F34CE29B1B8EF002F33AE /* otherInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805F34C229B1B8EF002F33AE /* otherInfoTableViewCell.swift */; };
+		805F34CF29B1B8EF002F33AE /* otherImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805F34C329B1B8EF002F33AE /* otherImageTableViewCell.swift */; };
+		805F34D029B1B8EF002F33AE /* senderImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805F34C429B1B8EF002F33AE /* senderImageTableViewCell.swift */; };
+		805F34D129B1B8EF002F33AE /* otherInfoImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805F34C529B1B8EF002F33AE /* otherInfoImageTableViewCell.swift */; };
+		805F34D229B1B8EF002F33AE /* otherInfoImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 805F34C629B1B8EF002F33AE /* otherInfoImageTableViewCell.xib */; };
+		805F34D329B1B8EF002F33AE /* senderImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 805F34C729B1B8EF002F33AE /* senderImageTableViewCell.xib */; };
+		8064FA04299FBD1700A5A4CB /* HYP_ClaimsStatusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8064FA03299FBD1700A5A4CB /* HYP_ClaimsStatusVC.swift */; };
+		8065379B29A33DA80055852B /* HYP_ProgramListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8065379A29A33DA80055852B /* HYP_ProgramListVC.swift */; };
+		8065379D29A33DC50055852B /* HYP_ProgramListTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8065379C29A33DC50055852B /* HYP_ProgramListTVCell.swift */; };
+		808C7FA6299FA8FC00D48769 /* HYP_VouchersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808C7FA5299FA8FC00D48769 /* HYP_VouchersVC.swift */; };
+		808C7FA8299FA91000D48769 /* HYP_VouchersTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808C7FA7299FA91000D48769 /* HYP_VouchersTVCell.swift */; };
+		808C7FAB299FA94200D48769 /* HYP_VoucherDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808C7FAA299FA94200D48769 /* HYP_VoucherDetailsVC.swift */; };
+		809AFB8129A48BBF0015310D /* HYP_MangageStaffVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809AFB8029A48BBF0015310D /* HYP_MangageStaffVC.swift */; };
+		809AFB8329A48BDD0015310D /* HYP_ManageStaffTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809AFB8229A48BDD0015310D /* HYP_ManageStaffTVCell.swift */; };
+		809AFB8529A496280015310D /* HYP_MyStaffTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809AFB8429A496270015310D /* HYP_MyStaffTVCell.swift */; };
+		809AFB8729A496B60015310D /* HYP_MyStaffVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809AFB8629A496B60015310D /* HYP_MyStaffVC.swift */; };
+		809E533D29A0A94E00A7FB0C /* HYP_MenuListTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809E533C29A0A94E00A7FB0C /* HYP_MenuListTVCell.swift */; };
+		80A7B2CD29A34FA500EE4FA9 /* HYP_ClaimDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A7B2CC29A34FA400EE4FA9 /* HYP_ClaimDetailsVC.swift */; };
+		80C597F1299E00130096CFE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C597F0299E00130096CFE4 /* AppDelegate.swift */; };
+		80C597F3299E00130096CFE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C597F2299E00130096CFE4 /* SceneDelegate.swift */; };
+		80C597F5299E00130096CFE4 /* HYP_WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C597F4299E00130096CFE4 /* HYP_WelcomeVC.swift */; };
+		80C597F8299E00130096CFE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80C597F6299E00130096CFE4 /* Main.storyboard */; };
+		80C597FB299E00130096CFE4 /* Hoya_Phillippines.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 80C597F9299E00130096CFE4 /* Hoya_Phillippines.xcdatamodeld */; };
+		80C597FD299E001A0096CFE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80C597FC299E001A0096CFE4 /* Assets.xcassets */; };
+		80C59800299E001A0096CFE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80C597FE299E001A0096CFE4 /* LaunchScreen.storyboard */; };
+		80C59817299E028F0096CFE4 /* GrandientExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C59810299E028E0096CFE4 /* GrandientExtension.swift */; };
+		80C59818299E028F0096CFE4 /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C59811299E028E0096CFE4 /* NotificationExtension.swift */; };
+		80C59819299E028F0096CFE4 /* UiViewControllerExtenssion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C59812299E028E0096CFE4 /* UiViewControllerExtenssion.swift */; };
+		80C5981A299E028F0096CFE4 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C59813299E028E0096CFE4 /* ImageExtension.swift */; };
+		80C5981B299E028F0096CFE4 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C59814299E028F0096CFE4 /* ViewExtension.swift */; };
+		80C5981C299E028F0096CFE4 /* TextfieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C59815299E028F0096CFE4 /* TextfieldExtension.swift */; };
+		80C5981D299E028F0096CFE4 /* LabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C59816299E028F0096CFE4 /* LabelExtension.swift */; };
+		80C59832299E04370096CFE4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C59831299E04370096CFE4 /* Colors.swift */; };
+		80D8750D29B1D44900BD2FDF /* HYP_DropDownVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8750929B1D44800BD2FDF /* HYP_DropDownVC.swift */; };
+		80D8750E29B1D44900BD2FDF /* HYP_DatePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8750B29B1D44800BD2FDF /* HYP_DatePickerVC.swift */; };
+		80D8750F29B1D44900BD2FDF /* HYP_DropDownTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8750C29B1D44800BD2FDF /* HYP_DropDownTVCell.swift */; };
+		80D8751229B1D5F300BD2FDF /* HYP_DropdownVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8751129B1D5F300BD2FDF /* HYP_DropdownVM.swift */; };
+		80D8751429B1D6BC00BD2FDF /* HYP_FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8751329B1D6BC00BD2FDF /* HYP_FilterVC.swift */; };
+		80D8751729B1E95B00BD2FDF /* HYP_OtpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8751629B1E95A00BD2FDF /* HYP_OtpVC.swift */; };
+		80FD4576299E3AE5001EC4EA /* HYP_LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FD4575299E3AE5001EC4EA /* HYP_LoginVC.swift */; };
+		DDA680CCD0F0C9D9BB616EAC /* Pods_Hoya_Phillippines.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E271213DF3236F3E140F5FFB /* Pods_Hoya_Phillippines.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		48D3D837E4F26CB8427363CF /* Pods-Hoya Phillippines.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hoya Phillippines.release.xcconfig"; path = "Target Support Files/Pods-Hoya Phillippines/Pods-Hoya Phillippines.release.xcconfig"; sourceTree = "<group>"; };
+		80026E3129A0CD450021B603 /* giftboxAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = giftboxAnimation.json; sourceTree = "<group>"; };
+		800BD854299F3A5200566B98 /* HYP_TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_TabBarVC.swift; sourceTree = "<group>"; };
+		800BD856299F3A7700566B98 /* HYP_ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_ProfileVC.swift; sourceTree = "<group>"; };
+		800BD858299F3A8E00566B98 /* HYP_SupportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_SupportVC.swift; sourceTree = "<group>"; };
+		800BD85A299F3AB300566B98 /* HYP_SupportTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_SupportTVCell.swift; sourceTree = "<group>"; };
+		800BD85C299F3AD100566B98 /* HYP_OffersTVcell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_OffersTVcell.swift; sourceTree = "<group>"; };
+		800BD85E299F3AEC00566B98 /* HYP_OffersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_OffersVC.swift; sourceTree = "<group>"; };
+		800BD860299F3B0500566B98 /* HYP_DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_DashboardVC.swift; sourceTree = "<group>"; };
+		800BD863299F4B5500566B98 /* HYP_OffersDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_OffersDetailsVC.swift; sourceTree = "<group>"; };
+		801BC714299F66590069B8AA /* HYP_QueryTopicListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_QueryTopicListVC.swift; sourceTree = "<group>"; };
+		801BC716299F66770069B8AA /* HYP_QueryTopicListTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_QueryTopicListTVCell.swift; sourceTree = "<group>"; };
+		8022F85229A0D7B90070C9D6 /* HYP_StoreOwnerMenuListCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_StoreOwnerMenuListCVCell.swift; sourceTree = "<group>"; };
+		8022F85329A0D7B90070C9D6 /* HYP_StoreOwnerMenuListCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HYP_StoreOwnerMenuListCVCell.xib; sourceTree = "<group>"; };
+		802B8F85299F7ADE0062CDA7 /* HYP_CreateQueryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_CreateQueryVC.swift; sourceTree = "<group>"; };
+		802B8F88299F97120062CDA7 /* HYP_MyEarningVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_MyEarningVC.swift; sourceTree = "<group>"; };
+		802B8F8A299F97360062CDA7 /* HYP_MyEarningTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_MyEarningTVCell.swift; sourceTree = "<group>"; };
+		802B8F8B299F97360062CDA7 /* HYP_MyEarningTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HYP_MyEarningTVCell.xib; sourceTree = "<group>"; };
+		802B8F8F299F9C010062CDA7 /* HYP_MyRedemptionTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_MyRedemptionTVCell.swift; sourceTree = "<group>"; };
+		802B8F91299F9C1F0062CDA7 /* HYP_MyRedemptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_MyRedemptionVC.swift; sourceTree = "<group>"; };
+		803FCE9C299E5E8600B4B7A3 /* HYP_HelpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_HelpVC.swift; sourceTree = "<group>"; };
+		8041EBD629B3475A00A0DA15 /* HYP_SuccessMessageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYP_SuccessMessageVC.swift; sourceTree = "<group>"; };
+		8041EBD829B3685700A0DA15 /* String+Extenssion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extenssion.swift"; sourceTree = "<group>"; };
+		805D8490299E493D00DF5FBF /* HYP_RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_RegisterVC.swift; sourceTree = "<group>"; };
+		805F349729B1B3D0002F33AE /* HYP_PointsExpiryReportVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_PointsExpiryReportVC.swift; sourceTree = "<group>"; };
+		805F349929B1B3F2002F33AE /* HYP_PointsExpiryReportTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_PointsExpiryReportTVCell.swift; sourceTree = "<group>"; };
+		805F349C29B1B867002F33AE /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		805F349E29B1B88B002F33AE /* URLRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
+		805F349F29B1B88C002F33AE /* RestAPI_Requests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestAPI_Requests.swift; sourceTree = "<group>"; };
+		805F34A029B1B88C002F33AE /* URLMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLMethods.swift; sourceTree = "<group>"; };
+		805F34A129B1B88D002F33AE /* ServiceError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
+		805F34A229B1B88D002F33AE /* WebClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebClient.swift; sourceTree = "<group>"; };
+		805F34A329B1B88E002F33AE /* RequestMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
+		805F34A429B1B88F002F33AE /* URLExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
+		805F34AC29B1B89B002F33AE /* ApiUrls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiUrls.swift; sourceTree = "<group>"; };
+		805F34AE29B1B89B002F33AE /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		805F34AF29B1B89B002F33AE /* Reach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reach.swift; sourceTree = "<group>"; };
+		805F34B129B1B89C002F33AE /* MyCommonFunctionalUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCommonFunctionalUtilities.swift; sourceTree = "<group>"; };
+		805F34B729B1B8CC002F33AE /* HR_Chatvc2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HR_Chatvc2ViewController.swift; sourceTree = "<group>"; };
+		805F34BC29B1B8EF002F33AE /* senderInfoImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = senderInfoImageTableViewCell.xib; sourceTree = "<group>"; };
+		805F34BD29B1B8EF002F33AE /* otherInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = otherInfoTableViewCell.xib; sourceTree = "<group>"; };
+		805F34BE29B1B8EF002F33AE /* senderInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = senderInfoTableViewCell.swift; sourceTree = "<group>"; };
+		805F34BF29B1B8EF002F33AE /* senderInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = senderInfoTableViewCell.xib; sourceTree = "<group>"; };
+		805F34C029B1B8EF002F33AE /* otherImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = otherImageTableViewCell.xib; sourceTree = "<group>"; };
+		805F34C129B1B8EF002F33AE /* senderInfoImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = senderInfoImageTableViewCell.swift; sourceTree = "<group>"; };
+		805F34C229B1B8EF002F33AE /* otherInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = otherInfoTableViewCell.swift; sourceTree = "<group>"; };
+		805F34C329B1B8EF002F33AE /* otherImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = otherImageTableViewCell.swift; sourceTree = "<group>"; };
+		805F34C429B1B8EF002F33AE /* senderImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = senderImageTableViewCell.swift; sourceTree = "<group>"; };
+		805F34C529B1B8EF002F33AE /* otherInfoImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = otherInfoImageTableViewCell.swift; sourceTree = "<group>"; };
+		805F34C629B1B8EF002F33AE /* otherInfoImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = otherInfoImageTableViewCell.xib; sourceTree = "<group>"; };
+		805F34C729B1B8EF002F33AE /* senderImageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = senderImageTableViewCell.xib; sourceTree = "<group>"; };
+		8064FA03299FBD1700A5A4CB /* HYP_ClaimsStatusVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_ClaimsStatusVC.swift; sourceTree = "<group>"; };
+		8065379A29A33DA80055852B /* HYP_ProgramListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_ProgramListVC.swift; sourceTree = "<group>"; };
+		8065379C29A33DC50055852B /* HYP_ProgramListTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_ProgramListTVCell.swift; sourceTree = "<group>"; };
+		808C7FA5299FA8FC00D48769 /* HYP_VouchersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_VouchersVC.swift; sourceTree = "<group>"; };
+		808C7FA7299FA91000D48769 /* HYP_VouchersTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_VouchersTVCell.swift; sourceTree = "<group>"; };
+		808C7FAA299FA94200D48769 /* HYP_VoucherDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_VoucherDetailsVC.swift; sourceTree = "<group>"; };
+		809AFB8029A48BBF0015310D /* HYP_MangageStaffVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_MangageStaffVC.swift; sourceTree = "<group>"; };
+		809AFB8229A48BDD0015310D /* HYP_ManageStaffTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_ManageStaffTVCell.swift; sourceTree = "<group>"; };
+		809AFB8429A496270015310D /* HYP_MyStaffTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_MyStaffTVCell.swift; sourceTree = "<group>"; };
+		809AFB8629A496B60015310D /* HYP_MyStaffVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_MyStaffVC.swift; sourceTree = "<group>"; };
+		809E533C29A0A94E00A7FB0C /* HYP_MenuListTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_MenuListTVCell.swift; sourceTree = "<group>"; };
+		80A7B2CC29A34FA400EE4FA9 /* HYP_ClaimDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_ClaimDetailsVC.swift; sourceTree = "<group>"; };
+		80C597ED299E00130096CFE4 /* Hoya Phillippines.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hoya Phillippines.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		80C597F0299E00130096CFE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		80C597F2299E00130096CFE4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		80C597F4299E00130096CFE4 /* HYP_WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_WelcomeVC.swift; sourceTree = "<group>"; };
+		80C597F7299E00130096CFE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		80C597FA299E00130096CFE4 /* Hoya_Phillippines.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hoya_Phillippines.xcdatamodel; sourceTree = "<group>"; };
+		80C597FC299E001A0096CFE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		80C597FF299E001A0096CFE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		80C59801299E001A0096CFE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		80C59810299E028E0096CFE4 /* GrandientExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrandientExtension.swift; sourceTree = "<group>"; };
+		80C59811299E028E0096CFE4 /* NotificationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationExtension.swift; sourceTree = "<group>"; };
+		80C59812299E028E0096CFE4 /* UiViewControllerExtenssion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UiViewControllerExtenssion.swift; sourceTree = "<group>"; };
+		80C59813299E028E0096CFE4 /* ImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
+		80C59814299E028F0096CFE4 /* ViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		80C59815299E028F0096CFE4 /* TextfieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextfieldExtension.swift; sourceTree = "<group>"; };
+		80C59816299E028F0096CFE4 /* LabelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelExtension.swift; sourceTree = "<group>"; };
+		80C59820299E040F0096CFE4 /* Galano Grotesque Light Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Galano Grotesque Light Italic.otf"; sourceTree = "<group>"; };
+		80C59821299E040F0096CFE4 /* Galano Grotesque Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Galano Grotesque Black.otf"; sourceTree = "<group>"; };
+		80C59822299E04100096CFE4 /* Galano Grotesque Extra Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Galano Grotesque Extra Light.otf"; sourceTree = "<group>"; };
+		80C59823299E04100096CFE4 /* Galano Grotesque Semi Bold Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Galano Grotesque Semi Bold Italic.otf"; sourceTree = "<group>"; };
+		80C59824299E04100096CFE4 /* Galano Grotesque Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Galano Grotesque Medium.otf"; sourceTree = "<group>"; };
+		80C59825299E04100096CFE4 /* Galano Grotesque Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Galano Grotesque Bold.otf"; sourceTree = "<group>"; };
+		80C59826299E04100096CFE4 /* Galano Grotesque Extra Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Galano Grotesque Extra Bold.otf"; sourceTree = "<group>"; };
+		80C59827299E04110096CFE4 /* Galano Grotesque Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Galano Grotesque Italic.otf"; sourceTree = "<group>"; };
+		80C59828299E04110096CFE4 /* Galano Grotesque Semi Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Galano Grotesque Semi Bold.otf"; sourceTree = "<group>"; };
+		80C59829299E04110096CFE4 /* Galano Grotesque Heavy Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Galano Grotesque Heavy Italic.otf"; sourceTree = "<group>"; };
+		80C5982A299E04110096CFE4 /* Galano Grotesque Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Galano Grotesque Heavy.otf"; sourceTree = "<group>"; };
+		80C5982B299E04110096CFE4 /* Galano Grotesque Bold Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Galano Grotesque Bold Italic.otf"; sourceTree = "<group>"; };
+		80C5982C299E04120096CFE4 /* Galano Grotesque Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Galano Grotesque Light.otf"; sourceTree = "<group>"; };
+		80C5982D299E04120096CFE4 /* Galano Grotesque Extra Light Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Galano Grotesque Extra Light Italic.otf"; sourceTree = "<group>"; };
+		80C5982E299E04120096CFE4 /* Galano Grotesque Thin Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Galano Grotesque Thin Italic.otf"; sourceTree = "<group>"; };
+		80C5982F299E04120096CFE4 /* Galano Grotesque Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Galano Grotesque Thin.otf"; sourceTree = "<group>"; };
+		80C59830299E04120096CFE4 /* Galano Grotesque.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Galano Grotesque.otf"; sourceTree = "<group>"; };
+		80C59831299E04370096CFE4 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		80D8750929B1D44800BD2FDF /* HYP_DropDownVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYP_DropDownVC.swift; sourceTree = "<group>"; };
+		80D8750B29B1D44800BD2FDF /* HYP_DatePickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYP_DatePickerVC.swift; sourceTree = "<group>"; };
+		80D8750C29B1D44800BD2FDF /* HYP_DropDownTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYP_DropDownTVCell.swift; sourceTree = "<group>"; };
+		80D8751129B1D5F300BD2FDF /* HYP_DropdownVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_DropdownVM.swift; sourceTree = "<group>"; };
+		80D8751329B1D6BC00BD2FDF /* HYP_FilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYP_FilterVC.swift; sourceTree = "<group>"; };
+		80D8751629B1E95A00BD2FDF /* HYP_OtpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYP_OtpVC.swift; sourceTree = "<group>"; };
+		80FD4575299E3AE5001EC4EA /* HYP_LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_LoginVC.swift; sourceTree = "<group>"; };
+		E271213DF3236F3E140F5FFB /* Pods_Hoya_Phillippines.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hoya_Phillippines.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA65A180B82722E23AEA9AA5 /* Pods-Hoya Phillippines.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hoya Phillippines.debug.xcconfig"; path = "Target Support Files/Pods-Hoya Phillippines/Pods-Hoya Phillippines.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		80C597EA299E00130096CFE4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDA680CCD0F0C9D9BB616EAC /* Pods_Hoya_Phillippines.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		41BD345CDA248EB1951F7BBC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E271213DF3236F3E140F5FFB /* Pods_Hoya_Phillippines.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		800BD84F299F39E800566B98 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				800BD860299F3B0500566B98 /* HYP_DashboardVC.swift */,
+				809E533C29A0A94E00A7FB0C /* HYP_MenuListTVCell.swift */,
+				8022F85229A0D7B90070C9D6 /* HYP_StoreOwnerMenuListCVCell.swift */,
+				8022F85329A0D7B90070C9D6 /* HYP_StoreOwnerMenuListCVCell.xib */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		800BD850299F3A0A00566B98 /* Offers */ = {
+			isa = PBXGroup;
+			children = (
+				800BD85E299F3AEC00566B98 /* HYP_OffersVC.swift */,
+				800BD85C299F3AD100566B98 /* HYP_OffersTVcell.swift */,
+			);
+			path = Offers;
+			sourceTree = "<group>";
+		};
+		800BD851299F3A1200566B98 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				806BB74C29B6F5FC00F7547C /* QueryList */,
+				801BC713299F66350069B8AA /* Query TopicList */,
+				801BC718299F668E0069B8AA /* CreateQuery */,
+				803FCE9B299E5E6900B4B7A3 /* Helps */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		800BD852299F3A1B00566B98 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				800BD856299F3A7700566B98 /* HYP_ProfileVC.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		800BD853299F3A2400566B98 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				800BD854299F3A5200566B98 /* HYP_TabBarVC.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		800BD862299F4B3000566B98 /* Offers Details */ = {
+			isa = PBXGroup;
+			children = (
+				800BD863299F4B5500566B98 /* HYP_OffersDetailsVC.swift */,
+			);
+			path = "Offers Details";
+			sourceTree = "<group>";
+		};
+		801BC713299F66350069B8AA /* Query TopicList */ = {
+			isa = PBXGroup;
+			children = (
+				801BC714299F66590069B8AA /* HYP_QueryTopicListVC.swift */,
+				801BC716299F66770069B8AA /* HYP_QueryTopicListTVCell.swift */,
+			);
+			path = "Query TopicList";
+			sourceTree = "<group>";
+		};
+		801BC718299F668E0069B8AA /* CreateQuery */ = {
+			isa = PBXGroup;
+			children = (
+				802B8F85299F7ADE0062CDA7 /* HYP_CreateQueryVC.swift */,
+			);
+			path = CreateQuery;
+			sourceTree = "<group>";
+		};
+		802B8F87299F96DD0062CDA7 /* My Earning */ = {
+			isa = PBXGroup;
+			children = (
+				802B8F88299F97120062CDA7 /* HYP_MyEarningVC.swift */,
+				802B8F8A299F97360062CDA7 /* HYP_MyEarningTVCell.swift */,
+				802B8F8B299F97360062CDA7 /* HYP_MyEarningTVCell.xib */,
+			);
+			path = "My Earning";
+			sourceTree = "<group>";
+		};
+		802B8F8E299F9BD00062CDA7 /* My Redemption */ = {
+			isa = PBXGroup;
+			children = (
+				802B8F91299F9C1F0062CDA7 /* HYP_MyRedemptionVC.swift */,
+				802B8F8F299F9C010062CDA7 /* HYP_MyRedemptionTVCell.swift */,
+			);
+			path = "My Redemption";
+			sourceTree = "<group>";
+		};
+		802B8F93299F9C2E0062CDA7 /* My Staff */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "My Staff";
+			sourceTree = "<group>";
+		};
+		802B8F94299F9C6D0062CDA7 /* e-Voucher */ = {
+			isa = PBXGroup;
+			children = (
+				808C7FA5299FA8FC00D48769 /* HYP_VouchersVC.swift */,
+				808C7FA7299FA91000D48769 /* HYP_VouchersTVCell.swift */,
+			);
+			path = "e-Voucher";
+			sourceTree = "<group>";
+		};
+		80363B0229A0942C00C6A4D1 /* Localize */ = {
+			isa = PBXGroup;
+			children = (
+				80026E3129A0CD450021B603 /* giftboxAnimation.json */,
+			);
+			path = Localize;
+			sourceTree = "<group>";
+		};
+		803FCE9B299E5E6900B4B7A3 /* Helps */ = {
+			isa = PBXGroup;
+			children = (
+				803FCE9C299E5E8600B4B7A3 /* HYP_HelpVC.swift */,
+			);
+			path = Helps;
+			sourceTree = "<group>";
+		};
+		8041EBD529B3473D00A0DA15 /* SuccessMessageVC */ = {
+			isa = PBXGroup;
+			children = (
+				8041EBD629B3475A00A0DA15 /* HYP_SuccessMessageVC.swift */,
+			);
+			path = SuccessMessageVC;
+			sourceTree = "<group>";
+		};
+		805D848F299E491E00DF5FBF /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				805D8490299E493D00DF5FBF /* HYP_RegisterVC.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		805F349529B1B383002F33AE /* Points Expiry Report */ = {
+			isa = PBXGroup;
+			children = (
+				805F349729B1B3D0002F33AE /* HYP_PointsExpiryReportVC.swift */,
+				805F349929B1B3F2002F33AE /* HYP_PointsExpiryReportTVCell.swift */,
+			);
+			path = "Points Expiry Report";
+			sourceTree = "<group>";
+		};
+		805F349B29B1B83B002F33AE /* Base ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				805F349C29B1B867002F33AE /* BaseViewController.swift */,
+			);
+			path = "Base ViewController";
+			sourceTree = "<group>";
+		};
+		805F34AD29B1B89B002F33AE /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				805F34AE29B1B89B002F33AE /* Reachability.swift */,
+				805F34AF29B1B89B002F33AE /* Reach.swift */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		805F34B029B1B89C002F33AE /* CommonUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				805F34B129B1B89C002F33AE /* MyCommonFunctionalUtilities.swift */,
+			);
+			path = CommonUtilities;
+			sourceTree = "<group>";
+		};
+		805F34B629B1B8BD002F33AE /* ChatDetails */ = {
+			isa = PBXGroup;
+			children = (
+				805F34B729B1B8CC002F33AE /* HR_Chatvc2ViewController.swift */,
+				805F34BB29B1B8EF002F33AE /* ChatCells */,
+			);
+			path = ChatDetails;
+			sourceTree = "<group>";
+		};
+		805F34BB29B1B8EF002F33AE /* ChatCells */ = {
+			isa = PBXGroup;
+			children = (
+				805F34BC29B1B8EF002F33AE /* senderInfoImageTableViewCell.xib */,
+				805F34BD29B1B8EF002F33AE /* otherInfoTableViewCell.xib */,
+				805F34BE29B1B8EF002F33AE /* senderInfoTableViewCell.swift */,
+				805F34BF29B1B8EF002F33AE /* senderInfoTableViewCell.xib */,
+				805F34C029B1B8EF002F33AE /* otherImageTableViewCell.xib */,
+				805F34C129B1B8EF002F33AE /* senderInfoImageTableViewCell.swift */,
+				805F34C229B1B8EF002F33AE /* otherInfoTableViewCell.swift */,
+				805F34C329B1B8EF002F33AE /* otherImageTableViewCell.swift */,
+				805F34C429B1B8EF002F33AE /* senderImageTableViewCell.swift */,
+				805F34C529B1B8EF002F33AE /* otherInfoImageTableViewCell.swift */,
+				805F34C629B1B8EF002F33AE /* otherInfoImageTableViewCell.xib */,
+				805F34C729B1B8EF002F33AE /* senderImageTableViewCell.xib */,
+			);
+			path = ChatCells;
+			sourceTree = "<group>";
+		};
+		8064FA01299FB7E900A5A4CB /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				80D8751329B1D6BC00BD2FDF /* HYP_FilterVC.swift */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		8064FA02299FBC9000A5A4CB /* Claims Status */ = {
+			isa = PBXGroup;
+			children = (
+				8064FA03299FBD1700A5A4CB /* HYP_ClaimsStatusVC.swift */,
+			);
+			path = "Claims Status";
+			sourceTree = "<group>";
+		};
+		8065379929A33D730055852B /* Program List */ = {
+			isa = PBXGroup;
+			children = (
+				8065379A29A33DA80055852B /* HYP_ProgramListVC.swift */,
+				8065379C29A33DC50055852B /* HYP_ProgramListTVCell.swift */,
+			);
+			path = "Program List";
+			sourceTree = "<group>";
+		};
+		806BB74C29B6F5FC00F7547C /* QueryList */ = {
+			isa = PBXGroup;
+			children = (
+				800BD858299F3A8E00566B98 /* HYP_SupportVC.swift */,
+				800BD85A299F3AB300566B98 /* HYP_SupportTVCell.swift */,
+			);
+			path = QueryList;
+			sourceTree = "<group>";
+		};
+		808C7FA9299FA91A00D48769 /* e-Voucher Details */ = {
+			isa = PBXGroup;
+			children = (
+				808C7FAA299FA94200D48769 /* HYP_VoucherDetailsVC.swift */,
+			);
+			path = "e-Voucher Details";
+			sourceTree = "<group>";
+		};
+		809AFB7F29A48AE00015310D /* Manage Staff */ = {
+			isa = PBXGroup;
+			children = (
+				809AFB8029A48BBF0015310D /* HYP_MangageStaffVC.swift */,
+				809AFB8229A48BDD0015310D /* HYP_ManageStaffTVCell.swift */,
+				809AFB8629A496B60015310D /* HYP_MyStaffVC.swift */,
+				809AFB8429A496270015310D /* HYP_MyStaffTVCell.swift */,
+			);
+			path = "Manage Staff";
+			sourceTree = "<group>";
+		};
+		80A7B2CB29A34F6000EE4FA9 /* Claim Details */ = {
+			isa = PBXGroup;
+			children = (
+				80A7B2CC29A34FA400EE4FA9 /* HYP_ClaimDetailsVC.swift */,
+			);
+			path = "Claim Details";
+			sourceTree = "<group>";
+		};
+		80C597E4299E00130096CFE4 = {
+			isa = PBXGroup;
+			children = (
+				80C597EF299E00130096CFE4 /* Hoya Phillippines */,
+				80C597EE299E00130096CFE4 /* Products */,
+				CD3AE889D22E43D2D2E3508A /* Pods */,
+				41BD345CDA248EB1951F7BBC /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		80C597EE299E00130096CFE4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				80C597ED299E00130096CFE4 /* Hoya Phillippines.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		80C597EF299E00130096CFE4 /* Hoya Phillippines */ = {
+			isa = PBXGroup;
+			children = (
+				80C5980A299E00470096CFE4 /* Resources */,
+				80C59809299E003D0096CFE4 /* ViewModels */,
+				80C59808299E00370096CFE4 /* VIew */,
+				80C59807299E00310096CFE4 /* Models */,
+				80C597FC299E001A0096CFE4 /* Assets.xcassets */,
+				80C59801299E001A0096CFE4 /* Info.plist */,
+			);
+			path = "Hoya Phillippines";
+			sourceTree = "<group>";
+		};
+		80C59807299E00310096CFE4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		80C59808299E00370096CFE4 /* VIew */ = {
+			isa = PBXGroup;
+			children = (
+				80D8751529B1E93A00BD2FDF /* Otp */,
+				80D8750829B1D3AB00BD2FDF /* Dropdown */,
+				805F34B629B1B8BD002F33AE /* ChatDetails */,
+				805F349529B1B383002F33AE /* Points Expiry Report */,
+				809AFB7F29A48AE00015310D /* Manage Staff */,
+				8065379929A33D730055852B /* Program List */,
+				80A7B2CB29A34F6000EE4FA9 /* Claim Details */,
+				8064FA02299FBC9000A5A4CB /* Claims Status */,
+				8064FA01299FB7E900A5A4CB /* Filter */,
+				808C7FA9299FA91A00D48769 /* e-Voucher Details */,
+				802B8F94299F9C6D0062CDA7 /* e-Voucher */,
+				802B8F93299F9C2E0062CDA7 /* My Staff */,
+				802B8F8E299F9BD00062CDA7 /* My Redemption */,
+				802B8F87299F96DD0062CDA7 /* My Earning */,
+				800BD851299F3A1200566B98 /* Support */,
+				800BD852299F3A1B00566B98 /* Profile */,
+				800BD853299F3A2400566B98 /* TabBar */,
+				800BD862299F4B3000566B98 /* Offers Details */,
+				800BD850299F3A0A00566B98 /* Offers */,
+				800BD84F299F39E800566B98 /* Dashboard */,
+				805D848F299E491E00DF5FBF /* Register */,
+				80FD4574299E3ACB001EC4EA /* Login */,
+				80C5980F299E00BC0096CFE4 /* Welcome */,
+			);
+			path = VIew;
+			sourceTree = "<group>";
+		};
+		80C59809299E003D0096CFE4 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				80D8751029B1D5E000BD2FDF /* Dropdown */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		80C5980A299E00470096CFE4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				805F349B29B1B83B002F33AE /* Base ViewController */,
+				80363B0229A0942C00C6A4D1 /* Localize */,
+				80C59833299E060A0096CFE4 /* Networking */,
+				80C5981F299E02B50096CFE4 /* Constant */,
+				80C5981E299E02AD0096CFE4 /* Fonts */,
+				80C5980B299E00530096CFE4 /* Delegate */,
+				80C5980E299E008E0096CFE4 /* Database */,
+				80C5980D299E00710096CFE4 /* Extenssion */,
+				80C5980C299E00610096CFE4 /* Storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		80C5980B299E00530096CFE4 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				80C597F0299E00130096CFE4 /* AppDelegate.swift */,
+				80C597F2299E00130096CFE4 /* SceneDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		80C5980C299E00610096CFE4 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				80C597F6299E00130096CFE4 /* Main.storyboard */,
+				80C597FE299E001A0096CFE4 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		80C5980D299E00710096CFE4 /* Extenssion */ = {
+			isa = PBXGroup;
+			children = (
+				80C59810299E028E0096CFE4 /* GrandientExtension.swift */,
+				80C59813299E028E0096CFE4 /* ImageExtension.swift */,
+				80C59816299E028F0096CFE4 /* LabelExtension.swift */,
+				80C59811299E028E0096CFE4 /* NotificationExtension.swift */,
+				80C59815299E028F0096CFE4 /* TextfieldExtension.swift */,
+				80C59812299E028E0096CFE4 /* UiViewControllerExtenssion.swift */,
+				80C59814299E028F0096CFE4 /* ViewExtension.swift */,
+				8041EBD829B3685700A0DA15 /* String+Extenssion.swift */,
+			);
+			path = Extenssion;
+			sourceTree = "<group>";
+		};
+		80C5980E299E008E0096CFE4 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				80C597F9299E00130096CFE4 /* Hoya_Phillippines.xcdatamodeld */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		80C5980F299E00BC0096CFE4 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				80C597F4299E00130096CFE4 /* HYP_WelcomeVC.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		80C5981E299E02AD0096CFE4 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				80C59821299E040F0096CFE4 /* Galano Grotesque Black.otf */,
+				80C5982B299E04110096CFE4 /* Galano Grotesque Bold Italic.otf */,
+				80C59825299E04100096CFE4 /* Galano Grotesque Bold.otf */,
+				80C59826299E04100096CFE4 /* Galano Grotesque Extra Bold.otf */,
+				80C5982D299E04120096CFE4 /* Galano Grotesque Extra Light Italic.otf */,
+				80C59822299E04100096CFE4 /* Galano Grotesque Extra Light.otf */,
+				80C59829299E04110096CFE4 /* Galano Grotesque Heavy Italic.otf */,
+				80C5982A299E04110096CFE4 /* Galano Grotesque Heavy.otf */,
+				80C59827299E04110096CFE4 /* Galano Grotesque Italic.otf */,
+				80C59820299E040F0096CFE4 /* Galano Grotesque Light Italic.otf */,
+				80C5982C299E04120096CFE4 /* Galano Grotesque Light.otf */,
+				80C59824299E04100096CFE4 /* Galano Grotesque Medium.otf */,
+				80C59823299E04100096CFE4 /* Galano Grotesque Semi Bold Italic.otf */,
+				80C59828299E04110096CFE4 /* Galano Grotesque Semi Bold.otf */,
+				80C5982E299E04120096CFE4 /* Galano Grotesque Thin Italic.otf */,
+				80C5982F299E04120096CFE4 /* Galano Grotesque Thin.otf */,
+				80C59830299E04120096CFE4 /* Galano Grotesque.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		80C5981F299E02B50096CFE4 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				80C59831299E04370096CFE4 /* Colors.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		80C59833299E060A0096CFE4 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				805F34AC29B1B89B002F33AE /* ApiUrls.swift */,
+				805F34B029B1B89C002F33AE /* CommonUtilities */,
+				805F34AD29B1B89B002F33AE /* Reachability */,
+				805F34A329B1B88E002F33AE /* RequestMethod.swift */,
+				805F349F29B1B88C002F33AE /* RestAPI_Requests.swift */,
+				805F34A129B1B88D002F33AE /* ServiceError.swift */,
+				805F34A429B1B88F002F33AE /* URLExtension.swift */,
+				805F34A029B1B88C002F33AE /* URLMethods.swift */,
+				805F349E29B1B88B002F33AE /* URLRequest.swift */,
+				805F34A229B1B88D002F33AE /* WebClient.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		80D8750829B1D3AB00BD2FDF /* Dropdown */ = {
+			isa = PBXGroup;
+			children = (
+				8041EBD529B3473D00A0DA15 /* SuccessMessageVC */,
+				80D8750A29B1D44800BD2FDF /* DatePicker */,
+				80D8750929B1D44800BD2FDF /* HYP_DropDownVC.swift */,
+				80D8750C29B1D44800BD2FDF /* HYP_DropDownTVCell.swift */,
+			);
+			path = Dropdown;
+			sourceTree = "<group>";
+		};
+		80D8750A29B1D44800BD2FDF /* DatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				80D8750B29B1D44800BD2FDF /* HYP_DatePickerVC.swift */,
+			);
+			path = DatePicker;
+			sourceTree = "<group>";
+		};
+		80D8751029B1D5E000BD2FDF /* Dropdown */ = {
+			isa = PBXGroup;
+			children = (
+				80D8751129B1D5F300BD2FDF /* HYP_DropdownVM.swift */,
+			);
+			path = Dropdown;
+			sourceTree = "<group>";
+		};
+		80D8751529B1E93A00BD2FDF /* Otp */ = {
+			isa = PBXGroup;
+			children = (
+				80D8751629B1E95A00BD2FDF /* HYP_OtpVC.swift */,
+			);
+			path = Otp;
+			sourceTree = "<group>";
+		};
+		80FD4574299E3ACB001EC4EA /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				80FD4575299E3AE5001EC4EA /* HYP_LoginVC.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		CD3AE889D22E43D2D2E3508A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EA65A180B82722E23AEA9AA5 /* Pods-Hoya Phillippines.debug.xcconfig */,
+				48D3D837E4F26CB8427363CF /* Pods-Hoya Phillippines.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		80C597EC299E00130096CFE4 /* Hoya Phillippines */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 80C59804299E001A0096CFE4 /* Build configuration list for PBXNativeTarget "Hoya Phillippines" */;
+			buildPhases = (
+				707A2400F51A1AFD951E605B /* [CP] Check Pods Manifest.lock */,
+				80C597E9299E00130096CFE4 /* Sources */,
+				80C597EA299E00130096CFE4 /* Frameworks */,
+				80C597EB299E00130096CFE4 /* Resources */,
+				79936D42DA8607A34EC1CDDD /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Hoya Phillippines";
+			productName = "Hoya Phillippines";
+			productReference = 80C597ED299E00130096CFE4 /* Hoya Phillippines.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		80C597E5299E00130096CFE4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					80C597EC299E00130096CFE4 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 80C597E8299E00130096CFE4 /* Build configuration list for PBXProject "Hoya Phillippines" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 80C597E4299E00130096CFE4;
+			productRefGroup = 80C597EE299E00130096CFE4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				80C597EC299E00130096CFE4 /* Hoya Phillippines */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		80C597EB299E00130096CFE4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				805F34C829B1B8EF002F33AE /* senderInfoImageTableViewCell.xib in Resources */,
+				805F34CB29B1B8EF002F33AE /* senderInfoTableViewCell.xib in Resources */,
+				802B8F8D299F97360062CDA7 /* HYP_MyEarningTVCell.xib in Resources */,
+				80C59800299E001A0096CFE4 /* LaunchScreen.storyboard in Resources */,
+				805F34D329B1B8EF002F33AE /* senderImageTableViewCell.xib in Resources */,
+				805F34CC29B1B8EF002F33AE /* otherImageTableViewCell.xib in Resources */,
+				80026E3229A0CD450021B603 /* giftboxAnimation.json in Resources */,
+				805F34C929B1B8EF002F33AE /* otherInfoTableViewCell.xib in Resources */,
+				80C597FD299E001A0096CFE4 /* Assets.xcassets in Resources */,
+				805F34D229B1B8EF002F33AE /* otherInfoImageTableViewCell.xib in Resources */,
+				8022F85529A0D7B90070C9D6 /* HYP_StoreOwnerMenuListCVCell.xib in Resources */,
+				80C597F8299E00130096CFE4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		707A2400F51A1AFD951E605B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Hoya Phillippines-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		79936D42DA8607A34EC1CDDD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Hoya Phillippines/Pods-Hoya Phillippines-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Hoya Phillippines/Pods-Hoya Phillippines-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Hoya Phillippines/Pods-Hoya Phillippines-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		80C597E9299E00130096CFE4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				805F34AA29B1B88F002F33AE /* RequestMethod.swift in Sources */,
+				802B8F8C299F97360062CDA7 /* HYP_MyEarningTVCell.swift in Sources */,
+				80C5981B299E028F0096CFE4 /* ViewExtension.swift in Sources */,
+				8065379D29A33DC50055852B /* HYP_ProgramListTVCell.swift in Sources */,
+				805F349D29B1B867002F33AE /* BaseViewController.swift in Sources */,
+				805F34A629B1B88F002F33AE /* RestAPI_Requests.swift in Sources */,
+				8065379B29A33DA80055852B /* HYP_ProgramListVC.swift in Sources */,
+				80C59832299E04370096CFE4 /* Colors.swift in Sources */,
+				8022F85429A0D7B90070C9D6 /* HYP_StoreOwnerMenuListCVCell.swift in Sources */,
+				802B8F89299F97120062CDA7 /* HYP_MyEarningVC.swift in Sources */,
+				809AFB8329A48BDD0015310D /* HYP_ManageStaffTVCell.swift in Sources */,
+				805F34D029B1B8EF002F33AE /* senderImageTableViewCell.swift in Sources */,
+				800BD855299F3A5200566B98 /* HYP_TabBarVC.swift in Sources */,
+				805F34CF29B1B8EF002F33AE /* otherImageTableViewCell.swift in Sources */,
+				80D8750E29B1D44900BD2FDF /* HYP_DatePickerVC.swift in Sources */,
+				80C59818299E028F0096CFE4 /* NotificationExtension.swift in Sources */,
+				805F34CE29B1B8EF002F33AE /* otherInfoTableViewCell.swift in Sources */,
+				800BD85D299F3AD100566B98 /* HYP_OffersTVcell.swift in Sources */,
+				802B8F86299F7ADE0062CDA7 /* HYP_CreateQueryVC.swift in Sources */,
+				805F349829B1B3D0002F33AE /* HYP_PointsExpiryReportVC.swift in Sources */,
+				800BD85F299F3AEC00566B98 /* HYP_OffersVC.swift in Sources */,
+				80D8750D29B1D44900BD2FDF /* HYP_DropDownVC.swift in Sources */,
+				809AFB8529A496280015310D /* HYP_MyStaffTVCell.swift in Sources */,
+				805F34B329B1B89C002F33AE /* Reachability.swift in Sources */,
+				80D8751429B1D6BC00BD2FDF /* HYP_FilterVC.swift in Sources */,
+				805F34A929B1B88F002F33AE /* WebClient.swift in Sources */,
+				805D8491299E493D00DF5FBF /* HYP_RegisterVC.swift in Sources */,
+				80C59817299E028F0096CFE4 /* GrandientExtension.swift in Sources */,
+				80C59819299E028F0096CFE4 /* UiViewControllerExtenssion.swift in Sources */,
+				805F34B229B1B89C002F33AE /* ApiUrls.swift in Sources */,
+				8041EBD729B3475A00A0DA15 /* HYP_SuccessMessageVC.swift in Sources */,
+				805F34A829B1B88F002F33AE /* ServiceError.swift in Sources */,
+				80D8750F29B1D44900BD2FDF /* HYP_DropDownTVCell.swift in Sources */,
+				805F34B429B1B89C002F33AE /* Reach.swift in Sources */,
+				800BD864299F4B5500566B98 /* HYP_OffersDetailsVC.swift in Sources */,
+				80D8751229B1D5F300BD2FDF /* HYP_DropdownVM.swift in Sources */,
+				805F34A529B1B88F002F33AE /* URLRequest.swift in Sources */,
+				802B8F90299F9C010062CDA7 /* HYP_MyRedemptionTVCell.swift in Sources */,
+				808C7FAB299FA94200D48769 /* HYP_VoucherDetailsVC.swift in Sources */,
+				80C597F5299E00130096CFE4 /* HYP_WelcomeVC.swift in Sources */,
+				809E533D29A0A94E00A7FB0C /* HYP_MenuListTVCell.swift in Sources */,
+				805F34CA29B1B8EF002F33AE /* senderInfoTableViewCell.swift in Sources */,
+				805F34AB29B1B88F002F33AE /* URLExtension.swift in Sources */,
+				800BD859299F3A8E00566B98 /* HYP_SupportVC.swift in Sources */,
+				8041EBD929B3685700A0DA15 /* String+Extenssion.swift in Sources */,
+				80C597F1299E00130096CFE4 /* AppDelegate.swift in Sources */,
+				805F34A729B1B88F002F33AE /* URLMethods.swift in Sources */,
+				801BC717299F66770069B8AA /* HYP_QueryTopicListTVCell.swift in Sources */,
+				80A7B2CD29A34FA500EE4FA9 /* HYP_ClaimDetailsVC.swift in Sources */,
+				805F349A29B1B3F2002F33AE /* HYP_PointsExpiryReportTVCell.swift in Sources */,
+				805F34B529B1B89C002F33AE /* MyCommonFunctionalUtilities.swift in Sources */,
+				809AFB8129A48BBF0015310D /* HYP_MangageStaffVC.swift in Sources */,
+				803FCE9D299E5E8600B4B7A3 /* HYP_HelpVC.swift in Sources */,
+				80FD4576299E3AE5001EC4EA /* HYP_LoginVC.swift in Sources */,
+				80C597F3299E00130096CFE4 /* SceneDelegate.swift in Sources */,
+				805F34D129B1B8EF002F33AE /* otherInfoImageTableViewCell.swift in Sources */,
+				80D8751729B1E95B00BD2FDF /* HYP_OtpVC.swift in Sources */,
+				800BD85B299F3AB300566B98 /* HYP_SupportTVCell.swift in Sources */,
+				80C5981D299E028F0096CFE4 /* LabelExtension.swift in Sources */,
+				80C597FB299E00130096CFE4 /* Hoya_Phillippines.xcdatamodeld in Sources */,
+				80C5981A299E028F0096CFE4 /* ImageExtension.swift in Sources */,
+				808C7FA6299FA8FC00D48769 /* HYP_VouchersVC.swift in Sources */,
+				802B8F92299F9C1F0062CDA7 /* HYP_MyRedemptionVC.swift in Sources */,
+				805F34B829B1B8CC002F33AE /* HR_Chatvc2ViewController.swift in Sources */,
+				805F34CD29B1B8EF002F33AE /* senderInfoImageTableViewCell.swift in Sources */,
+				80C5981C299E028F0096CFE4 /* TextfieldExtension.swift in Sources */,
+				8064FA04299FBD1700A5A4CB /* HYP_ClaimsStatusVC.swift in Sources */,
+				808C7FA8299FA91000D48769 /* HYP_VouchersTVCell.swift in Sources */,
+				809AFB8729A496B60015310D /* HYP_MyStaffVC.swift in Sources */,
+				800BD857299F3A7700566B98 /* HYP_ProfileVC.swift in Sources */,
+				800BD861299F3B0500566B98 /* HYP_DashboardVC.swift in Sources */,
+				801BC715299F66590069B8AA /* HYP_QueryTopicListVC.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		80C597F6299E00130096CFE4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				80C597F7299E00130096CFE4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		80C597FE299E001A0096CFE4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				80C597FF299E001A0096CFE4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		80C59802299E001A0096CFE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		80C59803299E001A0096CFE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		80C59805299E001A0096CFE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA65A180B82722E23AEA9AA5 /* Pods-Hoya Phillippines.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Hoya Phillippines/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Profile Image Update need to Camera.Allow Camera access?";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Lodge Query requires image to be uploaded. Allow";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "binod.com.Hoya-Phillippines";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		80C59806299E001A0096CFE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48D3D837E4F26CB8427363CF /* Pods-Hoya Phillippines.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Hoya Phillippines/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Profile Image Update need to Camera.Allow Camera access?";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Lodge Query requires image to be uploaded. Allow";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.loyaltyWorks.Phillippines;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		80C597E8299E00130096CFE4 /* Build configuration list for PBXProject "Hoya Phillippines" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80C59802299E001A0096CFE4 /* Debug */,
+				80C59803299E001A0096CFE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		80C59804299E001A0096CFE4 /* Build configuration list for PBXNativeTarget "Hoya Phillippines" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80C59805299E001A0096CFE4 /* Debug */,
+				80C59806299E001A0096CFE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		80C597F9299E00130096CFE4 /* Hoya_Phillippines.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				80C597FA299E00130096CFE4 /* Hoya_Phillippines.xcdatamodel */,
+			);
+			currentVersion = 80C597FA299E00130096CFE4 /* Hoya_Phillippines.xcdatamodel */;
+			path = Hoya_Phillippines.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 80C597E5299E00130096CFE4 /* Project object */;
+}

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Galano Grotesque Medium.otf">
+            <string>GalanoGrotesque-Medium</string>
+        </array>
+        <array key="Galano Grotesque Semi Bold.otf">
+            <string>GalanoGrotesque-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="HYP_MyEarningTVCell" rowHeight="261" id="KGk-i7-Jjw" customClass="HYP_MyEarningTVCell" customModule="Hoya_Phillippines" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="441" height="188"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="441" height="188"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b3e-cD-noU">
+                        <rect key="frame" x="20" y="6" width="401" height="174"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XcM-wm-0oL">
+                                <rect key="frame" x="10" y="6" width="381" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Promotion name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfG-BK-gtn">
+                                        <rect key="frame" x="0.0" y="8" width="98.333333333333329" height="12"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="12" id="X82-EG-bjG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="GalanoGrotesque-Medium" family="GalanoGrotesque-Medium" pointSize="12"/>
+                                        <color key="textColor" red="0.1647058824" green="0.1647058824" blue="0.1647058824" alpha="0.71999999999999997" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hoyalux ID Myself" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFj-5H-9Be">
+                                        <rect key="frame" x="0.0" y="30" width="273" height="16"/>
+                                        <fontDescription key="fontDescription" name="GalanoGrotesque-SemiBold" family="GalanoGrotesque-SemiBold" pointSize="16"/>
+                                        <color key="textColor" name="PrimaryColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fNt-jR-wKX">
+                                        <rect key="frame" x="283" y="11" width="90" height="28"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Y6I-4n-8bT">
+                                                <rect key="frame" x="4" y="7" width="82" height="14"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Li-EX-59w">
+                                                        <rect key="frame" x="0.0" y="0.0" width="39" height="14"/>
+                                                        <fontDescription key="fontDescription" name="GalanoGrotesque-Medium" family="GalanoGrotesque-Medium" pointSize="14"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ysa-nV-Qi1" userLabel="Points">
+                                                        <rect key="frame" x="43" y="0.0" width="39" height="14"/>
+                                                        <fontDescription key="fontDescription" name="GalanoGrotesque-Medium" family="GalanoGrotesque-Medium" pointSize="10"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" name="PrimaryColor"/>
+                                        <constraints>
+                                            <constraint firstItem="Y6I-4n-8bT" firstAttribute="centerY" secondItem="fNt-jR-wKX" secondAttribute="centerY" id="1e9-U5-mWd"/>
+                                            <constraint firstAttribute="height" constant="28" id="Bqd-cf-c5Z"/>
+                                            <constraint firstAttribute="trailing" secondItem="Y6I-4n-8bT" secondAttribute="trailing" constant="4" id="DuN-TQ-2CV"/>
+                                            <constraint firstItem="Y6I-4n-8bT" firstAttribute="centerX" secondItem="fNt-jR-wKX" secondAttribute="centerX" id="H7P-1p-1SV"/>
+                                            <constraint firstItem="Y6I-4n-8bT" firstAttribute="leading" secondItem="fNt-jR-wKX" secondAttribute="leading" constant="4" id="SDb-DG-jff"/>
+                                            <constraint firstAttribute="width" constant="90" id="Wfb-UG-9FV"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="14"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="fNt-jR-wKX" secondAttribute="trailing" constant="8" id="17k-y8-vwi"/>
+                                    <constraint firstItem="dfG-BK-gtn" firstAttribute="top" secondItem="XcM-wm-0oL" secondAttribute="top" constant="8" id="9LV-ic-Vy9"/>
+                                    <constraint firstItem="gFj-5H-9Be" firstAttribute="top" secondItem="dfG-BK-gtn" secondAttribute="bottom" constant="10" id="9cd-xL-JdK"/>
+                                    <constraint firstItem="fNt-jR-wKX" firstAttribute="centerY" secondItem="XcM-wm-0oL" secondAttribute="centerY" id="KeO-RO-OiU"/>
+                                    <constraint firstAttribute="bottom" secondItem="gFj-5H-9Be" secondAttribute="bottom" constant="4" id="c4t-Rh-dKb"/>
+                                    <constraint firstItem="dfG-BK-gtn" firstAttribute="leading" secondItem="XcM-wm-0oL" secondAttribute="leading" id="lgz-Ay-hnK"/>
+                                    <constraint firstItem="fNt-jR-wKX" firstAttribute="leading" secondItem="gFj-5H-9Be" secondAttribute="trailing" constant="10" id="nLQ-d0-Gx3"/>
+                                    <constraint firstItem="gFj-5H-9Be" firstAttribute="leading" secondItem="XcM-wm-0oL" secondAttribute="leading" id="uAe-pE-WBc"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HGX-vh-rue">
+                                <rect key="frame" x="10" y="66" width="381" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UW0-Yt-LIV">
+                                        <rect key="frame" x="0.0" y="4" width="85.333333333333329" height="12"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="12" id="IVZ-rB-SfB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="GalanoGrotesque-Medium" family="GalanoGrotesque-Medium" pointSize="12"/>
+                                        <color key="textColor" red="0.1647058824" green="0.1647058824" blue="0.1647058824" alpha="0.71999999999999997" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reading glass" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vK8-Vu-nc0">
+                                        <rect key="frame" x="0.0" y="26" width="287" height="14"/>
+                                        <fontDescription key="fontDescription" name="GalanoGrotesque-SemiBold" family="GalanoGrotesque-SemiBold" pointSize="14"/>
+                                        <color key="textColor" name="PrimaryColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E63-cg-imK">
+                                        <rect key="frame" x="332.66666666666669" y="4" width="28.333333333333314" height="12"/>
+                                        <fontDescription key="fontDescription" name="GalanoGrotesque-Medium" family="GalanoGrotesque-Medium" pointSize="12"/>
+                                        <color key="textColor" red="0.1647058824" green="0.1647058824" blue="0.1647058824" alpha="0.71999999999999997" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01 / 01 /2023" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sjm-Fv-bAe">
+                                        <rect key="frame" x="297" y="26" width="84" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="84" id="Uov-vm-zRk"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="GalanoGrotesque-Medium" family="GalanoGrotesque-Medium" pointSize="14"/>
+                                        <color key="textColor" name="PrimaryColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="vK8-Vu-nc0" secondAttribute="bottom" constant="4" id="9ND-BP-M2z"/>
+                                    <constraint firstAttribute="trailing" secondItem="E63-cg-imK" secondAttribute="trailing" constant="20" id="AWt-29-Mq1"/>
+                                    <constraint firstAttribute="bottom" secondItem="sjm-Fv-bAe" secondAttribute="bottom" constant="4" id="Ddb-7G-yen"/>
+                                    <constraint firstItem="UW0-Yt-LIV" firstAttribute="top" secondItem="HGX-vh-rue" secondAttribute="top" constant="4" id="IIA-Pu-cB4"/>
+                                    <constraint firstItem="sjm-Fv-bAe" firstAttribute="top" secondItem="E63-cg-imK" secondAttribute="bottom" constant="10" id="L8r-iS-Iiq"/>
+                                    <constraint firstItem="sjm-Fv-bAe" firstAttribute="leading" secondItem="vK8-Vu-nc0" secondAttribute="trailing" constant="10" id="NhD-Np-GUF"/>
+                                    <constraint firstItem="UW0-Yt-LIV" firstAttribute="leading" secondItem="HGX-vh-rue" secondAttribute="leading" id="V4n-8m-Kvw"/>
+                                    <constraint firstItem="E63-cg-imK" firstAttribute="top" secondItem="HGX-vh-rue" secondAttribute="top" constant="4" id="Wis-N9-lAd"/>
+                                    <constraint firstItem="vK8-Vu-nc0" firstAttribute="leading" secondItem="HGX-vh-rue" secondAttribute="leading" id="pTp-QX-e1x"/>
+                                    <constraint firstItem="vK8-Vu-nc0" firstAttribute="top" secondItem="UW0-Yt-LIV" secondAttribute="bottom" constant="10" id="qQD-Yh-Bg5"/>
+                                    <constraint firstItem="E63-cg-imK" firstAttribute="top" secondItem="UW0-Yt-LIV" secondAttribute="top" id="up5-yr-RBc"/>
+                                    <constraint firstAttribute="trailing" secondItem="sjm-Fv-bAe" secondAttribute="trailing" id="yRo-YE-46D"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f5X-hR-BEt">
+                                <rect key="frame" x="10" y="120" width="94" height="48"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invoice Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6j-04-hsE">
+                                        <rect key="frame" x="0.0" y="4" width="92.333333333333329" height="12"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="12" id="m4R-VP-Vww"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="GalanoGrotesque-Medium" family="GalanoGrotesque-Medium" pointSize="12"/>
+                                        <color key="textColor" red="0.1647058824" green="0.1647058824" blue="0.1647058824" alpha="0.71999999999999997" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INV0006574" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3j-9G-d59">
+                                        <rect key="frame" x="0.0" y="26" width="84" height="14"/>
+                                        <fontDescription key="fontDescription" name="GalanoGrotesque-SemiBold" family="GalanoGrotesque-SemiBold" pointSize="14"/>
+                                        <color key="textColor" name="PrimaryColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="a3j-9G-d59" secondAttribute="bottom" constant="8" id="QHK-da-b5G"/>
+                                    <constraint firstAttribute="trailing" secondItem="a3j-9G-d59" secondAttribute="trailing" constant="10" id="UxF-mf-JMz"/>
+                                    <constraint firstItem="f6j-04-hsE" firstAttribute="leading" secondItem="f5X-hR-BEt" secondAttribute="leading" id="cpB-Zo-xzX"/>
+                                    <constraint firstItem="f6j-04-hsE" firstAttribute="top" secondItem="f5X-hR-BEt" secondAttribute="top" constant="4" id="hTU-dh-F4N"/>
+                                    <constraint firstItem="a3j-9G-d59" firstAttribute="leading" secondItem="f5X-hR-BEt" secondAttribute="leading" id="jK7-jK-aOQ"/>
+                                    <constraint firstItem="a3j-9G-d59" firstAttribute="top" secondItem="f6j-04-hsE" secondAttribute="bottom" constant="10" id="oEA-aM-C78"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sale Return" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBI-35-Qf6">
+                                <rect key="frame" x="323" y="146" width="68" height="12"/>
+                                <fontDescription key="fontDescription" name="GalanoGrotesque-Medium" family="GalanoGrotesque-Medium" pointSize="12"/>
+                                <color key="textColor" red="0.16862745100000001" green="0.74509803919999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remarks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtV-qg-wac">
+                                <rect key="frame" x="329" y="124" width="52" height="12"/>
+                                <fontDescription key="fontDescription" name="GalanoGrotesque-Medium" family="GalanoGrotesque-Medium" pointSize="12"/>
+                                <color key="textColor" red="0.1647058824" green="0.1647058824" blue="0.1647058824" alpha="0.71999999999999997" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="UBI-35-Qf6" secondAttribute="trailing" constant="10" id="3aN-L4-g7m"/>
+                            <constraint firstAttribute="trailing" secondItem="HGX-vh-rue" secondAttribute="trailing" constant="10" id="5uo-PQ-SUi"/>
+                            <constraint firstItem="f5X-hR-BEt" firstAttribute="leading" secondItem="b3e-cD-noU" secondAttribute="leading" constant="10" id="8aK-Rr-qak"/>
+                            <constraint firstItem="f5X-hR-BEt" firstAttribute="top" secondItem="HGX-vh-rue" secondAttribute="bottom" constant="10" id="A5d-ZU-9bn"/>
+                            <constraint firstItem="XcM-wm-0oL" firstAttribute="leading" secondItem="b3e-cD-noU" secondAttribute="leading" constant="10" id="B5B-fL-Vgq"/>
+                            <constraint firstItem="wtV-qg-wac" firstAttribute="top" secondItem="f6j-04-hsE" secondAttribute="top" id="Cf9-Zc-qQz"/>
+                            <constraint firstAttribute="trailing" secondItem="XcM-wm-0oL" secondAttribute="trailing" constant="10" id="H80-uV-XgZ"/>
+                            <constraint firstAttribute="trailing" secondItem="wtV-qg-wac" secondAttribute="trailing" constant="20" id="LNQ-Ge-jmw"/>
+                            <constraint firstItem="HGX-vh-rue" firstAttribute="leading" secondItem="b3e-cD-noU" secondAttribute="leading" constant="10" id="Yga-0A-518"/>
+                            <constraint firstItem="UBI-35-Qf6" firstAttribute="top" secondItem="wtV-qg-wac" secondAttribute="bottom" constant="10" id="dae-pi-Hfr"/>
+                            <constraint firstItem="sjm-Fv-bAe" firstAttribute="top" secondItem="E63-cg-imK" secondAttribute="bottom" constant="10" id="faj-fV-ws2"/>
+                            <constraint firstAttribute="bottom" secondItem="f5X-hR-BEt" secondAttribute="bottom" constant="6" id="ixp-C5-rGl"/>
+                            <constraint firstItem="XcM-wm-0oL" firstAttribute="top" secondItem="b3e-cD-noU" secondAttribute="top" constant="6" id="jJa-9c-JKi"/>
+                            <constraint firstAttribute="trailing" secondItem="E63-cg-imK" secondAttribute="trailing" constant="30" id="mAB-Am-9AH"/>
+                            <constraint firstItem="HGX-vh-rue" firstAttribute="top" secondItem="XcM-wm-0oL" secondAttribute="bottom" constant="10" id="nxZ-de-8rI"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="b3e-cD-noU" secondAttribute="trailing" constant="20" id="DhK-7j-L9a"/>
+                    <constraint firstItem="b3e-cD-noU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Z5A-8n-2gK"/>
+                    <constraint firstItem="b3e-cD-noU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="hfn-Es-H9E"/>
+                    <constraint firstAttribute="bottom" secondItem="b3e-cD-noU" secondAttribute="bottom" constant="8" id="pZn-9L-6Nj"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="dateLbl" destination="sjm-Fv-bAe" id="Faf-hL-bUW"/>
+                <outlet property="invoiceNumberLbl" destination="a3j-9G-d59" id="7ef-aa-Qen"/>
+                <outlet property="pointsLbl" destination="7Li-EX-59w" id="Udw-sd-1R0"/>
+                <outlet property="pointsView" destination="fNt-jR-wKX" id="qix-V3-ctz"/>
+                <outlet property="productNameLbl" destination="vK8-Vu-nc0" id="p6G-ba-yf4"/>
+                <outlet property="promotionNameLbl" destination="gFj-5H-9Be" id="lfn-9b-gxz"/>
+                <outlet property="remarksLbl" destination="wtV-qg-wac" id="3zj-S5-0Iy"/>
+                <outlet property="salesReturnLbl" destination="UBI-35-Qf6" id="7EV-by-a98"/>
+            </connections>
+            <point key="canvasLocation" x="36.641221374045799" y="10.211267605633804"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="PrimaryColor">
+            <color red="0.0" green="0.33333333333333331" blue="0.7686274509803922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

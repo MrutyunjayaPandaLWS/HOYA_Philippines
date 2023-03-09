@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "balance_wallet_payment_cash.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "balance_wallet_payment_cash 1.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "balance_wallet_payment_cash 2.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
