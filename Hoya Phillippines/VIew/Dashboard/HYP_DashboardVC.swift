@@ -9,9 +9,11 @@ import UIKit
 import Lottie
 import AVFoundation
 import Photos
+import ImageSlideshow
 
-class HYP_DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSource,UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class HYP_DashboardVC: BaseViewController, UITableViewDelegate, UITableViewDataSource,UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
+    @IBOutlet weak var offersSlideShow: ImageSlideshow!
     @IBOutlet weak var bottomViewTopConstraints: NSLayoutConstraint!
 //    @IBOutlet weak var clmaimViewTopConstraints: NSLayoutConstraint!
     
@@ -51,10 +53,11 @@ class HYP_DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     var strdata1 = ""
     let imagePicker = UIImagePickerController()
-    
+    var VM = HYP_DashboardVM()
+    var sourceArray = [AlamofireSource]()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.VM.VC = self
         menuListTableView.delegate = self
         menuListTableView.dataSource = self
         
@@ -68,7 +71,7 @@ class HYP_DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         storeOwnerMenuListCollectionViewCell.register(UINib(nibName: "HYP_StoreOwnerMenuListCVCell", bundle: nil), forCellWithReuseIdentifier: "HYP_StoreOwnerMenuListCVCell")
 //        collectionViewHeight.constant = 72
         individualMenuListView.isHidden = true
-        if individualLoginStatus == 1{
+        if customerTypeID != 54{
             individualMenuListView.isHidden = false
             storeOwnerMenuListView.isHidden = true
             claimView.isHidden = false
@@ -86,6 +89,12 @@ class HYP_DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             storeOwnerMenuListView.isHidden = false
         }
         imagePicker.delegate = self
+        dashboardOffersApi()
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tokendata()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -140,6 +149,38 @@ class HYP_DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         })
     }
     
+    
+    func profileImageUpdateAPI(){
+        let parameter : [String : Any] = [
+            
+                "ActorId": userId,
+                "ObjCustomerJson": [
+                    "DisplayImage": strdata1,
+                    "LoyaltyId": loyaltyId
+                ]
+        ]
+        self.VM.profileaImageUpdateApi(parameter: parameter)
+        
+    }
+    
+    func dashboardApi(){
+        let parameter : [String : Any] = [
+                "ActorId": userId
+        ]
+        self.VM.dashBoardApi(parameter: parameter)
+    }
+    
+    
+    func dashboardOffersApi(){
+        let parameter : [String : Any] = [
+            "ActionType": 99,
+            "ActorId": userId,
+            "PromotionUserType": "HOYA"
+        ]
+        self.VM.dashbaordOffers(parameter: parameter)
+    }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menuList.count
     }
@@ -162,6 +203,7 @@ class HYP_DashboardVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         print((menuListTableView.bounds.size.height)/Double(menuList.count),"tableview")
         return (menuListTableView.bounds.size.height)/Double(menuList.count)
     }
+
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch menuList[indexPath.row].menuName{
@@ -237,6 +279,7 @@ extension HYP_DashboardVC{
             let imageData = imagePicked.resized(withPercentage: 0.1)
             let imageData1: NSData = imageData!.pngData()! as NSData
             self.strdata1 = imageData1.base64EncodedString(options: .lineLength64Characters)
+            profileImageUpdateAPI()
         }
         dismiss(animated: true)
     }
@@ -313,10 +356,85 @@ extension HYP_DashboardVC{
                 }
             })
         }
-        
     }
 }
 
+
+extension HYP_DashboardVC{
+    
+    func ImageSetups(){
+        self.sourceArray.removeAll()
+        if self.VM.dashboardOffers.count > 0 {
+            for image in self.self.VM.dashboardOffers {
+                print("\(PROMO_IMG1)\(image.proImage ?? ""), offerImgUrl")
+                let imageURL = image.proImage ?? ""
+                let filteredURLArray = imageURL.dropFirst(3)
+                let replaceString = "\(PROMO_IMG1)\(filteredURLArray)".replacingOccurrences(of: " ", with: "%20")
+                self.sourceArray.append(AlamofireSource(urlString: "\(replaceString)", placeholder: UIImage(named: "ic_default_img (1)"))!)
+            }
+            offersSlideShow.setImageInputs(self.sourceArray)
+            offersSlideShow.slideshowInterval = 3.0
+            offersSlideShow.zoomEnabled = true
+            offersSlideShow.contentScaleMode = .scaleToFill
+            offersSlideShow.pageControl.currentPageIndicatorTintColor = UIColor(red: 230/255, green: 27/255, blue: 34/255, alpha: 1)
+            offersSlideShow.pageControl.pageIndicatorTintColor = UIColor.lightGray
+        }else{
+            offersSlideShow.setImageInputs([
+                ImageSource(image: UIImage(named: "ic_default_img (1)")!)
+            ])
+        }
+    }
+    
+    
+    
+    @objc func didTap() {
+        if self.VM.dashboardOffers.count > 0 {
+             self.tabBarController?.selectedIndex = 1
+        }
+    }
+    
+    func tokendata(){
+            if MyCommonFunctionalUtilities.isInternetCallTheApi() == false{
+            }else{
+                let parameters : Data = "username=\(username)&password=\(password)&grant_type=password".data(using: .utf8)!
+
+            let url = URL(string: tokenURL)!
+            let session = URLSession.shared
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+
+            do {
+                request.httpBody = parameters
+            } catch let error {
+                print(error.localizedDescription)
+            }
+            request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+           
+            let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+
+                guard error == nil else {
+                    return
+                }
+                guard let data = data else {
+                    return
+                }
+                do{
+                    let parseddata = try JSONDecoder().decode(TokenModels.self, from: data)
+                        print(parseddata.access_token ?? "")
+                        UserDefaults.standard.setValue(parseddata.access_token ?? "", forKey: "TOKEN")
+                    DispatchQueue.main.async {
+                        self.dashboardApi()
+                        
+                    }
+                     }catch let parsingError {
+                    print("Error", parsingError)
+                }
+            })
+            task.resume()
+        }
+        }
+}
 
 
 

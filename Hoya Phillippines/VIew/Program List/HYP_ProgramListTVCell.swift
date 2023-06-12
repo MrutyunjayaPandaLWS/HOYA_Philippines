@@ -12,6 +12,7 @@ class HYP_ProgramListTVCell: UITableViewCell {
     @IBOutlet weak var programDetailsLbl: UILabel!
     @IBOutlet weak var programNameLbl: UILabel!
     @IBOutlet weak var ValidDateLbl: UILabel!
+    var promotionData : LtyPrgBaseDetails?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

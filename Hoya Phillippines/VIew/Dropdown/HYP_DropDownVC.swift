@@ -64,9 +64,7 @@ class HYP_DropDownVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
             heightOfTableView.constant = CGFloat(40*rowNumber)
             dropdownTableView.reloadData()
         case "promotionName":
-            rowNumber = promotionNameList.count
-            heightOfTableView.constant = CGFloat(40*rowNumber)
-            dropdownTableView.reloadData()
+            getPromotionList_Api()
         case "accountType":
             rowNumber = accountTypeList.count
             heightOfTableView.constant = CGFloat(40*rowNumber)
@@ -76,23 +74,53 @@ class HYP_DropDownVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
             heightOfTableView.constant = CGFloat(40*rowNumber)
             dropdownTableView.reloadData()
         case "role":
-            rowNumber = roleList.count
-            heightOfTableView.constant = CGFloat(40*rowNumber)
-            dropdownTableView.reloadData()
+            roleListApi()
         case "sales":
-            rowNumber = salesRepresentativeList.count
-            heightOfTableView.constant = CGFloat(40*rowNumber)
-            dropdownTableView.reloadData()
+            salesRepresentativeAPI()
         case "idType":
             rowNumber = idcardTypeList.count
             heightOfTableView.constant = CGFloat(40*rowNumber)
             dropdownTableView.reloadData()
+        case "queryStatus":
+            queryStatusApi()
         default:
             print("invalid flags")
         }
     }
     
 
+    func roleListApi(){
+        let parameter : [String : Any] = [
+                "ActionType": 33,
+                "RoleIDs": "HOYA"
+        ]
+        self.VM.roleListinApi(parameter: parameter)
+    }
+    
+    func getPromotionList_Api(){
+        let parameter : [String : Any] = [
+                "ActionType": 6,
+                "CustomerId": self.userId,
+                "Domain": "HOYA"
+        ]
+        
+        self.VM.prommtionsListApi(parameter: parameter)
+    }
+    
+    func salesRepresentativeAPI(){
+        let parameter : [String : Any] = [
+            "ActionType": 31,
+            "Actorid": locationId
+        ]
+        self.VM.salesRepresentativeApi(parameter: parameter)
+    }
+
+    func queryStatusApi(){
+        let parameter : [String : Any] = [
+                "ActionType": "150"
+        ]
+        self.VM.queryStatusListing(parameter: parameter)
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rowNumber
@@ -105,17 +133,19 @@ class HYP_DropDownVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
         case "gender":
             cell.nameLbl.text = genderList[indexPath.row]
         case "promotionName":
-            cell.nameLbl.text = promotionNameList[indexPath.row]
+            cell.nameLbl.text = self.VM.promotionList[indexPath.row].programName
         case "accountType":
             cell.nameLbl.text = accountTypeList[indexPath.row]
         case "myRedeemption":
             cell.nameLbl.text = myRedeemptionStatus[indexPath.row].statusName
         case "role":
-            cell.nameLbl.text = roleList[indexPath.row]
+            cell.nameLbl.text = self.VM.roleListArray[indexPath.row].attributeValue
         case "sales":
-            cell.nameLbl.text = salesRepresentativeList[indexPath.row]
+            cell.nameLbl.text = self.VM.salesRepresentativeList[indexPath.row].attributeValue
         case "idType":
             cell.nameLbl.text = idcardTypeList[indexPath.row]
+        case "queryStatus":
+            cell.nameLbl.text = self.VM.queryStatusList[indexPath.row].attributeValue
         default:
             print("invalid code")
         }
@@ -129,26 +159,31 @@ class HYP_DropDownVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
             delegate?.didTappedGenderBtn(item: self)
             
         case "promotionName":
-            statusName = promotionNameList[indexPath.row]
-            statusId = 0
+            statusName = self.VM.promotionList[indexPath.row].programName ?? ""
+            statusId = self.VM.promotionList[indexPath.row].programId ?? 0
             delegate1?.didTappedFilterStatus(item: self)
         case "accountType":
             accountType = accountTypeList[indexPath.row]
             delegate?.didTappedAccountType(item: self)
 
         case "myRedeemption":
-            statusName = self.myRedeemptionStatus[indexPath.row].statusName
-            statusId = self.myRedeemptionStatus[indexPath.row].statusID
+            statusName = self.myRedeemptionStatus[indexPath.row].statusName ?? ""
+            statusId = self.myRedeemptionStatus[indexPath.row].statusID ?? 0
             delegate1?.didTappedFilterStatus(item: self)
         case "role":
-            roleName = roleList[indexPath.row]
+            roleName = self.VM.roleListArray[indexPath.row].attributeValue ?? "Select role"
             delegate?.didTappedRoleBtn(item: self)
         case "sales":
-            salesRepresentativeName = salesRepresentativeList[indexPath.row]
+            salesRepresentativeName = self.VM.salesRepresentativeList[indexPath.row].attributeValue ?? "Select sales representative"
+            salesRepId = self.VM.salesRepresentativeList[indexPath.row].attributeId ?? 0
             delegate?.didTappedSalesRepresentative(item: self)
         case "idType":
             idTypeName = idcardTypeList[indexPath.row]
             delegate?.didTappedIdCardType(item: self)
+        case "queryStatus":
+            statusName = self.VM.queryStatusList[indexPath.row].attributeValue ?? ""
+            statusId = self.VM.queryStatusList[indexPath.row].attributeId ?? 0
+            delegate1?.didTappedFilterStatus(item: self)
         default:
             print("invalid flags")
         }

@@ -9,6 +9,7 @@ import UIKit
 
 class HYP_MyEarningTVCell: UITableViewCell {
 
+    @IBOutlet weak var promotionNameTitleLbl: UILabel!
     @IBOutlet weak var remarksLbl: UILabel!
     @IBOutlet weak var pointsView: UIView!
     @IBOutlet weak var salesReturnLbl: UILabel!

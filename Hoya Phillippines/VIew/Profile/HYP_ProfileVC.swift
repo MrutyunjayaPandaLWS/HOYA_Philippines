@@ -8,14 +8,14 @@
 import UIKit
 import Toast_Swift
 
-class HYP_ProfileVC: UIViewController, OtpDelegate, DropdownDelegate, DateSelectedDelegate {
+class HYP_ProfileVC: BaseViewController, OtpDelegate, DropdownDelegate, DateSelectedDelegate {
     func didTappedIdCardType(item: HYP_DropDownVC) {}
     
     func acceptDate(_ vc: HYP_DatePickerVC) {
         if vc.isComeFrom == "DOB"{
             selectDOBLbl.text = vc.selectedDate
         }else{
-            
+            selectDateOfAnniversary.text = vc.selectedDate
         }
     }
     
@@ -34,6 +34,8 @@ class HYP_ProfileVC: UIViewController, OtpDelegate, DropdownDelegate, DateSelect
         mobileNumberTF.text = item.newNumberTF.text
     }
     
+
+    @IBOutlet weak var selectDateOfAnniversary: UILabel!
     @IBOutlet weak var backBtnWidth: NSLayoutConstraint!
     @IBOutlet weak var personalInfoLineLbl: UILabel!
     @IBOutlet weak var updateBtn: UIButton!
@@ -55,15 +57,20 @@ class HYP_ProfileVC: UIViewController, OtpDelegate, DropdownDelegate, DateSelect
     @IBOutlet weak var generalInfoLineLbl: UILabel!
     @IBOutlet weak var generalInfoBtn: UIButton!
     @IBOutlet weak var personalInformationTopHeight: NSLayoutConstraint!
+    var VM = HYP_ProfileVM()
+    var registerationNo : Int = 0
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.VM.VC = self
         personalInformationTopHeight.constant = 20
         backBtnWidth.constant = 0 //22
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        customerGeneralInfo()
+
         personalInformationTopHeight.constant = 20
         persionalInfoView.isHidden = true
         generalInfosView.isHidden = false
@@ -77,17 +84,17 @@ class HYP_ProfileVC: UIViewController, OtpDelegate, DropdownDelegate, DateSelect
     
     @IBAction func didTappedUpdateBtn(_ sender: UIButton) {
         if firstNameTF.text?.count == 0{
-            
+            self.view.makeToast("Enter First Name",duration: 2.0,position: .center)
         }else if lastNameTF.text?.count == 0{
-            
+            self.view.makeToast("Enter Last Name",duration: 2.0,position: .center)
         }else if mobileNumberTF.text?.count == 0{
-            
+            self.view.makeToast("Enter mobile number",duration: 2.0,position: .center)
         }else if selectDOBLbl.text == "Select DOB"{
-            
+            self.view.makeToast("Select DOB",duration: 2.0,position: .center)
         }else if selectGenderLbl.text == "Select gender"{
-            
+            self.view.makeToast("Select gender",duration: 2.0,position: .center)
         }else{
-            profileUpDateMessageP(message: "Your profile has been updated successfully")
+            profileUpdate_Api()
         }
        
     }
@@ -139,11 +146,57 @@ class HYP_ProfileVC: UIViewController, OtpDelegate, DropdownDelegate, DateSelect
         updateBtn.isHidden = true
     }
     
+    @IBAction func selectDateOfAnivesary(_ sender: UIButton) {
+        let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HYP_DatePickerVC") as? HYP_DatePickerVC
+        vc?.modalTransitionStyle = .crossDissolve
+        vc?.modalPresentationStyle = .overFullScreen
+        vc?.isComeFrom = "1"
+        vc?.delegate = self
+        present(vc!, animated: true)
+    }
+    
     func profileUpDateMessageP(message: String){
         let vc = storyboard?.instantiateViewController(withIdentifier: "HYP_SuccessMessageVC") as? HYP_SuccessMessageVC
         vc?.modalTransitionStyle = .crossDissolve
         vc?.modalPresentationStyle = .overFullScreen
         vc?.successMessage = message
         present(vc!, animated: true)
+    }
+    
+    func customerGeneralInfo(){
+        let parameter : [String : Any] = [
+            
+               "ActionType": "6",
+               "CustomerId": "\(self.userId)"//customerTypeID
+        ]
+        
+        self.VM.customerGeneralInfo(parameter: parameter)
+    }
+    
+//    MARK: - PROFILE UPDATE API
+    func profileUpdate_Api(){
+        let parameter : [String : Any] =
+        
+        [
+            "ActionType": "4",
+            "ActorId": userId,
+            "ObjCustomerJson": [
+                "Address1": "",
+                "CustomerId": customerTypeID,
+                "FirstName": firstNameTF.text ?? "",
+                "lastname":lastNameTF.text ?? "",
+                "Email": emailTF.text ?? "",
+                "DOB": selectDOBLbl.text ?? "",
+                "Mobile": mobileNumberTF.text ?? "",
+                "RegistrationSource": registerationNo
+            ],
+            "ObjCustomerDetails": [
+                "IsNewProfilePicture":0,
+                "Anniversary":selectDateOfAnniversary.text ?? "",
+                "Gender": selectGenderLbl.text ?? ""
+            ]
+        ]
+        
+        self.VM.peofileUpdate(parameter: parameter)
     }
 }

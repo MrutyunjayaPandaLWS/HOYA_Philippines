@@ -13,7 +13,7 @@ let baseURl = "https://hoyatserv.loyltwo3ks.com/Mobile/"
 var number = "6362630805"
 
 //let PROMO_IMG = "https://ddmotors.loyltwo3ks.com/UploadFiles/"
-let PROMO_IMG1 = "https://hoyatserv.loyltwo3ks.com/"
+let PROMO_IMG1 = "https://hoyatdemo.loyltwo3ks.com/"
 //let product_IMG = "https://ddmotors.loyltwo3ks.com/UploadFiles/CategoryImg/"
 //let imageBaseURL = "https://ddmotors.loyltwo3ks.com/UploadFiles/ProductManager/ProductImages/"
 //

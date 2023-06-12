@@ -13,6 +13,8 @@ import Toast_Swift
 class HYP_HelpVC: BaseViewController ,UIImagePickerControllerDelegate, UINavigationControllerDelegate, TopicListDelegate {
     func topicName(item: HYP_QueryTopicListVC) {
         selectQueryTopicLbl.text = item.topicName
+        selectQueryTopicLbl.textColor = .black
+        self.selectTopicId = item.selectTopicId
         querySummeryTF.text = ""
     }
     
@@ -25,9 +27,13 @@ class HYP_HelpVC: BaseViewController ,UIImagePickerControllerDelegate, UINavigat
     @IBOutlet weak var membershipIdTF: UITextField!
     var strdata1 = ""
     let imagePicker = UIImagePickerController()
+    var VM = HYP_HelpVM()
+    var mobileNumberExistancy: Int = -1
+    var actorId:String = ""
+    var selectTopicId = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.VM.VC = self
         imagePicker.delegate = self
         bottonView.layer.cornerRadius = 30
         bottonView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
@@ -39,15 +45,20 @@ class HYP_HelpVC: BaseViewController ,UIImagePickerControllerDelegate, UINavigat
         navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func selectMembershipID(_ sender: UITextField) {
+        mobileNumberExistancyApi()
+    }
     @IBAction func didTappedSubmitBtn(_ sender: UIButton) {
-        if membershipIdTF.text?.count == 0{
-            self.view.makeToast("Enter invoice number", duration: 2.0, position: .center)
-        }else if selectQueryTopicLbl.text == ""{
-            
-        }else if querySummeryTF.text?.count == 0{
-            
+        if membershipIdTF.text?.count == 0 {
+            self.view.makeToast("Enter MembershipID", duration: 2.0, position: .center)
+        }else if selectQueryTopicLbl.text == "Select Query Topic"{
+            self.view.makeToast("Select Query Topic", duration: 2.0, position: .center)
+        } else if querySummeryTF.text?.count == 0 {
+            self.view.makeToast("Enter query summery", duration: 2.0, position: .center)
+        }else if mobileNumberExistancy == -1{
+            self.view.makeToast("MembershipId is invalid", duration: 2.0, position: .center)
         }else{
-            successMessagePopUp(message: "Query has been submitted successfully")
+            newQuerySubmission()
         }
     }
     @IBAction func didTappedUploadImage(_ sender: UIButton) {
@@ -68,11 +79,60 @@ class HYP_HelpVC: BaseViewController ,UIImagePickerControllerDelegate, UINavigat
     }
    
     @IBAction func didTappedSelectTopic(_ sender: Any) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "HYP_QueryTopicListVC") as? HYP_QueryTopicListVC
-        vc?.modalPresentationStyle = .overFullScreen
-        vc?.modalTransitionStyle = .crossDissolve
-        vc?.delegate = self
-        present(vc!, animated: true)
+        if membershipIdTF.text?.count == 0{
+            self.view.makeToast("Enter membershipId")
+        }else if mobileNumberExistancy == -1{
+            self.view.makeToast("Enter a valid membershipID")
+        }else{
+            let vc = storyboard?.instantiateViewController(withIdentifier: "HYP_QueryTopicListVC") as? HYP_QueryTopicListVC
+            vc?.modalPresentationStyle = .overFullScreen
+            vc?.modalTransitionStyle = .crossDissolve
+            vc?.delegate = self
+            vc?.actorID = actorId
+            present(vc!, animated: true)
+        }
+
+    }
+    
+    func retriveActorId(){
+        let parameter : [String : Any] = [
+            
+                "ActionType": 276,
+                "Location":[
+                    "UserName": membershipIdTF.text ?? ""
+                ]
+        ]
+        self.VM.retriveUserId(parameter: parameter)
+    }
+    
+    func mobileNumberExistancyApi(){
+        let parameter : [String : Any] = [
+                "ActionType": "57",
+                "Location": [
+                    "UserName" : "\(membershipIdTF.text ?? "")"
+                ]
+        ]
+        VM.verifyMobileNumberAPI(paramters: parameter)
+//        56875434356
+    }
+    
+    func newQuerySubmission(){
+        let parameter : [String : Any] = [
+                "ActionType": "0",
+                "ActorId": actorId,
+                "CustomerName": "",
+                "Email": "",
+                "HelpTopic": selectQueryTopicLbl.text ?? "" ,
+                "HelpTopicID": "\(selectTopicId)",
+                "ImageUrl": strdata1,
+                "IsQueryFromMobile": "true",
+                "LoyaltyID": membershipIdTF.text ?? "",
+                "QueryDetails": querySummeryTF.text ?? "",
+                "QuerySummary": "",
+                "SourceType": "1"
+
+        ]
+        self.VM.newQuerySubmission(parameter: parameter)
     }
     
 }
@@ -82,7 +142,7 @@ extension HYP_HelpVC{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let imagePicked = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             self.queryImage.image = imagePicked.resized(withPercentage: 0.5)
-            self.queryImage.contentMode = .scaleToFill
+            self.queryImage.contentMode = .scaleAspectFit
             let imageData = imagePicked.resized(withPercentage: 0.1)
             let imageData1: NSData = imageData!.pngData()! as NSData
             self.strdata1 = imageData1.base64EncodedString(options: .lineLength64Characters)

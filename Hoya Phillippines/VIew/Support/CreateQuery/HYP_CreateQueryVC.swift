@@ -10,14 +10,12 @@ import AVFoundation
 import Photos
 import Toast_Swift
 
-class HYP_CreateQueryVC: UIViewController,TopicListDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate, SuccessMessageDelegate {
-    func successMessage() {
-        navigationController?.popViewController(animated: true)
-    }
+class HYP_CreateQueryVC: BaseViewController,TopicListDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
 
     func topicName(item: HYP_QueryTopicListVC) {
         topicNameLbl.text = item.topicName
+        selectTopicId = item.selectTopicId
         queryDetailsTF.text = ""
         querySummeryTF.text = ""
     }
@@ -26,13 +24,14 @@ class HYP_CreateQueryVC: UIViewController,TopicListDelegate,UIImagePickerControl
     @IBOutlet weak var queryDetailsTF: UITextField!
     @IBOutlet weak var querySummeryTF: UITextField!
     @IBOutlet weak var topicNameLbl: UILabel!
-    
+    var selectTopicId: Int = 0
     var queryName = "Select query"
     var strdata1 = ""
     let imagePicker = UIImagePickerController()
+    var VM = HYP_CreateQueryVM()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.VM.VC = self
         imagePicker.delegate = self
         topicNameLbl.text = queryName
     }
@@ -46,7 +45,7 @@ class HYP_CreateQueryVC: UIViewController,TopicListDelegate,UIImagePickerControl
         }else if queryDetailsTF.text?.count == 0{
             self.view.makeToast("Enter query details", duration: 2.0, position: .center)
         }else{
-            querySubmitSuccessMessage()
+            newQuerySubmission()
         }
     }
     
@@ -76,8 +75,28 @@ class HYP_CreateQueryVC: UIViewController,TopicListDelegate,UIImagePickerControl
         let vc = storyboard?.instantiateViewController(withIdentifier: "HYP_QueryTopicListVC") as? HYP_QueryTopicListVC
         vc?.modalPresentationStyle = .overFullScreen
         vc?.modalTransitionStyle = .crossDissolve
+        vc?.actorID = "\(userId)"
         vc?.delegate = self
         present(vc!, animated: true)
+    }
+    
+    func newQuerySubmission(){
+        let parameter : [String : Any] = [
+                "ActionType": "0",
+                "ActorId": userId,
+                "CustomerName": "",
+                "Email": "",
+                "HelpTopic": topicNameLbl.text ?? "" ,
+                "HelpTopicID": "\(selectTopicId)",
+                "ImageUrl": strdata1,
+                "IsQueryFromMobile": "true",
+                "LoyaltyID": loyaltyId,
+                "QueryDetails": queryDetailsTF.text ?? "",
+                "QuerySummary": querySummeryTF.text ?? "",
+                "SourceType": "1"
+
+        ]
+        self.VM.newQuerySubmission(parameter: parameter)
     }
     
     func querySubmitSuccessMessage(){
@@ -97,7 +116,7 @@ extension HYP_CreateQueryVC{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let imagePicked = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             queryImage.image = imagePicked.resized(withPercentage: 0.5)
-            queryImage.contentMode = .scaleToFill
+            queryImage.contentMode = .scaleAspectFit
             let imageData = imagePicked.resized(withPercentage: 0.1)
             let imageData1: NSData = imageData!.pngData()! as NSData
             self.strdata1 = imageData1.base64EncodedString(options: .lineLength64Characters)

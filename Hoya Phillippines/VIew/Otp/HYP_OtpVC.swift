@@ -24,12 +24,13 @@ class HYP_OtpVC: BaseViewController,UITextFieldDelegate{
     @IBOutlet weak var newNumberLbl: UILabel!
     var delegate: OtpDelegate?
     var flags = ""
+    var VM = HYP_ProfileOTPVM()
     var timmer = Timer()
     var count = 0
     var otpBtnStatus = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.VM.VC = self
+        self.VM.VC = self
         newNumberTF.delegate = self
         resendBtn.isHidden = true
         timerLbl.isHidden = true
@@ -46,9 +47,9 @@ class HYP_OtpVC: BaseViewController,UITextFieldDelegate{
                 getOtpBtn.setTitle("Verify OTP", for: .normal)
                 otpBtnStatus = 1
                 
-                self.timmer.invalidate()
-                self.count = 60
-                self.timmer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+//                self.timmer.invalidate()
+//                self.count = 60
+//                self.timmer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
             }else{
                 self.view.makeToast("Enter valid mobile number", duration: 2.0, position: .center)
             }
@@ -73,9 +74,12 @@ class HYP_OtpVC: BaseViewController,UITextFieldDelegate{
     @IBAction func didTappedNumberTF(_ sender: UITextField) {
     }
     @IBAction func didTappedResendBtn(_ sender: UIButton) {
-        self.timmer.invalidate()
-        self.count = 60
-        self.timmer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+        
+//        sendOtptoRegisterNumber()
+//
+//        self.timmer.invalidate()
+//        self.count = 60
+//        self.timmer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
         
         sendOtptoRegisterNumber()
     }

@@ -16,12 +16,14 @@ class HYP_OffersDetailsVC: UIViewController {
     @IBOutlet weak var offerDiscountLbl: UILabel!
     @IBOutlet weak var offerNameLbl: UILabel!
     @IBOutlet weak var offersImage: UIImageView!
+    var offersDetails : LstPromotionJsonList?
     override func viewDidLoad() {
         super.viewDidLoad()
 
         bottomView.clipsToBounds = true
         bottomView.layer.cornerRadius = 30
         bottomView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        setup()
     }
 
     @IBAction func didTappedNotificationBtn(_ sender: UIButton) {
@@ -30,5 +32,12 @@ class HYP_OffersDetailsVC: UIViewController {
     
     @IBAction func didTappedBackBtn(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
+    }
+    
+    func setup(){
+        offersImage.sd_setImage(with: URL(string: PROMO_IMG1 + (offersDetails?.proImage?.dropFirst(3) ?? "")), placeholderImage: UIImage(named: "ic_default_img (1)"))
+        offerNameLbl.text = offersDetails?.promotionName
+        offerDiscountLbl.text = offersDetails?.proShortDesc
+        offersDetailsTextView.text = offersDetails?.proLongDesc
     }
 }

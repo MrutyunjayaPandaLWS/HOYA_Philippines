@@ -13,7 +13,7 @@ protocol TopicListDelegate{
 }
 
 
-class HYP_QueryTopicListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HYP_QueryTopicListVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var topicListTableView: UITableView!
@@ -29,19 +29,36 @@ class HYP_QueryTopicListVC: UIViewController, UITableViewDelegate, UITableViewDa
     ]
     var delegate : TopicListDelegate?
     var topicName = ""
+    var selectTopicId = 0
+    var actorID = ""
+    var VM = HYT_HelptopicVM()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.VM.VC = self
         topicListTableView.delegate = self
         topicListTableView.dataSource = self
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        helpTopicList_Api()
+    }
     
     @IBAction func didTappedCloseBtn(_ sender: UIButton) {
         dismiss(animated: true)
     }
     
+    //MARK: - getHelpTopicList_Api
+        
+        func helpTopicList_Api(){
+            let parameter : [String : Any] = [
+                    "ActionType": "4",
+                    "ActorId": "\(self.actorID)",
+                    "IsActive": "true"
+            ]
+            self.VM.getHelpTopicList_Api(parameter: parameter)
+        }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableViewHeight.constant = CGFloat(70*topicList.count)
@@ -61,7 +78,8 @@ class HYP_QueryTopicListVC: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        topicName = topicList[indexPath.row].topicName
+        topicName = self.VM.helpTopicList[indexPath.row].helpTopicName ?? ""
+        selectTopicId = self.VM.helpTopicList[indexPath.row].helpTopicId ?? 0
         delegate?.topicName(item: self)
         dismiss(animated: true)
     }

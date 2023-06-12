@@ -9,7 +9,7 @@ import UIKit
 import DPOTPView
 import Toast_Swift
 
-class HYP_LoginVC: UIViewController {
+class HYP_LoginVC: BaseViewController {
 
     @IBOutlet weak var timmerLbl: UILabel!
     @IBOutlet weak var loginView: UIView!
@@ -24,13 +24,12 @@ class HYP_LoginVC: UIViewController {
     @IBOutlet weak var registrationDescLbl: UILabel!
     @IBOutlet weak var otpView: DPOTPView!
     @IBOutlet weak var membershipIDTF: UITextField!
-    
-    var timmer = Timer()
-    var count = 0
+    var VM = HYP_HYP_LoginVM()
     var otpBtnStatus = 0
+    var mobileNumberExistancy = -1
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.VM.VC = self
         bottomView.layer.cornerRadius = 30
         bottomView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         bottomView.clipsToBounds = true
@@ -44,24 +43,30 @@ class HYP_LoginVC: UIViewController {
         otpView.isUserInteractionEnabled = false
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.VM.tokendata()
+    }
+    
+    @IBAction func selectMembersIDTF(_ sender: UITextField) {
+        mobileNumberExistancyApi()
+    }
+    
     @IBAction func didTappedResendBtn(_ sender: UIButton) {
-        self.timmer.invalidate()
-        self.count = 60
-        self.timmer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+        sendOtptoRegisterNumber()
     }
     
     @IBAction func didTappedSubmitBtn(_ sender: UIButton) {
         if otpBtnStatus == 0{
             if membershipIDTF.text?.count == 0{
                 self.view.makeToast("Enter membershipId/mobile number",duration: 2.0,position: .center)
+            }else if mobileNumberExistancy == -1{
+                self.view.makeToast("Enter a valid mobile Number",duration: 2.0,position: .center)
             }else{
                 otpView.isUserInteractionEnabled = true
                 otpBtnStatus = 1
                 SubmitBtn.setTitle("Submit", for: .normal)
-                self.timmer.invalidate()
-                self.count = 60
-                timmerLbl.isHidden = false
-                self.timmer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+                sendOtptoRegisterNumber()
             }
         }else{
             if otpView.text?.count == 0{
@@ -70,13 +75,15 @@ class HYP_LoginVC: UIViewController {
                 if otpView.text != "123456"{
                     self.view.makeToast("Enter wrong OTP",duration: 2.0,position: .center)
                 }else{
-                    if #available(iOS 13.0, *) {
-                        let sceneDelegate = self.view.window!.windowScene!.delegate as! SceneDelegate
-                        sceneDelegate.setHomeAsRootViewController()
-                    } else {
-                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                        appDelegate.setHomeAsRootViewController()
-                    }
+                    
+                    loginSubmissionApi()
+//                    if #available(iOS 13.0, *) {
+//                        let sceneDelegate = self.view.window!.windowScene!.delegate as! SceneDelegate
+//                        sceneDelegate.setHomeAsRootViewController()
+//                    } else {
+//                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//                        appDelegate.setHomeAsRootViewController()
+//                    }
                     UserDefaults.standard.set(true, forKey: "UserLoginStatus")
                 }
             }
@@ -95,19 +102,44 @@ class HYP_LoginVC: UIViewController {
         navigationController?.pushViewController(vc!, animated: true)
     }
     
-    @objc func update() {
-        if(self.count > 1) {
-            self.count = Int(self.count) - 1
-            timmerLbl.text = "00:\(self.count)"
-            timmerLbl.isHidden = false
-            resendBtn.isHidden = true
-           
-        }else{
-            self.timmer.invalidate()
-//            sendotp = 0
-            timmerLbl.text = "00:00"
-            timmerLbl.isHidden = true
-          resendBtn.isHidden = false
-        }
+    func mobileNumberExistancyApi(){
+        let parameter : [String : Any] = [
+                "ActionType": "57",
+                "Location": [
+                    "UserName" : "\(membershipIDTF.text ?? "")"
+                ]
+        ]
+        VM.verifyMobileNumberAPI(paramters: parameter)
+//        56875434356
     }
+    
+    func sendOtptoRegisterNumber(){
+        let parameter : [String : Any] = [
+            
+                "MerchantUserName": "MSPDemoAdmin",
+                "MobileNo": membershipIDTF.text ?? "",
+                "OTPType": "Enrollment",
+                "UserId": -1,
+                "UserName": ""
+            
+        ]
+        self.VM.getOtpApi(parameter: parameter)
+    }
+    
+    func loginSubmissionApi(){
+        let parameter : [String : Any] = [
+            
+                "Browser": "Android",
+                "LoggedDeviceName": "Android",
+                "Password": "123456",
+                "PushID":"",
+                "SessionId": "HOYA",
+                "UserActionType": "GetPasswordDetails",
+                "UserName": membershipIDTF.text ?? "",
+                "UserType": "Customer"
+            
+        ]
+        VM.loginSubmissionApi(parameter: parameter)
+    }
+    
 }

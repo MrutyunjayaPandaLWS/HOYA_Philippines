@@ -16,6 +16,37 @@
 		800BD85F299F3AEC00566B98 /* HYP_OffersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800BD85E299F3AEC00566B98 /* HYP_OffersVC.swift */; };
 		800BD861299F3B0500566B98 /* HYP_DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800BD860299F3B0500566B98 /* HYP_DashboardVC.swift */; };
 		800BD864299F4B5500566B98 /* HYP_OffersDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800BD863299F4B5500566B98 /* HYP_OffersDetailsVC.swift */; };
+		801262D929C03A1A00A4DF02 /* HYP_DashboardVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801262D829C03A1A00A4DF02 /* HYP_DashboardVM.swift */; };
+		801262DF29C03BBE00A4DF02 /* ProfileIamgeUpadate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801262DE29C03BBE00A4DF02 /* ProfileIamgeUpadate.swift */; };
+		801262E629C03C7E00A4DF02 /* DashBoardModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801262E029C03C7B00A4DF02 /* DashBoardModels.swift */; };
+		801262E729C03C7E00A4DF02 /* LstCustomerFeedBackJsonApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801262E129C03C7C00A4DF02 /* LstCustomerFeedBackJsonApi.swift */; };
+		801262E829C03C7E00A4DF02 /* LstPromotionListJsonApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801262E229C03C7C00A4DF02 /* LstPromotionListJsonApi.swift */; };
+		801262E929C03C7E00A4DF02 /* ObjActivityDetailsJsonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801262E329C03C7D00A4DF02 /* ObjActivityDetailsJsonList.swift */; };
+		801262EA29C03C7E00A4DF02 /* LstLoyaltyProgramReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801262E429C03C7D00A4DF02 /* LstLoyaltyProgramReport.swift */; };
+		801262EB29C03C7E00A4DF02 /* ObjCustomerDashboardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801262E529C03C7E00A4DF02 /* ObjCustomerDashboardList.swift */; };
+		801262EE29C03C9100A4DF02 /* LstPromotionJsonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801262EC29C03C9100A4DF02 /* LstPromotionJsonList.swift */; };
+		801262EF29C03C9100A4DF02 /* OffersBannerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801262ED29C03C9100A4DF02 /* OffersBannerModel.swift */; };
+		801262F329C0470700A4DF02 /* LoginSubmissionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801262F129C0470600A4DF02 /* LoginSubmissionModel.swift */; };
+		801262F429C0470700A4DF02 /* UserList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801262F229C0470700A4DF02 /* UserList.swift */; };
+		801262F729C04E6400A4DF02 /* HYP_OffersVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801262F629C04E6400A4DF02 /* HYP_OffersVM.swift */; };
+		801262FA29C051F000A4DF02 /* HYP_QueryListingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801262F929C051EF00A4DF02 /* HYP_QueryListingVM.swift */; };
+		801262FD29C0576400A4DF02 /* HYP_CreateQueryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801262FC29C0576400A4DF02 /* HYP_CreateQueryVM.swift */; };
+		8012630329C05AA800A4DF02 /* GeneralInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8012630029C05AA700A4DF02 /* GeneralInfoModel.swift */; };
+		8012630429C05AA800A4DF02 /* LstCustomerJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8012630129C05AA700A4DF02 /* LstCustomerJson.swift */; };
+		8012630529C05AA800A4DF02 /* LstCustomerOfficalInfoJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8012630229C05AA800A4DF02 /* LstCustomerOfficalInfoJson.swift */; };
+		8012630829C05AD900A4DF02 /* ProfileUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8012630729C05AD900A4DF02 /* ProfileUpdateModel.swift */; };
+		8012630C29C05B3400A4DF02 /* HYP_ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8012630B29C05B3400A4DF02 /* HYP_ProfileVM.swift */; };
+		8012630E29C0775600A4DF02 /* HYP_ProfileOTPVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8012630D29C0775600A4DF02 /* HYP_ProfileOTPVM.swift */; };
+		8012631129C079E300A4DF02 /* HYP_MyEarningsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8012631029C079E300A4DF02 /* HYP_MyEarningsVM.swift */; };
+		8012631529C07AFD00A4DF02 /* CustomerBasicInfoListJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8012631329C07AFD00A4DF02 /* CustomerBasicInfoListJson.swift */; };
+		8012631629C07AFD00A4DF02 /* My_EarningsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8012631429C07AFD00A4DF02 /* My_EarningsModels.swift */; };
+		8012631B29C07ECB00A4DF02 /* MyRedeemptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8012631929C07ECA00A4DF02 /* MyRedeemptionModel.swift */; };
+		8012631C29C07ECB00A4DF02 /* ObjCatalogueRedemReqList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8012631A29C07ECB00A4DF02 /* ObjCatalogueRedemReqList.swift */; };
+		8012631E29C07EE000A4DF02 /* HYP_MyRedemptionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8012631D29C07EE000A4DF02 /* HYP_MyRedemptionVM.swift */; };
+		8012632129C0890B00A4DF02 /* HYP_ClaimStatusVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8012632029C0890B00A4DF02 /* HYP_ClaimStatusVM.swift */; };
+		8012632529C0917F00A4DF02 /* LstPointsExpiryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8012632329C0917F00A4DF02 /* LstPointsExpiryDetails.swift */; };
+		8012632629C0917F00A4DF02 /* PointExpireReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8012632429C0917F00A4DF02 /* PointExpireReportModel.swift */; };
+		8012632929C0928800A4DF02 /* HYP_PointExpireReportVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8012632829C0928800A4DF02 /* HYP_PointExpireReportVM.swift */; };
 		801BC715299F66590069B8AA /* HYP_QueryTopicListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801BC714299F66590069B8AA /* HYP_QueryTopicListVC.swift */; };
 		801BC717299F66770069B8AA /* HYP_QueryTopicListTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801BC716299F66770069B8AA /* HYP_QueryTopicListTVCell.swift */; };
 		8022F85429A0D7B90070C9D6 /* HYP_StoreOwnerMenuListCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8022F85229A0D7B90070C9D6 /* HYP_StoreOwnerMenuListCVCell.swift */; };
@@ -60,6 +91,44 @@
 		8064FA04299FBD1700A5A4CB /* HYP_ClaimsStatusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8064FA03299FBD1700A5A4CB /* HYP_ClaimsStatusVC.swift */; };
 		8065379B29A33DA80055852B /* HYP_ProgramListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8065379A29A33DA80055852B /* HYP_ProgramListVC.swift */; };
 		8065379D29A33DC50055852B /* HYP_ProgramListTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8065379C29A33DC50055852B /* HYP_ProgramListTVCell.swift */; };
+		80667BE129C1812D0044C6D7 /* HYP_RegisterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80667BE029C1812D0044C6D7 /* HYP_RegisterVM.swift */; };
+		80667BE629C181D60044C6D7 /* RoleListingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80667BE429C181D50044C6D7 /* RoleListingModels.swift */; };
+		80667BE729C181D60044C6D7 /* LstAttributesDetails2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80667BE529C181D60044C6D7 /* LstAttributesDetails2.swift */; };
+		80667BEB29C181F00044C6D7 /* SalsRepresentativeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80667BE929C181F00044C6D7 /* SalsRepresentativeModel.swift */; };
+		80667BEC29C181F00044C6D7 /* LstAttributesDetails3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80667BEA29C181F00044C6D7 /* LstAttributesDetails3.swift */; };
+		80667BEF29C181FE0044C6D7 /* EmailExistancymodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80667BEE29C181FE0044C6D7 /* EmailExistancymodel.swift */; };
+		80667BF229C1821B0044C6D7 /* StoreUserNameExistancyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80667BF129C1821B0044C6D7 /* StoreUserNameExistancyModel.swift */; };
+		80667BF629C182420044C6D7 /* LstAttributesDetails7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80667BF429C182410044C6D7 /* LstAttributesDetails7.swift */; };
+		80667BF729C182420044C6D7 /* IdcardValidationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80667BF529C182420044C6D7 /* IdcardValidationModel.swift */; };
+		80667BFB29C1825C0044C6D7 /* StoreId_Existancy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80667BF929C1825B0044C6D7 /* StoreId_Existancy.swift */; };
+		80667BFC29C1825C0044C6D7 /* LstAttributesDetails1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80667BFA29C1825C0044C6D7 /* LstAttributesDetails1.swift */; };
+		80667BFF29C182C10044C6D7 /* RegistrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80667BFE29C182C10044C6D7 /* RegistrationModel.swift */; };
+		806A135C29BF585300CD96E2 /* HYP_HelpVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A135B29BF585300CD96E2 /* HYP_HelpVM.swift */; };
+		806A136329BF59F500CD96E2 /* RetriveActorIdModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A136229BF59F400CD96E2 /* RetriveActorIdModel.swift */; };
+		806A136529BF5A0E00CD96E2 /* NewQueryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A136429BF5A0E00CD96E2 /* NewQueryModel.swift */; };
+		806A136829BF5A1E00CD96E2 /* HelpTopicModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A136629BF5A1D00CD96E2 /* HelpTopicModels.swift */; };
+		806A136929BF5A1E00CD96E2 /* ObjHelpTopicList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A136729BF5A1E00CD96E2 /* ObjHelpTopicList.swift */; };
+		806A136C29BF5A2B00CD96E2 /* ObjCustomerAllQueryJsonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A136A29BF5A2A00CD96E2 /* ObjCustomerAllQueryJsonList.swift */; };
+		806A136D29BF5A2B00CD96E2 /* QueryListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A136B29BF5A2B00CD96E2 /* QueryListModel.swift */; };
+		806A137129BF5A3F00CD96E2 /* FilterQueryStatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A136F29BF5A3F00CD96E2 /* FilterQueryStatusModel.swift */; };
+		806A137229BF5A3F00CD96E2 /* LstAttributesDetails5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A137029BF5A3F00CD96E2 /* LstAttributesDetails5.swift */; };
+		806A137529BF5E3500CD96E2 /* HYP_HelpTopicListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806A137429BF5E3500CD96E2 /* HYP_HelpTopicListVM.swift */; };
+		807007EC29C0A27800A654E9 /* PromotionListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807007EA29C0A27700A654E9 /* PromotionListModel.swift */; };
+		807007ED29C0A27800A654E9 /* LtyPrgBaseDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807007EB29C0A27800A654E9 /* LtyPrgBaseDetails.swift */; };
+		807007F229C0A5B400A654E9 /* VoucherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807007F029C0A5B300A654E9 /* VoucherModel.swift */; };
+		807007F329C0A5B400A654E9 /* ObjCatalogueList1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807007F129C0A5B400A654E9 /* ObjCatalogueList1.swift */; };
+		807DECCD29C0A7A9008EDEF6 /* HYP_VoucherListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807DECCC29C0A7A8008EDEF6 /* HYP_VoucherListVM.swift */; };
+		807DECD129C0AB02008EDEF6 /* eVoucherPointExpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807DECCF29C0AB02008EDEF6 /* eVoucherPointExpModel.swift */; };
+		807DECD229C0AB02008EDEF6 /* PointExpireModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807DECD029C0AB02008EDEF6 /* PointExpireModel.swift */; };
+		807DECD629C0AD14008EDEF6 /* VoucherRedeemptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807DECD529C0AD14008EDEF6 /* VoucherRedeemptionModel.swift */; };
+		807DECD829C0AD7C008EDEF6 /* HYP_VoucherDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807DECD729C0AD7C008EDEF6 /* HYP_VoucherDetailsVM.swift */; };
+		807DECDB29C0AEA2008EDEF6 /* HYP_MyStaffVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807DECDA29C0AEA2008EDEF6 /* HYP_MyStaffVM.swift */; };
+		807DECDF29C0AEC6008EDEF6 /* MyStaffListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807DECDD29C0AEC6008EDEF6 /* MyStaffListModel.swift */; };
+		807DECE029C0AEC6008EDEF6 /* LstCustomerEntityMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807DECDE29C0AEC6008EDEF6 /* LstCustomerEntityMapping.swift */; };
+		8080498B29BF39FD004DEC8C /* OtpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8080498A29BF39FD004DEC8C /* OtpModel.swift */; };
+		8080498E29BF3A41004DEC8C /* HYP_LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8080498D29BF3A41004DEC8C /* HYP_LoginVM.swift */; };
+		8080499129BF3B56004DEC8C /* S_MobileNumberExistancyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8080499029BF3B56004DEC8C /* S_MobileNumberExistancyModel.swift */; };
+		8080499429BF3D2F004DEC8C /* TokenModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8080499329BF3D2F004DEC8C /* TokenModels.swift */; };
 		808C7FA6299FA8FC00D48769 /* HYP_VouchersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808C7FA5299FA8FC00D48769 /* HYP_VouchersVC.swift */; };
 		808C7FA8299FA91000D48769 /* HYP_VouchersTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808C7FA7299FA91000D48769 /* HYP_VouchersTVCell.swift */; };
 		808C7FAB299FA94200D48769 /* HYP_VoucherDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808C7FAA299FA94200D48769 /* HYP_VoucherDetailsVC.swift */; };
@@ -90,6 +159,7 @@
 		80D8751229B1D5F300BD2FDF /* HYP_DropdownVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8751129B1D5F300BD2FDF /* HYP_DropdownVM.swift */; };
 		80D8751429B1D6BC00BD2FDF /* HYP_FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8751329B1D6BC00BD2FDF /* HYP_FilterVC.swift */; };
 		80D8751729B1E95B00BD2FDF /* HYP_OtpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8751629B1E95A00BD2FDF /* HYP_OtpVC.swift */; };
+		80EC300D29C09D88003F9F9B /* HYP_ProgrameListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EC300C29C09D88003F9F9B /* HYP_ProgrameListVM.swift */; };
 		80FD4576299E3AE5001EC4EA /* HYP_LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FD4575299E3AE5001EC4EA /* HYP_LoginVC.swift */; };
 		DDA680CCD0F0C9D9BB616EAC /* Pods_Hoya_Phillippines.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E271213DF3236F3E140F5FFB /* Pods_Hoya_Phillippines.framework */; };
 /* End PBXBuildFile section */
@@ -105,6 +175,37 @@
 		800BD85E299F3AEC00566B98 /* HYP_OffersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_OffersVC.swift; sourceTree = "<group>"; };
 		800BD860299F3B0500566B98 /* HYP_DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_DashboardVC.swift; sourceTree = "<group>"; };
 		800BD863299F4B5500566B98 /* HYP_OffersDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_OffersDetailsVC.swift; sourceTree = "<group>"; };
+		801262D829C03A1A00A4DF02 /* HYP_DashboardVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_DashboardVM.swift; sourceTree = "<group>"; };
+		801262DE29C03BBE00A4DF02 /* ProfileIamgeUpadate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileIamgeUpadate.swift; sourceTree = "<group>"; };
+		801262E029C03C7B00A4DF02 /* DashBoardModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashBoardModels.swift; sourceTree = "<group>"; };
+		801262E129C03C7C00A4DF02 /* LstCustomerFeedBackJsonApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LstCustomerFeedBackJsonApi.swift; sourceTree = "<group>"; };
+		801262E229C03C7C00A4DF02 /* LstPromotionListJsonApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LstPromotionListJsonApi.swift; sourceTree = "<group>"; };
+		801262E329C03C7D00A4DF02 /* ObjActivityDetailsJsonList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjActivityDetailsJsonList.swift; sourceTree = "<group>"; };
+		801262E429C03C7D00A4DF02 /* LstLoyaltyProgramReport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LstLoyaltyProgramReport.swift; sourceTree = "<group>"; };
+		801262E529C03C7E00A4DF02 /* ObjCustomerDashboardList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjCustomerDashboardList.swift; sourceTree = "<group>"; };
+		801262EC29C03C9100A4DF02 /* LstPromotionJsonList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LstPromotionJsonList.swift; sourceTree = "<group>"; };
+		801262ED29C03C9100A4DF02 /* OffersBannerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffersBannerModel.swift; sourceTree = "<group>"; };
+		801262F129C0470600A4DF02 /* LoginSubmissionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginSubmissionModel.swift; sourceTree = "<group>"; };
+		801262F229C0470700A4DF02 /* UserList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserList.swift; sourceTree = "<group>"; };
+		801262F629C04E6400A4DF02 /* HYP_OffersVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_OffersVM.swift; sourceTree = "<group>"; };
+		801262F929C051EF00A4DF02 /* HYP_QueryListingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_QueryListingVM.swift; sourceTree = "<group>"; };
+		801262FC29C0576400A4DF02 /* HYP_CreateQueryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_CreateQueryVM.swift; sourceTree = "<group>"; };
+		8012630029C05AA700A4DF02 /* GeneralInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralInfoModel.swift; sourceTree = "<group>"; };
+		8012630129C05AA700A4DF02 /* LstCustomerJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LstCustomerJson.swift; sourceTree = "<group>"; };
+		8012630229C05AA800A4DF02 /* LstCustomerOfficalInfoJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LstCustomerOfficalInfoJson.swift; sourceTree = "<group>"; };
+		8012630729C05AD900A4DF02 /* ProfileUpdateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileUpdateModel.swift; sourceTree = "<group>"; };
+		8012630B29C05B3400A4DF02 /* HYP_ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_ProfileVM.swift; sourceTree = "<group>"; };
+		8012630D29C0775600A4DF02 /* HYP_ProfileOTPVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_ProfileOTPVM.swift; sourceTree = "<group>"; };
+		8012631029C079E300A4DF02 /* HYP_MyEarningsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_MyEarningsVM.swift; sourceTree = "<group>"; };
+		8012631329C07AFD00A4DF02 /* CustomerBasicInfoListJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerBasicInfoListJson.swift; sourceTree = "<group>"; };
+		8012631429C07AFD00A4DF02 /* My_EarningsModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = My_EarningsModels.swift; sourceTree = "<group>"; };
+		8012631929C07ECA00A4DF02 /* MyRedeemptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRedeemptionModel.swift; sourceTree = "<group>"; };
+		8012631A29C07ECB00A4DF02 /* ObjCatalogueRedemReqList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjCatalogueRedemReqList.swift; sourceTree = "<group>"; };
+		8012631D29C07EE000A4DF02 /* HYP_MyRedemptionVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_MyRedemptionVM.swift; sourceTree = "<group>"; };
+		8012632029C0890B00A4DF02 /* HYP_ClaimStatusVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_ClaimStatusVM.swift; sourceTree = "<group>"; };
+		8012632329C0917F00A4DF02 /* LstPointsExpiryDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LstPointsExpiryDetails.swift; sourceTree = "<group>"; };
+		8012632429C0917F00A4DF02 /* PointExpireReportModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointExpireReportModel.swift; sourceTree = "<group>"; };
+		8012632829C0928800A4DF02 /* HYP_PointExpireReportVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_PointExpireReportVM.swift; sourceTree = "<group>"; };
 		801BC714299F66590069B8AA /* HYP_QueryTopicListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_QueryTopicListVC.swift; sourceTree = "<group>"; };
 		801BC716299F66770069B8AA /* HYP_QueryTopicListTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_QueryTopicListTVCell.swift; sourceTree = "<group>"; };
 		8022F85229A0D7B90070C9D6 /* HYP_StoreOwnerMenuListCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_StoreOwnerMenuListCVCell.swift; sourceTree = "<group>"; };
@@ -149,6 +250,44 @@
 		8064FA03299FBD1700A5A4CB /* HYP_ClaimsStatusVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_ClaimsStatusVC.swift; sourceTree = "<group>"; };
 		8065379A29A33DA80055852B /* HYP_ProgramListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_ProgramListVC.swift; sourceTree = "<group>"; };
 		8065379C29A33DC50055852B /* HYP_ProgramListTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_ProgramListTVCell.swift; sourceTree = "<group>"; };
+		80667BE029C1812D0044C6D7 /* HYP_RegisterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_RegisterVM.swift; sourceTree = "<group>"; };
+		80667BE429C181D50044C6D7 /* RoleListingModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoleListingModels.swift; sourceTree = "<group>"; };
+		80667BE529C181D60044C6D7 /* LstAttributesDetails2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LstAttributesDetails2.swift; sourceTree = "<group>"; };
+		80667BE929C181F00044C6D7 /* SalsRepresentativeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalsRepresentativeModel.swift; sourceTree = "<group>"; };
+		80667BEA29C181F00044C6D7 /* LstAttributesDetails3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LstAttributesDetails3.swift; sourceTree = "<group>"; };
+		80667BEE29C181FE0044C6D7 /* EmailExistancymodel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailExistancymodel.swift; sourceTree = "<group>"; };
+		80667BF129C1821B0044C6D7 /* StoreUserNameExistancyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreUserNameExistancyModel.swift; sourceTree = "<group>"; };
+		80667BF429C182410044C6D7 /* LstAttributesDetails7.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LstAttributesDetails7.swift; sourceTree = "<group>"; };
+		80667BF529C182420044C6D7 /* IdcardValidationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdcardValidationModel.swift; sourceTree = "<group>"; };
+		80667BF929C1825B0044C6D7 /* StoreId_Existancy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreId_Existancy.swift; sourceTree = "<group>"; };
+		80667BFA29C1825C0044C6D7 /* LstAttributesDetails1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LstAttributesDetails1.swift; sourceTree = "<group>"; };
+		80667BFE29C182C10044C6D7 /* RegistrationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationModel.swift; sourceTree = "<group>"; };
+		806A135B29BF585300CD96E2 /* HYP_HelpVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_HelpVM.swift; sourceTree = "<group>"; };
+		806A136229BF59F400CD96E2 /* RetriveActorIdModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetriveActorIdModel.swift; sourceTree = "<group>"; };
+		806A136429BF5A0E00CD96E2 /* NewQueryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewQueryModel.swift; sourceTree = "<group>"; };
+		806A136629BF5A1D00CD96E2 /* HelpTopicModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpTopicModels.swift; sourceTree = "<group>"; };
+		806A136729BF5A1E00CD96E2 /* ObjHelpTopicList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjHelpTopicList.swift; sourceTree = "<group>"; };
+		806A136A29BF5A2A00CD96E2 /* ObjCustomerAllQueryJsonList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjCustomerAllQueryJsonList.swift; sourceTree = "<group>"; };
+		806A136B29BF5A2B00CD96E2 /* QueryListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryListModel.swift; sourceTree = "<group>"; };
+		806A136F29BF5A3F00CD96E2 /* FilterQueryStatusModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterQueryStatusModel.swift; sourceTree = "<group>"; };
+		806A137029BF5A3F00CD96E2 /* LstAttributesDetails5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LstAttributesDetails5.swift; sourceTree = "<group>"; };
+		806A137429BF5E3500CD96E2 /* HYP_HelpTopicListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_HelpTopicListVM.swift; sourceTree = "<group>"; };
+		807007EA29C0A27700A654E9 /* PromotionListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromotionListModel.swift; sourceTree = "<group>"; };
+		807007EB29C0A27800A654E9 /* LtyPrgBaseDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LtyPrgBaseDetails.swift; sourceTree = "<group>"; };
+		807007F029C0A5B300A654E9 /* VoucherModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoucherModel.swift; sourceTree = "<group>"; };
+		807007F129C0A5B400A654E9 /* ObjCatalogueList1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjCatalogueList1.swift; sourceTree = "<group>"; };
+		807DECCC29C0A7A8008EDEF6 /* HYP_VoucherListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_VoucherListVM.swift; sourceTree = "<group>"; };
+		807DECCF29C0AB02008EDEF6 /* eVoucherPointExpModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = eVoucherPointExpModel.swift; sourceTree = "<group>"; };
+		807DECD029C0AB02008EDEF6 /* PointExpireModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointExpireModel.swift; sourceTree = "<group>"; };
+		807DECD529C0AD14008EDEF6 /* VoucherRedeemptionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoucherRedeemptionModel.swift; sourceTree = "<group>"; };
+		807DECD729C0AD7C008EDEF6 /* HYP_VoucherDetailsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_VoucherDetailsVM.swift; sourceTree = "<group>"; };
+		807DECDA29C0AEA2008EDEF6 /* HYP_MyStaffVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_MyStaffVM.swift; sourceTree = "<group>"; };
+		807DECDD29C0AEC6008EDEF6 /* MyStaffListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyStaffListModel.swift; sourceTree = "<group>"; };
+		807DECDE29C0AEC6008EDEF6 /* LstCustomerEntityMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LstCustomerEntityMapping.swift; sourceTree = "<group>"; };
+		8080498A29BF39FD004DEC8C /* OtpModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtpModel.swift; sourceTree = "<group>"; };
+		8080498D29BF3A41004DEC8C /* HYP_LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_LoginVM.swift; sourceTree = "<group>"; };
+		8080499029BF3B56004DEC8C /* S_MobileNumberExistancyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = S_MobileNumberExistancyModel.swift; sourceTree = "<group>"; };
+		8080499329BF3D2F004DEC8C /* TokenModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenModels.swift; sourceTree = "<group>"; };
 		808C7FA5299FA8FC00D48769 /* HYP_VouchersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_VouchersVC.swift; sourceTree = "<group>"; };
 		808C7FA7299FA91000D48769 /* HYP_VouchersTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_VouchersTVCell.swift; sourceTree = "<group>"; };
 		808C7FAA299FA94200D48769 /* HYP_VoucherDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_VoucherDetailsVC.swift; sourceTree = "<group>"; };
@@ -198,6 +337,7 @@
 		80D8751129B1D5F300BD2FDF /* HYP_DropdownVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_DropdownVM.swift; sourceTree = "<group>"; };
 		80D8751329B1D6BC00BD2FDF /* HYP_FilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYP_FilterVC.swift; sourceTree = "<group>"; };
 		80D8751629B1E95A00BD2FDF /* HYP_OtpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYP_OtpVC.swift; sourceTree = "<group>"; };
+		80EC300C29C09D88003F9F9B /* HYP_ProgrameListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_ProgrameListVM.swift; sourceTree = "<group>"; };
 		80FD4575299E3AE5001EC4EA /* HYP_LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HYP_LoginVC.swift; sourceTree = "<group>"; };
 		E271213DF3236F3E140F5FFB /* Pods_Hoya_Phillippines.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hoya_Phillippines.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA65A180B82722E23AEA9AA5 /* Pods-Hoya Phillippines.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hoya Phillippines.debug.xcconfig"; path = "Target Support Files/Pods-Hoya Phillippines/Pods-Hoya Phillippines.debug.xcconfig"; sourceTree = "<group>"; };
@@ -276,6 +416,182 @@
 				800BD863299F4B5500566B98 /* HYP_OffersDetailsVC.swift */,
 			);
 			path = "Offers Details";
+			sourceTree = "<group>";
+		};
+		801262D729C039F000A4DF02 /* DashboardVM */ = {
+			isa = PBXGroup;
+			children = (
+				801262D829C03A1A00A4DF02 /* HYP_DashboardVM.swift */,
+			);
+			path = DashboardVM;
+			sourceTree = "<group>";
+		};
+		801262DA29C03B5600A4DF02 /* DashboardModels */ = {
+			isa = PBXGroup;
+			children = (
+				801262DD29C03B8500A4DF02 /* Dashboard */,
+				801262DC29C03B7600A4DF02 /* OffersModels */,
+				801262DB29C03B6600A4DF02 /* ProfileImageUpdate */,
+			);
+			path = DashboardModels;
+			sourceTree = "<group>";
+		};
+		801262DB29C03B6600A4DF02 /* ProfileImageUpdate */ = {
+			isa = PBXGroup;
+			children = (
+				801262DE29C03BBE00A4DF02 /* ProfileIamgeUpadate.swift */,
+			);
+			path = ProfileImageUpdate;
+			sourceTree = "<group>";
+		};
+		801262DC29C03B7600A4DF02 /* OffersModels */ = {
+			isa = PBXGroup;
+			children = (
+				801262EC29C03C9100A4DF02 /* LstPromotionJsonList.swift */,
+				801262ED29C03C9100A4DF02 /* OffersBannerModel.swift */,
+			);
+			path = OffersModels;
+			sourceTree = "<group>";
+		};
+		801262DD29C03B8500A4DF02 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				801262E029C03C7B00A4DF02 /* DashBoardModels.swift */,
+				801262E129C03C7C00A4DF02 /* LstCustomerFeedBackJsonApi.swift */,
+				801262E429C03C7D00A4DF02 /* LstLoyaltyProgramReport.swift */,
+				801262E229C03C7C00A4DF02 /* LstPromotionListJsonApi.swift */,
+				801262E329C03C7D00A4DF02 /* ObjActivityDetailsJsonList.swift */,
+				801262E529C03C7E00A4DF02 /* ObjCustomerDashboardList.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		801262F029C046ED00A4DF02 /* LoginModel */ = {
+			isa = PBXGroup;
+			children = (
+				801262F129C0470600A4DF02 /* LoginSubmissionModel.swift */,
+				801262F229C0470700A4DF02 /* UserList.swift */,
+			);
+			path = LoginModel;
+			sourceTree = "<group>";
+		};
+		801262F529C04E4A00A4DF02 /* OffersVM */ = {
+			isa = PBXGroup;
+			children = (
+				801262F629C04E6400A4DF02 /* HYP_OffersVM.swift */,
+			);
+			path = OffersVM;
+			sourceTree = "<group>";
+		};
+		801262F829C051CB00A4DF02 /* QueryList */ = {
+			isa = PBXGroup;
+			children = (
+				801262F929C051EF00A4DF02 /* HYP_QueryListingVM.swift */,
+			);
+			path = QueryList;
+			sourceTree = "<group>";
+		};
+		801262FB29C0573800A4DF02 /* CreateNewQueryVM */ = {
+			isa = PBXGroup;
+			children = (
+				801262FC29C0576400A4DF02 /* HYP_CreateQueryVM.swift */,
+			);
+			path = CreateNewQueryVM;
+			sourceTree = "<group>";
+		};
+		801262FE29C05A5300A4DF02 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				8012630629C05AB800A4DF02 /* ProfileUpdate */,
+				801262FF29C05A5D00A4DF02 /* GeneralInfo */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		801262FF29C05A5D00A4DF02 /* GeneralInfo */ = {
+			isa = PBXGroup;
+			children = (
+				8012630029C05AA700A4DF02 /* GeneralInfoModel.swift */,
+				8012630129C05AA700A4DF02 /* LstCustomerJson.swift */,
+				8012630229C05AA800A4DF02 /* LstCustomerOfficalInfoJson.swift */,
+			);
+			path = GeneralInfo;
+			sourceTree = "<group>";
+		};
+		8012630629C05AB800A4DF02 /* ProfileUpdate */ = {
+			isa = PBXGroup;
+			children = (
+				8012630729C05AD900A4DF02 /* ProfileUpdateModel.swift */,
+			);
+			path = ProfileUpdate;
+			sourceTree = "<group>";
+		};
+		8012630929C05AF500A4DF02 /* ProfileVM */ = {
+			isa = PBXGroup;
+			children = (
+				8012630B29C05B3400A4DF02 /* HYP_ProfileVM.swift */,
+				8012630D29C0775600A4DF02 /* HYP_ProfileOTPVM.swift */,
+			);
+			path = ProfileVM;
+			sourceTree = "<group>";
+		};
+		8012630F29C079C200A4DF02 /* MyEarningsVM */ = {
+			isa = PBXGroup;
+			children = (
+				8012631029C079E300A4DF02 /* HYP_MyEarningsVM.swift */,
+			);
+			path = MyEarningsVM;
+			sourceTree = "<group>";
+		};
+		8012631229C07ACE00A4DF02 /* MyEarningaModels */ = {
+			isa = PBXGroup;
+			children = (
+				8012631329C07AFD00A4DF02 /* CustomerBasicInfoListJson.swift */,
+				8012631429C07AFD00A4DF02 /* My_EarningsModels.swift */,
+			);
+			path = MyEarningaModels;
+			sourceTree = "<group>";
+		};
+		8012631729C07E9600A4DF02 /* MyREdemptionVM */ = {
+			isa = PBXGroup;
+			children = (
+				8012631D29C07EE000A4DF02 /* HYP_MyRedemptionVM.swift */,
+			);
+			path = MyREdemptionVM;
+			sourceTree = "<group>";
+		};
+		8012631829C07EA600A4DF02 /* MyRedemptionModels */ = {
+			isa = PBXGroup;
+			children = (
+				8012631929C07ECA00A4DF02 /* MyRedeemptionModel.swift */,
+				8012631A29C07ECB00A4DF02 /* ObjCatalogueRedemReqList.swift */,
+			);
+			path = MyRedemptionModels;
+			sourceTree = "<group>";
+		};
+		8012631F29C088EE00A4DF02 /* Claim Status VM */ = {
+			isa = PBXGroup;
+			children = (
+				8012632029C0890B00A4DF02 /* HYP_ClaimStatusVM.swift */,
+			);
+			path = "Claim Status VM";
+			sourceTree = "<group>";
+		};
+		8012632229C0914900A4DF02 /* PointExpiryReportModels */ = {
+			isa = PBXGroup;
+			children = (
+				8012632329C0917F00A4DF02 /* LstPointsExpiryDetails.swift */,
+				8012632429C0917F00A4DF02 /* PointExpireReportModel.swift */,
+			);
+			path = PointExpiryReportModels;
+			sourceTree = "<group>";
+		};
+		8012632729C0925600A4DF02 /* PointExpireReportVM */ = {
+			isa = PBXGroup;
+			children = (
+				8012632829C0928800A4DF02 /* HYP_PointExpireReportVM.swift */,
+			);
+			path = PointExpireReportVM;
 			sourceTree = "<group>";
 		};
 		801BC713299F66350069B8AA /* Query TopicList */ = {
@@ -449,6 +765,177 @@
 			path = "Program List";
 			sourceTree = "<group>";
 		};
+		80667BDF29C180FB0044C6D7 /* RegisterVM */ = {
+			isa = PBXGroup;
+			children = (
+				80667BE029C1812D0044C6D7 /* HYP_RegisterVM.swift */,
+			);
+			path = RegisterVM;
+			sourceTree = "<group>";
+		};
+		80667BE229C1819D0044C6D7 /* DropDownModels */ = {
+			isa = PBXGroup;
+			children = (
+				80667BE829C181DA0044C6D7 /* SalesRepresentativeModels */,
+				80667BE329C181C40044C6D7 /* RoleListModels */,
+			);
+			path = DropDownModels;
+			sourceTree = "<group>";
+		};
+		80667BE329C181C40044C6D7 /* RoleListModels */ = {
+			isa = PBXGroup;
+			children = (
+				80667BE529C181D60044C6D7 /* LstAttributesDetails2.swift */,
+				80667BE429C181D50044C6D7 /* RoleListingModels.swift */,
+			);
+			path = RoleListModels;
+			sourceTree = "<group>";
+		};
+		80667BE829C181DA0044C6D7 /* SalesRepresentativeModels */ = {
+			isa = PBXGroup;
+			children = (
+				80667BEA29C181F00044C6D7 /* LstAttributesDetails3.swift */,
+				80667BE929C181F00044C6D7 /* SalsRepresentativeModel.swift */,
+			);
+			path = SalesRepresentativeModels;
+			sourceTree = "<group>";
+		};
+		80667BED29C181F40044C6D7 /* Email ValidationModels */ = {
+			isa = PBXGroup;
+			children = (
+				80667BEE29C181FE0044C6D7 /* EmailExistancymodel.swift */,
+			);
+			path = "Email ValidationModels";
+			sourceTree = "<group>";
+		};
+		80667BF029C1820E0044C6D7 /* StoreUserNameExistancyModels */ = {
+			isa = PBXGroup;
+			children = (
+				80667BF129C1821B0044C6D7 /* StoreUserNameExistancyModel.swift */,
+			);
+			path = StoreUserNameExistancyModels;
+			sourceTree = "<group>";
+		};
+		80667BF329C182300044C6D7 /* IdcardValidationModel */ = {
+			isa = PBXGroup;
+			children = (
+				80667BF529C182420044C6D7 /* IdcardValidationModel.swift */,
+				80667BF429C182410044C6D7 /* LstAttributesDetails7.swift */,
+			);
+			path = IdcardValidationModel;
+			sourceTree = "<group>";
+		};
+		80667BF829C182490044C6D7 /* StoreId_Existancy */ = {
+			isa = PBXGroup;
+			children = (
+				80667BFA29C1825C0044C6D7 /* LstAttributesDetails1.swift */,
+				80667BF929C1825B0044C6D7 /* StoreId_Existancy.swift */,
+			);
+			path = StoreId_Existancy;
+			sourceTree = "<group>";
+		};
+		80667BFD29C182A90044C6D7 /* RegistrationModel */ = {
+			isa = PBXGroup;
+			children = (
+				80667BFE29C182C10044C6D7 /* RegistrationModel.swift */,
+			);
+			path = RegistrationModel;
+			sourceTree = "<group>";
+		};
+		80667C0029C182DD0044C6D7 /* RegisterModels */ = {
+			isa = PBXGroup;
+			children = (
+				80667BED29C181F40044C6D7 /* Email ValidationModels */,
+				80667BF029C1820E0044C6D7 /* StoreUserNameExistancyModels */,
+				80667BF329C182300044C6D7 /* IdcardValidationModel */,
+				80667BF829C182490044C6D7 /* StoreId_Existancy */,
+				80667BFD29C182A90044C6D7 /* RegistrationModel */,
+			);
+			path = RegisterModels;
+			sourceTree = "<group>";
+		};
+		806A135929BF583200CD96E2 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				801262FB29C0573800A4DF02 /* CreateNewQueryVM */,
+				801262F829C051CB00A4DF02 /* QueryList */,
+				806A137329BF5DC100CD96E2 /* HelpTopicVM */,
+				806A135A29BF583D00CD96E2 /* HelpVM */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		806A135A29BF583D00CD96E2 /* HelpVM */ = {
+			isa = PBXGroup;
+			children = (
+				806A135B29BF585300CD96E2 /* HYP_HelpVM.swift */,
+			);
+			path = HelpVM;
+			sourceTree = "<group>";
+		};
+		806A135D29BF591F00CD96E2 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				806A136E29BF5A2F00CD96E2 /* FilterStatus */,
+				806A136129BF599300CD96E2 /* TopicListModels */,
+				806A136029BF594100CD96E2 /* QuerySubmission */,
+				806A135F29BF592F00CD96E2 /* RetriveActoreId */,
+				806A135E29BF592600CD96E2 /* QueryList */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		806A135E29BF592600CD96E2 /* QueryList */ = {
+			isa = PBXGroup;
+			children = (
+				806A136A29BF5A2A00CD96E2 /* ObjCustomerAllQueryJsonList.swift */,
+				806A136B29BF5A2B00CD96E2 /* QueryListModel.swift */,
+			);
+			path = QueryList;
+			sourceTree = "<group>";
+		};
+		806A135F29BF592F00CD96E2 /* RetriveActoreId */ = {
+			isa = PBXGroup;
+			children = (
+				806A136229BF59F400CD96E2 /* RetriveActorIdModel.swift */,
+			);
+			path = RetriveActoreId;
+			sourceTree = "<group>";
+		};
+		806A136029BF594100CD96E2 /* QuerySubmission */ = {
+			isa = PBXGroup;
+			children = (
+				806A136429BF5A0E00CD96E2 /* NewQueryModel.swift */,
+			);
+			path = QuerySubmission;
+			sourceTree = "<group>";
+		};
+		806A136129BF599300CD96E2 /* TopicListModels */ = {
+			isa = PBXGroup;
+			children = (
+				806A136629BF5A1D00CD96E2 /* HelpTopicModels.swift */,
+				806A136729BF5A1E00CD96E2 /* ObjHelpTopicList.swift */,
+			);
+			path = TopicListModels;
+			sourceTree = "<group>";
+		};
+		806A136E29BF5A2F00CD96E2 /* FilterStatus */ = {
+			isa = PBXGroup;
+			children = (
+				806A136F29BF5A3F00CD96E2 /* FilterQueryStatusModel.swift */,
+				806A137029BF5A3F00CD96E2 /* LstAttributesDetails5.swift */,
+			);
+			path = FilterStatus;
+			sourceTree = "<group>";
+		};
+		806A137329BF5DC100CD96E2 /* HelpTopicVM */ = {
+			isa = PBXGroup;
+			children = (
+				806A137429BF5E3500CD96E2 /* HYP_HelpTopicListVM.swift */,
+			);
+			path = HelpTopicVM;
+			sourceTree = "<group>";
+		};
 		806BB74C29B6F5FC00F7547C /* QueryList */ = {
 			isa = PBXGroup;
 			children = (
@@ -456,6 +943,100 @@
 				800BD85A299F3AB300566B98 /* HYP_SupportTVCell.swift */,
 			);
 			path = QueryList;
+			sourceTree = "<group>";
+		};
+		807007EE29C0A58200A654E9 /* e-Voucher */ = {
+			isa = PBXGroup;
+			children = (
+				807DECCC29C0A7A8008EDEF6 /* HYP_VoucherListVM.swift */,
+				807DECD729C0AD7C008EDEF6 /* HYP_VoucherDetailsVM.swift */,
+			);
+			path = "e-Voucher";
+			sourceTree = "<group>";
+		};
+		807007EF29C0A58F00A654E9 /* e-VoucherModels */ = {
+			isa = PBXGroup;
+			children = (
+				807007F129C0A5B400A654E9 /* ObjCatalogueList1.swift */,
+				807007F029C0A5B300A654E9 /* VoucherModel.swift */,
+			);
+			path = "e-VoucherModels";
+			sourceTree = "<group>";
+		};
+		807DECCE29C0AAD7008EDEF6 /* NextDayPointExpire */ = {
+			isa = PBXGroup;
+			children = (
+				807DECCF29C0AB02008EDEF6 /* eVoucherPointExpModel.swift */,
+				807DECD029C0AB02008EDEF6 /* PointExpireModel.swift */,
+			);
+			path = NextDayPointExpire;
+			sourceTree = "<group>";
+		};
+		807DECD329C0AC6B008EDEF6 /* Voucher */ = {
+			isa = PBXGroup;
+			children = (
+				807DECD429C0ACDA008EDEF6 /* VoucherRedeemptionsModel */,
+				807007EF29C0A58F00A654E9 /* e-VoucherModels */,
+				807DECCE29C0AAD7008EDEF6 /* NextDayPointExpire */,
+			);
+			path = Voucher;
+			sourceTree = "<group>";
+		};
+		807DECD429C0ACDA008EDEF6 /* VoucherRedeemptionsModel */ = {
+			isa = PBXGroup;
+			children = (
+				807DECD529C0AD14008EDEF6 /* VoucherRedeemptionModel.swift */,
+			);
+			path = VoucherRedeemptionsModel;
+			sourceTree = "<group>";
+		};
+		807DECD929C0AE8A008EDEF6 /* My Staff VM */ = {
+			isa = PBXGroup;
+			children = (
+				807DECDA29C0AEA2008EDEF6 /* HYP_MyStaffVM.swift */,
+			);
+			path = "My Staff VM";
+			sourceTree = "<group>";
+		};
+		807DECDC29C0AEAB008EDEF6 /* MyStaffModels */ = {
+			isa = PBXGroup;
+			children = (
+				807DECDE29C0AEC6008EDEF6 /* LstCustomerEntityMapping.swift */,
+				807DECDD29C0AEC6008EDEF6 /* MyStaffListModel.swift */,
+			);
+			path = MyStaffModels;
+			sourceTree = "<group>";
+		};
+		8080498929BF39F0004DEC8C /* OTP Models */ = {
+			isa = PBXGroup;
+			children = (
+				8080498A29BF39FD004DEC8C /* OtpModel.swift */,
+			);
+			path = "OTP Models";
+			sourceTree = "<group>";
+		};
+		8080498C29BF3A17004DEC8C /* Login VM */ = {
+			isa = PBXGroup;
+			children = (
+				8080498D29BF3A41004DEC8C /* HYP_LoginVM.swift */,
+			);
+			path = "Login VM";
+			sourceTree = "<group>";
+		};
+		8080498F29BF3B29004DEC8C /* MembershiID existancy Models */ = {
+			isa = PBXGroup;
+			children = (
+				8080499029BF3B56004DEC8C /* S_MobileNumberExistancyModel.swift */,
+			);
+			path = "MembershiID existancy Models";
+			sourceTree = "<group>";
+		};
+		8080499229BF3D17004DEC8C /* TokenDataModels */ = {
+			isa = PBXGroup;
+			children = (
+				8080499329BF3D2F004DEC8C /* TokenModels.swift */,
+			);
+			path = TokenDataModels;
 			sourceTree = "<group>";
 		};
 		808C7FA9299FA91A00D48769 /* e-Voucher Details */ = {
@@ -519,6 +1100,21 @@
 		80C59807299E00310096CFE4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				80667C0029C182DD0044C6D7 /* RegisterModels */,
+				80667BE229C1819D0044C6D7 /* DropDownModels */,
+				807DECDC29C0AEAB008EDEF6 /* MyStaffModels */,
+				807DECD329C0AC6B008EDEF6 /* Voucher */,
+				80EC300E29C09DB6003F9F9B /* ProgrameListModels */,
+				8012632229C0914900A4DF02 /* PointExpiryReportModels */,
+				8012631829C07EA600A4DF02 /* MyRedemptionModels */,
+				8012631229C07ACE00A4DF02 /* MyEarningaModels */,
+				801262FE29C05A5300A4DF02 /* Profile */,
+				801262F029C046ED00A4DF02 /* LoginModel */,
+				801262DA29C03B5600A4DF02 /* DashboardModels */,
+				806A135D29BF591F00CD96E2 /* Support */,
+				8080499229BF3D17004DEC8C /* TokenDataModels */,
+				8080498F29BF3B29004DEC8C /* MembershiID existancy Models */,
+				8080498929BF39F0004DEC8C /* OTP Models */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -556,7 +1152,20 @@
 		80C59809299E003D0096CFE4 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				80667BDF29C180FB0044C6D7 /* RegisterVM */,
 				80D8751029B1D5E000BD2FDF /* Dropdown */,
+				807DECD929C0AE8A008EDEF6 /* My Staff VM */,
+				807007EE29C0A58200A654E9 /* e-Voucher */,
+				80EC300B29C09D6A003F9F9B /* Program List Vm */,
+				8012632729C0925600A4DF02 /* PointExpireReportVM */,
+				8012631F29C088EE00A4DF02 /* Claim Status VM */,
+				8012631729C07E9600A4DF02 /* MyREdemptionVM */,
+				8012630F29C079C200A4DF02 /* MyEarningsVM */,
+				8012630929C05AF500A4DF02 /* ProfileVM */,
+				801262F529C04E4A00A4DF02 /* OffersVM */,
+				801262D729C039F000A4DF02 /* DashboardVM */,
+				806A135929BF583200CD96E2 /* Support */,
+				8080498C29BF3A17004DEC8C /* Login VM */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -710,6 +1319,23 @@
 			path = Otp;
 			sourceTree = "<group>";
 		};
+		80EC300B29C09D6A003F9F9B /* Program List Vm */ = {
+			isa = PBXGroup;
+			children = (
+				80EC300C29C09D88003F9F9B /* HYP_ProgrameListVM.swift */,
+			);
+			path = "Program List Vm";
+			sourceTree = "<group>";
+		};
+		80EC300E29C09DB6003F9F9B /* ProgrameListModels */ = {
+			isa = PBXGroup;
+			children = (
+				807007EB29C0A27800A654E9 /* LtyPrgBaseDetails.swift */,
+				807007EA29C0A27700A654E9 /* PromotionListModel.swift */,
+			);
+			path = ProgrameListModels;
+			sourceTree = "<group>";
+		};
 		80FD4574299E3ACB001EC4EA /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -851,72 +1477,142 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				801262E629C03C7E00A4DF02 /* DashBoardModels.swift in Sources */,
 				805F34AA29B1B88F002F33AE /* RequestMethod.swift in Sources */,
 				802B8F8C299F97360062CDA7 /* HYP_MyEarningTVCell.swift in Sources */,
 				80C5981B299E028F0096CFE4 /* ViewExtension.swift in Sources */,
+				8012630529C05AA800A4DF02 /* LstCustomerOfficalInfoJson.swift in Sources */,
 				8065379D29A33DC50055852B /* HYP_ProgramListTVCell.swift in Sources */,
+				801262EE29C03C9100A4DF02 /* LstPromotionJsonList.swift in Sources */,
 				805F349D29B1B867002F33AE /* BaseViewController.swift in Sources */,
+				8012630E29C0775600A4DF02 /* HYP_ProfileOTPVM.swift in Sources */,
+				8012631E29C07EE000A4DF02 /* HYP_MyRedemptionVM.swift in Sources */,
+				801262E929C03C7E00A4DF02 /* ObjActivityDetailsJsonList.swift in Sources */,
 				805F34A629B1B88F002F33AE /* RestAPI_Requests.swift in Sources */,
+				806A136929BF5A1E00CD96E2 /* ObjHelpTopicList.swift in Sources */,
 				8065379B29A33DA80055852B /* HYP_ProgramListVC.swift in Sources */,
 				80C59832299E04370096CFE4 /* Colors.swift in Sources */,
+				8012630829C05AD900A4DF02 /* ProfileUpdateModel.swift in Sources */,
 				8022F85429A0D7B90070C9D6 /* HYP_StoreOwnerMenuListCVCell.swift in Sources */,
 				802B8F89299F97120062CDA7 /* HYP_MyEarningVC.swift in Sources */,
+				80667BEC29C181F00044C6D7 /* LstAttributesDetails3.swift in Sources */,
+				807DECCD29C0A7A9008EDEF6 /* HYP_VoucherListVM.swift in Sources */,
+				806A137529BF5E3500CD96E2 /* HYP_HelpTopicListVM.swift in Sources */,
 				809AFB8329A48BDD0015310D /* HYP_ManageStaffTVCell.swift in Sources */,
 				805F34D029B1B8EF002F33AE /* senderImageTableViewCell.swift in Sources */,
+				801262D929C03A1A00A4DF02 /* HYP_DashboardVM.swift in Sources */,
+				80667BF229C1821B0044C6D7 /* StoreUserNameExistancyModel.swift in Sources */,
 				800BD855299F3A5200566B98 /* HYP_TabBarVC.swift in Sources */,
 				805F34CF29B1B8EF002F33AE /* otherImageTableViewCell.swift in Sources */,
+				80667BFB29C1825C0044C6D7 /* StoreId_Existancy.swift in Sources */,
 				80D8750E29B1D44900BD2FDF /* HYP_DatePickerVC.swift in Sources */,
+				806A136C29BF5A2B00CD96E2 /* ObjCustomerAllQueryJsonList.swift in Sources */,
+				807DECDB29C0AEA2008EDEF6 /* HYP_MyStaffVM.swift in Sources */,
+				80667BEF29C181FE0044C6D7 /* EmailExistancymodel.swift in Sources */,
+				8012630329C05AA800A4DF02 /* GeneralInfoModel.swift in Sources */,
+				80667BEB29C181F00044C6D7 /* SalsRepresentativeModel.swift in Sources */,
+				8012632529C0917F00A4DF02 /* LstPointsExpiryDetails.swift in Sources */,
+				8012631629C07AFD00A4DF02 /* My_EarningsModels.swift in Sources */,
+				80EC300D29C09D88003F9F9B /* HYP_ProgrameListVM.swift in Sources */,
+				801262EA29C03C7E00A4DF02 /* LstLoyaltyProgramReport.swift in Sources */,
+				8012630429C05AA800A4DF02 /* LstCustomerJson.swift in Sources */,
 				80C59818299E028F0096CFE4 /* NotificationExtension.swift in Sources */,
+				8012632129C0890B00A4DF02 /* HYP_ClaimStatusVM.swift in Sources */,
+				801262E829C03C7E00A4DF02 /* LstPromotionListJsonApi.swift in Sources */,
+				807DECD229C0AB02008EDEF6 /* PointExpireModel.swift in Sources */,
+				8080498E29BF3A41004DEC8C /* HYP_LoginVM.swift in Sources */,
+				807DECE029C0AEC6008EDEF6 /* LstCustomerEntityMapping.swift in Sources */,
 				805F34CE29B1B8EF002F33AE /* otherInfoTableViewCell.swift in Sources */,
 				800BD85D299F3AD100566B98 /* HYP_OffersTVcell.swift in Sources */,
 				802B8F86299F7ADE0062CDA7 /* HYP_CreateQueryVC.swift in Sources */,
 				805F349829B1B3D0002F33AE /* HYP_PointsExpiryReportVC.swift in Sources */,
+				801262FA29C051F000A4DF02 /* HYP_QueryListingVM.swift in Sources */,
+				8080499429BF3D2F004DEC8C /* TokenModels.swift in Sources */,
+				807DECD829C0AD7C008EDEF6 /* HYP_VoucherDetailsVM.swift in Sources */,
 				800BD85F299F3AEC00566B98 /* HYP_OffersVC.swift in Sources */,
 				80D8750D29B1D44900BD2FDF /* HYP_DropDownVC.swift in Sources */,
+				807DECDF29C0AEC6008EDEF6 /* MyStaffListModel.swift in Sources */,
 				809AFB8529A496280015310D /* HYP_MyStaffTVCell.swift in Sources */,
+				8012631B29C07ECB00A4DF02 /* MyRedeemptionModel.swift in Sources */,
 				805F34B329B1B89C002F33AE /* Reachability.swift in Sources */,
 				80D8751429B1D6BC00BD2FDF /* HYP_FilterVC.swift in Sources */,
 				805F34A929B1B88F002F33AE /* WebClient.swift in Sources */,
 				805D8491299E493D00DF5FBF /* HYP_RegisterVC.swift in Sources */,
+				801262F329C0470700A4DF02 /* LoginSubmissionModel.swift in Sources */,
+				806A135C29BF585300CD96E2 /* HYP_HelpVM.swift in Sources */,
+				807007EC29C0A27800A654E9 /* PromotionListModel.swift in Sources */,
+				807007ED29C0A27800A654E9 /* LtyPrgBaseDetails.swift in Sources */,
 				80C59817299E028F0096CFE4 /* GrandientExtension.swift in Sources */,
 				80C59819299E028F0096CFE4 /* UiViewControllerExtenssion.swift in Sources */,
+				801262DF29C03BBE00A4DF02 /* ProfileIamgeUpadate.swift in Sources */,
+				8080499129BF3B56004DEC8C /* S_MobileNumberExistancyModel.swift in Sources */,
+				8012632629C0917F00A4DF02 /* PointExpireReportModel.swift in Sources */,
+				801262FD29C0576400A4DF02 /* HYP_CreateQueryVM.swift in Sources */,
 				805F34B229B1B89C002F33AE /* ApiUrls.swift in Sources */,
+				806A137129BF5A3F00CD96E2 /* FilterQueryStatusModel.swift in Sources */,
 				8041EBD729B3475A00A0DA15 /* HYP_SuccessMessageVC.swift in Sources */,
 				805F34A829B1B88F002F33AE /* ServiceError.swift in Sources */,
 				80D8750F29B1D44900BD2FDF /* HYP_DropDownTVCell.swift in Sources */,
+				806A136529BF5A0E00CD96E2 /* NewQueryModel.swift in Sources */,
 				805F34B429B1B89C002F33AE /* Reach.swift in Sources */,
 				800BD864299F4B5500566B98 /* HYP_OffersDetailsVC.swift in Sources */,
 				80D8751229B1D5F300BD2FDF /* HYP_DropdownVM.swift in Sources */,
+				8012631129C079E300A4DF02 /* HYP_MyEarningsVM.swift in Sources */,
 				805F34A529B1B88F002F33AE /* URLRequest.swift in Sources */,
+				801262F429C0470700A4DF02 /* UserList.swift in Sources */,
 				802B8F90299F9C010062CDA7 /* HYP_MyRedemptionTVCell.swift in Sources */,
 				808C7FAB299FA94200D48769 /* HYP_VoucherDetailsVC.swift in Sources */,
+				8012632929C0928800A4DF02 /* HYP_PointExpireReportVM.swift in Sources */,
+				806A136829BF5A1E00CD96E2 /* HelpTopicModels.swift in Sources */,
+				80667BE629C181D60044C6D7 /* RoleListingModels.swift in Sources */,
 				80C597F5299E00130096CFE4 /* HYP_WelcomeVC.swift in Sources */,
 				809E533D29A0A94E00A7FB0C /* HYP_MenuListTVCell.swift in Sources */,
 				805F34CA29B1B8EF002F33AE /* senderInfoTableViewCell.swift in Sources */,
 				805F34AB29B1B88F002F33AE /* URLExtension.swift in Sources */,
 				800BD859299F3A8E00566B98 /* HYP_SupportVC.swift in Sources */,
+				8012631529C07AFD00A4DF02 /* CustomerBasicInfoListJson.swift in Sources */,
+				8012631C29C07ECB00A4DF02 /* ObjCatalogueRedemReqList.swift in Sources */,
+				80667BE729C181D60044C6D7 /* LstAttributesDetails2.swift in Sources */,
+				80667BF629C182420044C6D7 /* LstAttributesDetails7.swift in Sources */,
+				807007F229C0A5B400A654E9 /* VoucherModel.swift in Sources */,
+				801262EB29C03C7E00A4DF02 /* ObjCustomerDashboardList.swift in Sources */,
+				801262F729C04E6400A4DF02 /* HYP_OffersVM.swift in Sources */,
+				801262EF29C03C9100A4DF02 /* OffersBannerModel.swift in Sources */,
 				8041EBD929B3685700A0DA15 /* String+Extenssion.swift in Sources */,
 				80C597F1299E00130096CFE4 /* AppDelegate.swift in Sources */,
 				805F34A729B1B88F002F33AE /* URLMethods.swift in Sources */,
 				801BC717299F66770069B8AA /* HYP_QueryTopicListTVCell.swift in Sources */,
+				8080498B29BF39FD004DEC8C /* OtpModel.swift in Sources */,
 				80A7B2CD29A34FA500EE4FA9 /* HYP_ClaimDetailsVC.swift in Sources */,
 				805F349A29B1B3F2002F33AE /* HYP_PointsExpiryReportTVCell.swift in Sources */,
 				805F34B529B1B89C002F33AE /* MyCommonFunctionalUtilities.swift in Sources */,
+				807007F329C0A5B400A654E9 /* ObjCatalogueList1.swift in Sources */,
 				809AFB8129A48BBF0015310D /* HYP_MangageStaffVC.swift in Sources */,
 				803FCE9D299E5E8600B4B7A3 /* HYP_HelpVC.swift in Sources */,
 				80FD4576299E3AE5001EC4EA /* HYP_LoginVC.swift in Sources */,
 				80C597F3299E00130096CFE4 /* SceneDelegate.swift in Sources */,
 				805F34D129B1B8EF002F33AE /* otherInfoImageTableViewCell.swift in Sources */,
+				806A136D29BF5A2B00CD96E2 /* QueryListModel.swift in Sources */,
 				80D8751729B1E95B00BD2FDF /* HYP_OtpVC.swift in Sources */,
 				800BD85B299F3AB300566B98 /* HYP_SupportTVCell.swift in Sources */,
+				80667BFF29C182C10044C6D7 /* RegistrationModel.swift in Sources */,
 				80C5981D299E028F0096CFE4 /* LabelExtension.swift in Sources */,
+				80667BF729C182420044C6D7 /* IdcardValidationModel.swift in Sources */,
+				806A136329BF59F500CD96E2 /* RetriveActorIdModel.swift in Sources */,
+				80667BE129C1812D0044C6D7 /* HYP_RegisterVM.swift in Sources */,
+				807DECD129C0AB02008EDEF6 /* eVoucherPointExpModel.swift in Sources */,
 				80C597FB299E00130096CFE4 /* Hoya_Phillippines.xcdatamodeld in Sources */,
 				80C5981A299E028F0096CFE4 /* ImageExtension.swift in Sources */,
 				808C7FA6299FA8FC00D48769 /* HYP_VouchersVC.swift in Sources */,
 				802B8F92299F9C1F0062CDA7 /* HYP_MyRedemptionVC.swift in Sources */,
 				805F34B829B1B8CC002F33AE /* HR_Chatvc2ViewController.swift in Sources */,
+				801262E729C03C7E00A4DF02 /* LstCustomerFeedBackJsonApi.swift in Sources */,
 				805F34CD29B1B8EF002F33AE /* senderInfoImageTableViewCell.swift in Sources */,
+				806A137229BF5A3F00CD96E2 /* LstAttributesDetails5.swift in Sources */,
+				8012630C29C05B3400A4DF02 /* HYP_ProfileVM.swift in Sources */,
 				80C5981C299E028F0096CFE4 /* TextfieldExtension.swift in Sources */,
+				807DECD629C0AD14008EDEF6 /* VoucherRedeemptionModel.swift in Sources */,
+				80667BFC29C1825C0044C6D7 /* LstAttributesDetails1.swift in Sources */,
 				8064FA04299FBD1700A5A4CB /* HYP_ClaimsStatusVC.swift in Sources */,
 				808C7FA8299FA91000D48769 /* HYP_VouchersTVCell.swift in Sources */,
 				809AFB8729A496B60015310D /* HYP_MyStaffVC.swift in Sources */,
@@ -998,7 +1694,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1052,7 +1748,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1070,6 +1766,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2HG885J5KS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Hoya Phillippines/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Profile Image Update need to Camera.Allow Camera access?";
@@ -1100,6 +1797,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2HG885J5KS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Hoya Phillippines/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Profile Image Update need to Camera.Allow Camera access?";

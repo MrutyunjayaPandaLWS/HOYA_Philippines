@@ -17,6 +17,7 @@ class HYP_VouchersTVCell: UITableViewCell {
     @IBOutlet weak var voucherNameLbl: UILabel!
     @IBOutlet weak var voucherImage: UIImageView!
     var delegate: VoucherDelegate?
+    var voucherDetails : ObjCatalogueList1?
     override func awakeFromNib() {
         super.awakeFromNib()
         

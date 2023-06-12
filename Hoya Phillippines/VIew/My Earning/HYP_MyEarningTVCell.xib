@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -120,7 +121,7 @@
                                         <color key="textColor" red="0.1647058824" green="0.1647058824" blue="0.1647058824" alpha="0.71999999999999997" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01 / 01 /2023" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sjm-Fv-bAe">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01 / 01 /2023" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sjm-Fv-bAe">
                                         <rect key="frame" x="297" y="26" width="84" height="14"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="84" id="Uov-vm-zRk"/>
@@ -136,7 +137,6 @@
                                     <constraint firstAttribute="trailing" secondItem="E63-cg-imK" secondAttribute="trailing" constant="20" id="AWt-29-Mq1"/>
                                     <constraint firstAttribute="bottom" secondItem="sjm-Fv-bAe" secondAttribute="bottom" constant="4" id="Ddb-7G-yen"/>
                                     <constraint firstItem="UW0-Yt-LIV" firstAttribute="top" secondItem="HGX-vh-rue" secondAttribute="top" constant="4" id="IIA-Pu-cB4"/>
-                                    <constraint firstItem="sjm-Fv-bAe" firstAttribute="top" secondItem="E63-cg-imK" secondAttribute="bottom" constant="10" id="L8r-iS-Iiq"/>
                                     <constraint firstItem="sjm-Fv-bAe" firstAttribute="leading" secondItem="vK8-Vu-nc0" secondAttribute="trailing" constant="10" id="NhD-Np-GUF"/>
                                     <constraint firstItem="UW0-Yt-LIV" firstAttribute="leading" secondItem="HGX-vh-rue" secondAttribute="leading" id="V4n-8m-Kvw"/>
                                     <constraint firstItem="E63-cg-imK" firstAttribute="top" secondItem="HGX-vh-rue" secondAttribute="top" constant="4" id="Wis-N9-lAd"/>
@@ -195,6 +195,7 @@
                             <constraint firstItem="f5X-hR-BEt" firstAttribute="leading" secondItem="b3e-cD-noU" secondAttribute="leading" constant="10" id="8aK-Rr-qak"/>
                             <constraint firstItem="f5X-hR-BEt" firstAttribute="top" secondItem="HGX-vh-rue" secondAttribute="bottom" constant="10" id="A5d-ZU-9bn"/>
                             <constraint firstItem="XcM-wm-0oL" firstAttribute="leading" secondItem="b3e-cD-noU" secondAttribute="leading" constant="10" id="B5B-fL-Vgq"/>
+                            <constraint firstAttribute="bottom" secondItem="UBI-35-Qf6" secondAttribute="bottom" constant="16" id="B83-pv-XmD"/>
                             <constraint firstItem="wtV-qg-wac" firstAttribute="top" secondItem="f6j-04-hsE" secondAttribute="top" id="Cf9-Zc-qQz"/>
                             <constraint firstAttribute="trailing" secondItem="XcM-wm-0oL" secondAttribute="trailing" constant="10" id="H80-uV-XgZ"/>
                             <constraint firstAttribute="trailing" secondItem="wtV-qg-wac" secondAttribute="trailing" constant="20" id="LNQ-Ge-jmw"/>
@@ -230,6 +231,7 @@
                 <outlet property="pointsView" destination="fNt-jR-wKX" id="qix-V3-ctz"/>
                 <outlet property="productNameLbl" destination="vK8-Vu-nc0" id="p6G-ba-yf4"/>
                 <outlet property="promotionNameLbl" destination="gFj-5H-9Be" id="lfn-9b-gxz"/>
+                <outlet property="promotionNameTitleLbl" destination="dfG-BK-gtn" id="kgG-C1-g3k"/>
                 <outlet property="remarksLbl" destination="wtV-qg-wac" id="3zj-S5-0Iy"/>
                 <outlet property="salesReturnLbl" destination="UBI-35-Qf6" id="7EV-by-a98"/>
             </connections>

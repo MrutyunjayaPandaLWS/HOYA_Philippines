@@ -7,12 +7,20 @@
 
 import UIKit
 
+protocol myRedeemptionDelegate{
+    func downloadVoucher(item: HYP_MyRedemptionTVCell)
+}
+
 class HYP_MyRedemptionTVCell: UITableViewCell {
 
+    @IBOutlet weak var pointsLbl: UILabel!
     @IBOutlet weak var downloadVoucherHeight: NSLayoutConstraint!
     @IBOutlet weak var statusLbl: UILabel!
     @IBOutlet weak var dateLbl: UILabel!
     @IBOutlet weak var voucherNameLbl: UILabel!
+    var downloadVoucher:String = ""
+    var delegate : myRedeemptionDelegate?
+    var productName = ""
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

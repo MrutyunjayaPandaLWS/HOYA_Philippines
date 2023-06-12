@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             self.setInitialViewAsRootViewController()
         }
-        
+        tokendata()
         return true
     }
 
@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     func setInitialViewAsRootViewController(){
         let mainStoryboard = UIStoryboard(name: "Main" , bundle: nil)
-        let initialVC = mainStoryboard.instantiateViewController(withIdentifier: "HYP_WelcomeVC") as! HYP_WelcomeVC
+        let initialVC = mainStoryboard.instantiateViewController(withIdentifier: "HYP_LoginVC") as! HYP_LoginVC
         nav = UINavigationController(rootViewController: initialVC)
         nav.modalPresentationStyle = .overCurrentContext
         nav.modalTransitionStyle = .partialCurl
@@ -108,6 +108,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    func tokendata(){
+            if MyCommonFunctionalUtilities.isInternetCallTheApi() == false{
+            }else{
+                let parameters : Data = "username=\(username)&password=\(password)&grant_type=password".data(using: .utf8)!
+
+            let url = URL(string: tokenURL)!
+            let session = URLSession.shared
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+
+            do {
+                 request.httpBody = parameters
+            } catch let error {
+                print(error.localizedDescription)
+            }
+            request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+           
+            let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+
+                guard error == nil else {
+                    return
+                }
+                guard let data = data else {
+                    return
+                }
+                do{
+                    let parseddata = try JSONDecoder().decode(TokenModels.self, from: data)
+                        print(parseddata.access_token ?? "")
+                        UserDefaults.standard.setValue(parseddata.access_token ?? "", forKey: "TOKEN")
+                     }catch let parsingError {
+                    print("Error", parsingError)
+                }
+            })
+            task.resume()
+        }
+        }
 
 }
 

@@ -18,6 +18,7 @@ class HYP_OffersTVcell: UITableViewCell {
     @IBOutlet weak var offersName: UILabel!
     @IBOutlet weak var offersImage: UIImageView!
     var delegate: OffersDelegate?
+    var offersData: LstPromotionJsonList?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

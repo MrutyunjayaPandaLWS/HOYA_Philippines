@@ -38,4 +38,4 @@ let saveCustomerRegistration_URLMethod = "SaveCustomerRegistrationDetailsMobileA
 let voucherRedeemption_URLMethod = "SaveCatalogueRedemptionDetailsEssilor"
 let chat_URL_MethodName = "GetQueryResponseInformation"
 let saveCustomerChatmessage_URLMethod = "SaveCustomerQueryTicket"
-
+let profileImageUpdate_URLMethod = "UpdateCustomerProfileMobileApp"

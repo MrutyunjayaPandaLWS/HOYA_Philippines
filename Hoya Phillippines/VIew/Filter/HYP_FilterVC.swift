@@ -79,7 +79,7 @@ class HYP_FilterVC: UIViewController, FilterStatusDelegate, DateSelectedDelegate
         vc?.modalTransitionStyle = .crossDissolve
         vc?.modalPresentationStyle = .overFullScreen
         vc?.delegate1 = self
-        vc?.flags = "promotionName"
+        vc?.flags = flags
         present(vc!, animated: true)
     }
    
