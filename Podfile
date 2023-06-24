@@ -13,5 +13,21 @@ pod 'DPOTPView'
 pod 'lottie-ios'
 pod 'Toast-Swift', '~> 5.0.1'
 pod "ImageSlideshow/Alamofire"
+pod "ImageSlideshow/SDWebImage"
+pod 'Firebase/CoreOnly'
+pod 'FirebaseAnalytics'
+pod 'FirebaseAuth'
+pod 'FirebaseFirestore'
+pod 'Firebase/Messaging'
 
 end
+
+post_install do |installer|
+     installer.pods_project.targets.each do |target|
+         target.build_configurations.each do |config|
+            if config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'].to_f < 11.0
+              config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11.0'
+            end
+         end
+     end
+  end

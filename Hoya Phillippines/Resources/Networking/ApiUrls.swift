@@ -8,25 +8,20 @@
 import Foundation
 
 //DEMO
-let tokenURL = "https://hoyatserv.loyltwo3ks.com/token"
-let baseURl = "https://hoyatserv.loyltwo3ks.com/Mobile/"
+let tokenURL = "https://hoyapserv.loyltwo3ks.com/token"
+let baseURl = "https://hoyapserv.loyltwo3ks.com/Mobile/"
 var number = "6362630805"
 
-//let PROMO_IMG = "https://ddmotors.loyltwo3ks.com/UploadFiles/"
-let PROMO_IMG1 = "https://hoyatdemo.loyltwo3ks.com/"
-//let product_IMG = "https://ddmotors.loyltwo3ks.com/UploadFiles/CategoryImg/"
-//let imageBaseURL = "https://ddmotors.loyltwo3ks.com/UploadFiles/ProductManager/ProductImages/"
-//
-//let profileImageURL = "https://ddmotors.loyltwo3ks.com/UploadFiles/CustomerImage/"
-//let productCatalogueImgURL = "https://ddmotors.loyltwo3ks.com/UploadFiles/CatalogueImages/"
-let checkUserExistencyURL = "https://hoyatserv.loyltwo3ks.com/Mobile/CheckCustomerExistancyAndVerification"
-let forgotPasswordUrl = "https://hoyatserv.loyltwo3ks.com/Mobile/forgotPasswordMobileApp"
+let PROMO_IMG1 = "https://hoyapdemo.loyltwo3ks.com/"
+
+let checkUserExistencyURL = "https://hoyapserv.loyltwo3ks.com/Mobile/CheckCustomerExistancyAndVerification"
+let forgotPasswordUrl = "https://hoyapserv.loyltwo3ks.com/Mobile/forgotPasswordMobileApp"
 
 
-let username = "LtyHoyaThDemo"
-let password = "H0)Y@7L$mK#9p87"
+let username = "LtyHoyaPhilDemo"
+let password = "PH@!78HYH(78T756"
 let grant_type = "password"
 //let MerchantUserName = "DDMotorsDemoAdmin"
-
+//https://hoyapserv.loyltwo3ks.com/Mobile/SaveCustomerRegistrationDetailsMobileApp
 
 

@@ -493,4 +493,183 @@ func profileImageUpdate_API(parameters: JSON, completion: @escaping (ProfileIamg
             }
         }
     }
+    
+    //MARK: - TERMS AND CONDITIONS API
+    func termsAndCondition_API(parameters: JSON, completion: @escaping (termsAndConditionModels?, Error?) -> ()) -> URLSessionDataTask? {
+        return client.load(path: termsAndConditionMethodName, method: .post, params: parameters) { data, error in
+            do{
+//                print(data)
+                if data != nil{
+                    let result1 =  try JSONDecoder().decode(termsAndConditionModels?.self, from: data as! Data)
+                    completion(result1, nil)
+                }
+            }catch{
+                completion(nil, error)
+            }
+        }
+    }
+    
+    
+    //    MARK: - DELETE ACCOUNT API
+        func deleteAccountApi(parameters: JSON, completion: @escaping (DeleteAccountModels?, Error?) -> ()) -> URLSessionDataTask? {
+           return client.load(path: deleteAccountMethodName, method: .post, params: parameters) { data, error in
+               do{
+                   if data != nil{
+                       let result1 =  try JSONDecoder().decode(DeleteAccountModels?.self, from: data as! Data)
+                       completion(result1, nil)
+                   }
+               }catch{
+                   completion(nil, error)
+               }
+           }
+        }
+    
+    //    MARK: - Check IdNumber existancy API
+        func chechIdNumberExistancyApi(parameters: JSON, completion: @escaping (IDcradExistancyModels?, Error?) -> ()) -> URLSessionDataTask? {
+           return client.load(path: chechIdExistancyMethodName, method: .post, params: parameters) { data, error in
+               do{
+                   if data != nil{
+                       let result1 =  try JSONDecoder().decode(IDcradExistancyModels?.self, from: data as! Data)
+                       completion(result1, nil)
+                   }
+               }catch{
+                   completion(nil, error)
+               }
+           }
+        }
+    
+    //MARK: - GET PROMOTION DETAILS PRODUCT LIST
+        func getPromotionDetailsProductList(parameters: JSON, completion: @escaping (ProductListModel?, Error?) -> ()) -> URLSessionDataTask? {
+            return client.load(path: promotionProductList_URLMethod, method: .post, params: parameters) { data, error in
+                do{
+                    if data != nil{
+                        let result1 =  try JSONDecoder().decode(ProductListModel.self, from: data as! Data)
+                        completion(result1, nil)
+                    }
+                }catch{
+                    completion(nil, error)
+                }
+            }
+        }
+    
+    //MARK: - GET PROMOTION DETAILS PRODUCT LIST
+        func getDoccumentTypeListApi(parameters: JSON, completion: @escaping (DoccumentTypeModels?, Error?) -> ()) -> URLSessionDataTask? {
+            return client.load(path: doccumentTypeListMethodName, method: .post, params: parameters) { data, error in
+                do{
+                    if data != nil{
+                        let result1 =  try JSONDecoder().decode(DoccumentTypeModels.self, from: data as! Data)
+                        completion(result1, nil)
+                    }
+                }catch{
+                    completion(nil, error)
+                }
+            }
+        }
+ 
+    //MARK: - PRODUCT VALIDATION API - CLAIM PRODUCT
+    func productNumberValidation_API(parameters: JSON, completion: @escaping (ProductValidationModels?, Error?) -> ()) -> URLSessionDataTask? {
+        return client.load(path: productValidation_URLMethod, method: .post, params: parameters) { data, error in
+            do{
+//                print(data)
+                if data != nil{
+                    let result1 =  try JSONDecoder().decode(ProductValidationModels?.self, from: data as! Data)
+                    completion(result1, nil)
+                }
+            }catch{
+                completion(nil, error)
+            }
+        }
+    }
+
+
+    //MARK: - INVOICE NUMBER VALIDATION save API
+    func invoiceNumberValidation_API(parameters: JSON, completion: @escaping (InvoiceNumberValidationModels?, Error?) -> ()) -> URLSessionDataTask? {
+        return client.load(path: invoiceNumberValidation_URLMethod, method: .post, params: parameters) { data, error in
+            do{
+//                print(data)
+                if data != nil{
+                    let result1 =  try JSONDecoder().decode(InvoiceNumberValidationModels?.self, from: data as! Data)
+                    completion(result1, nil)
+                }
+            }catch{
+                completion(nil, error)
+            }
+        }
+    }
+
+    //MARK: - CHECK SALES RETURN SATUS
+    func checkSalesReturnStatus_API(parameters: JSON, completion: @escaping (SalesReturnValidationModel?, Error?) -> ()) -> URLSessionDataTask? {
+        return client.load(path: salesReturn_URLMethod, method: .post, params: parameters) { data, error in
+            do{
+//                print(data)
+                if data != nil{
+                    let result1 =  try JSONDecoder().decode(SalesReturnValidationModel?.self, from: data as! Data)
+                    completion(result1, nil)
+                }
+            }catch{
+                completion(nil, error)
+            }
+        }
+    }
+    
+    //MARK: - CLAIM SUBMISSION API
+    func claimSubmission_API(parameters: JSON, completion: @escaping (ClaimSubmissionModel?, Error?) -> ()) -> URLSessionDataTask? {
+        return client.load(path: claimSubmission_URLMethod, method: .post, params: parameters) { data, error in
+            do{
+//                print(data)
+                if data != nil{
+                    let result1 =  try JSONDecoder().decode(ClaimSubmissionModel?.self, from: data as! Data)
+                    completion(result1, nil)
+                }
+            }catch{
+                completion(nil, error)
+            }
+        }
+    }
+    
+    // MARK: - CHAT QUERY DETAILS
+    func chatQuery_Post_API(parameters: JSON, completion: @escaping (ChatListModels?, Error?) -> ()) -> URLSessionDataTask? {
+        return client.load(path: chat_URL_MethodName, method: .post, params: parameters) { data, error in
+            do{
+//                print(data)
+                if data != nil{
+                    let result1 =  try JSONDecoder().decode(ChatListModels?.self, from: data as! Data)
+                    completion(result1, nil)
+                }
+            }catch{
+                completion(nil, error)
+            }
+        }
+    }
+    
+    
+    //MARK: - NEW CAHT MESSAGE SAVE API
+    func newQueryTicket_API(parameters: JSON, completion: @escaping (SubmitNwQuerModels?, Error?) -> ()) -> URLSessionDataTask? {
+        return client.load(path: saveCustomerChatmessage_URLMethod, method: .post, params: parameters) { data, error in
+            do{
+//                print(data)
+                if data != nil{
+                    let result1 =  try JSONDecoder().decode(SubmitNwQuerModels?.self, from: data as! Data)
+                    completion(result1, nil)
+                }
+            }catch{
+                completion(nil, error)
+            }
+        }
+    }
+    
+    //MARK: -  NOTIFICATION LISTING
+    
+    func notificationList(parameters: JSON, completion: @escaping (NotificationModels?, Error?) -> ()) -> URLSessionDataTask? {
+       return client.load(path: historyNotification, method: .post, params: parameters) { data, error in
+           do{
+               if data != nil{
+                   let result1 =  try JSONDecoder().decode(NotificationModels?.self, from: data as! Data)
+                   completion(result1, nil)
+               }
+           }catch{
+               completion(nil, error)
+           }
+       }
+    }
 }

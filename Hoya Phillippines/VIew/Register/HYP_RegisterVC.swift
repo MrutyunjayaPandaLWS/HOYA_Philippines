@@ -9,9 +9,22 @@ import UIKit
 import Toast_Swift
 
 
-class HYP_RegisterVC: BaseViewController, DropdownDelegate, DateSelectedDelegate ,UITextFieldDelegate {
+class HYP_RegisterVC: BaseViewController, DropdownDelegate, DateSelectedDelegate ,UITextFieldDelegate, CheckBoxSelectDelegate {
+    func accept(_ vc: HYT_TermAndConditionsVC) {
+        chechMarkBtn.setImage(UIImage(named: "check-box"), for: .normal)
+        termsAndCondStatus = 1
+    }
+    
+    func decline(_ vc: HYT_TermAndConditionsVC) {
+        chechMarkBtn.setImage(UIImage(named: "check-box-empty"), for: .normal)
+        termsAndCondStatus = 0
+    }
+    
     func didTappedIdCardType(item: HYP_DropDownVC) {
-        selectIDCardTypeLbl.text = item.idTypeName
+        selectIDCardTypeLbl.text = item.doccumentName
+        doccumnetName = item.doccumentName
+        doccumnetID = item.doccumentID
+        doccumnetName = item.doccumentName
         idCardNumberTF.text = ""
     }
     
@@ -23,6 +36,7 @@ class HYP_RegisterVC: BaseViewController, DropdownDelegate, DateSelectedDelegate
     
     func didTappedGenderBtn(item: HYP_DropDownVC) {
         selectGenderLbl.text = item.genderName
+        gender = item.genderName
     }
     
     func didTappedAccountType(item: HYP_DropDownVC) {
@@ -46,15 +60,19 @@ class HYP_RegisterVC: BaseViewController, DropdownDelegate, DateSelectedDelegate
     
     func didTappedRoleBtn(item: HYP_DropDownVC) {
         selectRoleLbl.text = item.roleName
+        roleId = item.roleId
         
     }
     
     func didTappedSalesRepresentative(item: HYP_DropDownVC) {
         selectSalesLbl.text = item.salesRepresentativeName
+        salesRep_Id = item.salesRepId
         
     }
     
 
+    @IBOutlet weak var termsAndcondLbl: UILabel!
+    @IBOutlet weak var chechMarkBtn: UIButton!
     @IBOutlet weak var selectIDCardTypeLbl: UILabel!
     @IBOutlet weak var firstNameTopConstaints: NSLayoutConstraint!
     @IBOutlet weak var selectRoleView: UIView!
@@ -106,6 +124,14 @@ class HYP_RegisterVC: BaseViewController, DropdownDelegate, DateSelectedDelegate
     var salesRep_Id = 0
     var dob:String = ""
     var accountTypeId = -1
+    var termsAndCondStatus = 0
+    var lightGraycolor1 = #colorLiteral(red: 0.1291644871, green: 0.1372229457, blue: 0.1414006352, alpha: 0.3758601511)
+    var storeCode: String = ""
+    var storeId: String = ""
+    var gender = ""
+    var roleId: Int = 0
+    var doccumnetName = ""
+    var doccumnetID = 0
     
     
     var VM = HYP_RegisterVM()
@@ -115,12 +141,13 @@ class HYP_RegisterVC: BaseViewController, DropdownDelegate, DateSelectedDelegate
         registerView.layer.cornerRadius = 30
         registerView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         registerView.clipsToBounds = true
-
+        termsAndCondStatus = 0
         bottomView.clipsToBounds = true
         bottomView.layer.cornerRadius = 30
         bottomView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         mobileNumberTf.delegate = self
         storeNameTF.isUserInteractionEnabled = false
+        selectUserTypeLbl.text = "Individual"
     }
     
     @IBAction func didTappedSelectUserTypeBtn(_ sender: UIButton) {
@@ -201,13 +228,17 @@ class HYP_RegisterVC: BaseViewController, DropdownDelegate, DateSelectedDelegate
             self.view.makeToast("Enter Id card number",duration: 2.0,position: .center)
         }else if storeIdStatus == 0{
             self.view.makeToast("The store id is invalid",duration: 2.0,position: .center)
+        }else if storeUserNameExistancy == 0{
+            self.view.makeToast("Store User Name already register used different store id",duration: 2.0,position: .center)
         }else if emailValidStatus == 0 && emailTF.text?.count != 0{
             self.view.makeToast("Enter a valid email",duration: 2.0,position: .center)
         }else if mobileNumberExistancy == 1{
             self.view.makeToast("Enter a valid mobile number",duration: 2.0,position: .center)
         }else if idCardStatus == 0{
             self.view.makeToast("Enter a valid ID card number",duration: 2.0,position: .center)
-        } else{
+        } else if termsAndCondStatus == 0{
+            self.view.makeToast("Accept the term & condition",duration: 2.0,position: .center)
+        }else{
             individualRegisterApi()
         }
     }
@@ -249,6 +280,13 @@ class HYP_RegisterVC: BaseViewController, DropdownDelegate, DateSelectedDelegate
         }
         
     }
+    
+    @IBAction func didTappedTermsCondBtn(_ sender: UIButton) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "HYT_TermAndConditionsVC") as! HYT_TermAndConditionsVC
+        vc.delegate = self
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
     @IBAction func didTappedFirstName(_ sender: Any) {
         if selectUserTypeLbl.text == "Select user type" {
@@ -331,7 +369,8 @@ class HYP_RegisterVC: BaseViewController, DropdownDelegate, DateSelectedDelegate
         }else if selectIDCardTypeLbl.text == "Select ID type"{
             self.view.makeToast("Select ID type",duration: 2.0,position: .center)
         }else{
-            checkIdcardNumber()
+//            checkIdcardNumber()
+            checkIDcardExiistancy()
         }
     }
     
@@ -369,8 +408,23 @@ class HYP_RegisterVC: BaseViewController, DropdownDelegate, DateSelectedDelegate
                 "ActorId": 91,
                 "RoleIDs": idCardNumberTF.text ?? ""
             ]
+            print(parameter,"checkIdcardNumber")
             self.VM.checkIdcardValidation(parameter: parameter)
         }
+    
+    
+    //    MARK: - Check ID card Existancy
+        func checkIDcardExiistancy(){
+            let parameter : [String : Any] = [
+                    "ActionType": 188,
+                    "HelpTopicID": doccumnetID ,
+                    "RoleIDs": idCardNumberTF.text ?? ""
+            ]
+            print(parameter,"checkIDcardExiistancy")
+            self.VM.checkIdcardExistancy(parameter: parameter)
+        }
+        
+
    
 //   MARK: - CHECK EMAIL API
     func checkEmailExistancy(){
@@ -380,6 +434,7 @@ class HYP_RegisterVC: BaseViewController, DropdownDelegate, DateSelectedDelegate
                     "UserName":emailTF.text ?? ""
                 ]
         ]
+        print(parameter,"checkEmailExistancy")
         self.VM.checkEmailExistancyApi(parameter: parameter)
     }
     
@@ -391,6 +446,7 @@ class HYP_RegisterVC: BaseViewController, DropdownDelegate, DateSelectedDelegate
                     "UserName":mobileNumberTf.text ?? ""
                 ]
         ]
+        print(parameter,"checkMobileNumberExistancy")
         self.VM.checkMobileNumberExistancyApi(parameter: parameter)
     }
     
@@ -402,6 +458,7 @@ class HYP_RegisterVC: BaseViewController, DropdownDelegate, DateSelectedDelegate
                     "RoleIDs": storeIdTF.text ?? ""
                 
         ]
+        print(parameter,"checkStoreIdExistancy")
         self.VM.checkStoreIdExistancyApi(parameter: parameter)
     }
     
@@ -410,45 +467,82 @@ class HYP_RegisterVC: BaseViewController, DropdownDelegate, DateSelectedDelegate
 
             "ActionType": 13,
             "Location":[
-                "UserName": locationCode
+                "UserName": storeCode
             ]
                 
         ]
+        print(parameter,"checkStoreUserNameExistancy")
         self.VM.checkStoreUserNameExistancy(parameter: parameter)
     }
     
     func individualRegisterApi(){
-        let parameter : [String : Any] =
-        [
-            "ActionType": 0,
-            "ObjCustomerJson": [
-                "UserId": salesRep_Id,
-                "RegType": "\(selectSalesLbl.text ?? "")",
-                "LocationCode": "BNG",
-                "LoyaltyId": locationCode,
-                "LocationId":  "10129",
-                "LocationName": storeNameTF.text ?? "",
-                "CountryId": 17,
-                "CustomerTypeID": 60,
-                "FirstName": "\(firstNameTF.text ?? "")",
-                "LastName": "\(lastNameTF.text ?? "")",
-                "MobilePrefix": "+66",
-                "Mobile": "\(mobileNumberTf.text ?? "")",
-                "Mobile_Two": "",
-                "Password": "123456",
-                "DOB": "\(dob)",
-                "Gender": "\(selectGenderLbl.text ?? "")",
-                "IdentificationNo": "\(idCardNumberTF.text ?? "")",
-                "RegistrationSource": 3,
-                "Title": "",
-                "Zip": "",
-                "Email": "\(emailTF.text ?? "")",
-                "LanguageID": selectedLanguageId,
-                "DisplayImage": ""
-
-            ]
+        
+//        let parameter : [String : Any] =
+//        [
+//            "ActionType": 0,
+//            "ObjCustomerJson": [
+//                "UserId": salesRep_Id,
+//                "RegType": "\(selectUserTypeLbl.text ?? "")",
+//                "LocationCode": storeCode,// store code
+//                "LoyaltyId": storeCode,// store code // atribute name
+//                "LocationId":  storeId,// store id
+//                "LocationName": storeNameTF.text ?? "",
+//                "CountryId": 17,
+//                "CustomerTypeID": roleId, // if store owner -54 else individual -
+//                "FirstName": "\(firstNameTF.text ?? "")",
+//                "LastName": "\(lastNameTF.text ?? "")",
+//                "MobilePrefix": "+66",
+//                "Mobile": "\(mobileNumberTf.text ?? "")",
+//                "Mobile_Two": "",
+//                "Password": "123456",
+//                "DOB": "\(dob)",
+//                "Gender": "\(gender)",
+//                "IdentificationNo": "\(idCardNumberTF.text ?? "")",
+//                "RegistrationSource": 3,
+//                "Title": "Mr.",
+//                "Zip": "",
+//                "Email": "\(emailTF.text ?? "")",
+//                "LanguageID": selectedLanguageId,
+//                "DisplayImage": ""
+//
+//            ]
+//        ]
+        
+        let parameter1 : [String : Any] = [
+            
+                "ActionType": 0,
+                "ObjCustomerJson": [
+                    "UserId": salesRep_Id, // Sales Representative userid
+                    "RegType": "Individual",
+                    "LocationId": storeId,
+                    "LocationName": "\(storeNameTF.text ?? "")",
+                    "LocationCode": storeCode,
+                    "CountryId": 17,
+                    "CustomerTypeID": "\(roleId)",
+                    "FirstName": "\(firstNameTF.text ?? "")",
+                    "LastName": "\(lastNameTF.text ?? "")",
+                    "MobilePrefix": "+66",
+                    "Mobile": "\(mobileNumberTf.text ?? "")",
+                    "Mobile_Two": "",
+                    "Password": "123456",
+                    "DOB": "\(dob)",
+                    "Gender": "\(gender)",
+                    "IdentificationNo": "\(idCardNumberTF.text ?? "")",
+                    "LIdentificationType": doccumnetID,
+                    "RegistrationSource": 2,
+                    "Title": "Mr.",
+                    "Zip": "",
+                    "Email": "\(emailTF.text ?? "")",
+                    "LanguageID": 1,
+                    "DisplayImage": ""
+                
+                ] as [String : Any]
+            
         ]
-        self.VM.registrationApi(parameter: parameter)
+    
+        
+        print(parameter1,"registrationApi")
+        self.VM.registrationApi(parameter: parameter1)
     }
     
     

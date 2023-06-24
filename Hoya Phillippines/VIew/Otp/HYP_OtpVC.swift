@@ -15,6 +15,7 @@ protocol OtpDelegate{
 
 class HYP_OtpVC: BaseViewController,UITextFieldDelegate{
 
+    @IBOutlet weak var otpBtnTopConstraints: NSLayoutConstraint!   // 134
     @IBOutlet weak var resendBtn: UIButton!
     @IBOutlet weak var getOtpBtn: UIButton!
     @IBOutlet weak var otpView: DPOTPView!
@@ -33,7 +34,12 @@ class HYP_OtpVC: BaseViewController,UITextFieldDelegate{
         self.VM.VC = self
         newNumberTF.delegate = self
         resendBtn.isHidden = true
+        otpView.isHidden = true
+        enterOtpLbl.isHidden = true
         timerLbl.isHidden = true
+        newNumberTF.keyboardType = .numberPad
+        otpBtnTopConstraints.constant = CGFloat(20)
+        newNumberTF.isUserInteractionEnabled = true
         
     }
     
@@ -44,8 +50,8 @@ class HYP_OtpVC: BaseViewController,UITextFieldDelegate{
             }else if newNumberTF.text?.count == 10{
                 checkMobileNumberExistancy()
 //                resendBtn.isHidden = false
-                getOtpBtn.setTitle("Verify OTP", for: .normal)
-                otpBtnStatus = 1
+//                getOtpBtn.setTitle("Verify OTP", for: .normal)
+//                otpBtnStatus = 1
                 
 //                self.timmer.invalidate()
 //                self.count = 60
@@ -84,7 +90,11 @@ class HYP_OtpVC: BaseViewController,UITextFieldDelegate{
         sendOtptoRegisterNumber()
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        dismiss(animated: true)
+        let touch = touches.first
+        if touch?.view == self.view {
+            dismiss(animated: true)
+        }
+        
     }
 
     func sendOtptoRegisterNumber(){
@@ -97,7 +107,7 @@ class HYP_OtpVC: BaseViewController,UITextFieldDelegate{
                 "UserName": ""
             
         ]
-//        self.VM.getOtpApi(parameter: parameter)
+        self.VM.getOtpApi(parameter: parameter)
     }
     
     //   MARK: - CHECK MOBILE NUMBER API
@@ -108,7 +118,7 @@ class HYP_OtpVC: BaseViewController,UITextFieldDelegate{
                     "UserName":newNumberTF.text ?? ""
                 ]
         ]
-//        self.VM.checkMobileNumberExistancyApi(parameter: parameter)
+        self.VM.checkMobileNumberExistancyApi(parameter: parameter)
     }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         var maxLength : Int = 10

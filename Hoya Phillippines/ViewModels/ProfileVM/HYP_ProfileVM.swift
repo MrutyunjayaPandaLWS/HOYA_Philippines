@@ -22,20 +22,32 @@ class HYP_ProfileVM{
                     self.generalInfo = result?.lstCustomerJson ?? []
                     DispatchQueue.main.async {
                         if result?.lstCustomerJson?.count != 0{
-                            self.VC?.membershipId.text = self.generalInfo[0].loyaltyId
-                            self.VC?.roleLbl.text = self.generalInfo[0].customerType
-                            self.VC?.storeIDLbl.text = self.generalInfo[0].locationCode
-                            self.VC?.storeNameLbl.text = self.generalInfo[0].locationName
-                            self.VC?.salesRepresentativeTF.text = self.generalInfo[0].user
-                            self.VC?.firstNameTF.text = self.generalInfo[0].firstName
-                            self.VC?.lastNameTF.text = self.generalInfo[0].lastName
-                            self.VC?.mobileNumberTF.text = self.generalInfo[0].mobile
-                            self.VC?.emailTF.text = self.generalInfo[0].email
-                            self.VC?.selectGenderLbl.text = self.generalInfo[0].gender
-                            self.VC?.selectDOBLbl.text = String(self.generalInfo[0].jdob?.dropLast(9) ?? "Select DOB")
-                            self.VC?.selectDateOfAnniversary.text = String(self.generalInfo[0].jAnniversary?.dropLast(9) ?? "Select Date")
+                            self.VC?.membershipId.text = self.generalInfo[0].loyaltyId ?? ""
+                            self.VC?.roleLbl.text = self.generalInfo[0].customerType ?? ""
+                            self.VC?.storeIDLbl.text = self.generalInfo[0].locationCode ?? ""
+                            self.VC?.storeNameLbl.text = self.generalInfo[0].locationName ?? "-"
+                            self.VC?.salesRepresentativeTF.text = self.generalInfo[0].user ?? ""
+                            self.VC?.firstNameTF.text = self.generalInfo[0].firstName ?? ""
+                            self.VC?.lastNameTF.text = self.generalInfo[0].lastName ?? ""
+                            self.VC?.mobileNumberTF.text = self.generalInfo[0].mobile ?? ""
+                            self.VC?.emailTF.text = self.generalInfo[0].email ?? ""
+                            if self.generalInfo[0].gender?.count == 0 || self.generalInfo[0].gender == nil{
+                                self.VC?.selectGenderLbl.text = "Select gender"
+                            }else{
+                                self.VC?.selectGenderLbl.text = self.generalInfo[0].gender ?? "-"
+                            }
+                            if (self.generalInfo[0].customerTypeID ?? 0) == 1{
+                                self.VC?.idCardNumberView.isHidden = true
+                            }else{
+                                self.VC?.idCardNumberView.isHidden = false
+                            }
+                            self.VC?.gender = self.generalInfo[0].gender ?? ""
+                            let DOB = self.generalInfo[0].jdob?.split(separator: " ")
+                            self.VC?.selectDOBLbl.text = String(DOB?[0] ?? "Select DOB")
+                            let DOA = self.generalInfo[0].jAnniversary?.split(separator: " ")
+                            self.VC?.selectDateOfAnniversary.text = String(DOA?[0] ?? "Select Date")
                             self.VC?.registerationNo = self.generalInfo[0].registrationSource ?? 0
-                            self.VC?.idCardNumberTF.text = self.generalInfo[0].identificationNo
+                            self.VC?.idCardNumberTF.text = self.generalInfo[0].identificationNo ?? "-"
                             self.VC?.stopLoading()
                         }else{
                             self.VC?.stopLoading()
@@ -67,8 +79,7 @@ class HYP_ProfileVM{
             if error == nil{
                 if result != nil{
                     DispatchQueue.main.async {
-                        if result?.returnMessage == "1" {
-//                            self.VC?.successMessagePopUp(message: "Your profile has been updated successfully")
+                        if ((result?.returnMessage?.contains("1")) != nil){
                             self.VC?.profileUpDateMessageP(message: "Your profile has been updated successfully")
                             self.VC?.stopLoading()
                         }else{
@@ -91,4 +102,31 @@ class HYP_ProfileVM{
         }
     }
     
+    
+    func deleteAccount(parameters: JSON, completion: @escaping (DeleteAccountModels?) -> ()) {
+        self.VC?.startLoading()
+        self.requestAPIs.deleteAccountApi(parameters: parameters) { (result, error) in
+            if error == nil {
+                if result != nil {
+                    DispatchQueue.main.async {
+                        completion(result)
+                        self.VC?.stopLoading()
+                    }
+                } else {
+                    print("No Response")
+                    DispatchQueue.main.async {
+                        self.VC?.stopLoading()
+                    }
+                }
+            }else{
+                print("ERROR_Login \(error)")
+                DispatchQueue.main.async {
+                    self.VC?.stopLoading()
+                }
+                
+            }
+            
+        }
+    }
+  
 }

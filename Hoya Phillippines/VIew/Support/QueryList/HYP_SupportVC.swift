@@ -11,13 +11,23 @@ class HYP_SupportVC: BaseViewController, UITableViewDelegate, UITableViewDataSou
     func didTappedFilterBtn(item: HYP_FilterVC) {
         fromDate = item.fromDate
         toDate = item.toDate
-        programId = "\(item.statusId)"
+        programId = item.statusId
+        programName = item.statusName
+        getQueryList_Api()
+    }
+    
+    func didTappedResetFilterBtn(item: HYP_FilterVC) {
+        fromDate = ""
+        toDate = ""
+        programId = ""
+        programName = ""
         getQueryList_Api()
     }
     
     func topicName(item: HYP_QueryTopicListVC) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "HYP_CreateQueryVC") as? HYP_CreateQueryVC
         vc?.queryName = item.topicName
+        vc?.selectTopicId = item.selectTopicId
         navigationController?.pushViewController(vc!, animated: true)
     }
     
@@ -28,27 +38,45 @@ class HYP_SupportVC: BaseViewController, UITableViewDelegate, UITableViewDataSou
     var fromDate = ""
     var toDate = ""
     var programId = ""
+    var programName = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         self.VM.VC = self
         queryListTableView.delegate = self
         queryListTableView.dataSource = self
         backBtnWidth.constant = 0 //22
-        getQueryList_Api()
-
+        self.queryListTableView.contentInset = UIEdgeInsets(top: 0,left: 0,bottom: 80,right: 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         fromDate = ""
         toDate = ""
         programId = ""
-        getQueryList_Api()
+        programName = ""
+        if MyCommonFunctionalUtilities.isInternetCallTheApi() == false{
+            DispatchQueue.main.async{
+                let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "IOS_Internet_Check") as! IOS_Internet_Check
+                vc.modalTransitionStyle = .crossDissolve
+                vc.modalPresentationStyle = .overFullScreen
+                self.present(vc, animated: true)
+            }
+        }else{
+//            internet is working
+            getQueryList_Api()
+        }
     }
     
     @IBAction func didTappedNewQueryBtn(_ sender: UIButton) {
         
-        let vc = storyboard?.instantiateViewController(withIdentifier: "HYP_CreateQueryVC") as? HYP_CreateQueryVC
-        navigationController?.pushViewController(vc!, animated: true)
+//        let vc = storyboard?.instantiateViewController(withIdentifier: "HYP_CreateQueryVC") as? HYP_CreateQueryVC
+//        navigationController?.pushViewController(vc!, animated: true)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "HYP_QueryTopicListVC") as? HYP_QueryTopicListVC
+        vc?.modalPresentationStyle = .overFullScreen
+        vc?.modalTransitionStyle = .crossDissolve
+        vc?.actorID = "\(userId)"
+        vc?.flags = 1
+        vc?.delegate = self
+        present(vc!, animated: true)
     }
     
     @IBAction func didTappedNotificationBtn(_ sender: UIButton) {
@@ -59,9 +87,13 @@ class HYP_SupportVC: BaseViewController, UITableViewDelegate, UITableViewDataSou
     }
     @IBAction func didTappedFilterBtn(_ sender: UIButton) {
         let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HYP_FilterVC") as? HYP_FilterVC
-        vc?.modalTransitionStyle = .crossDissolve
         vc?.modalPresentationStyle = .overFullScreen
+        vc?.modalTransitionStyle = .crossDissolve
         vc?.flags = "queryStatus"
+        vc?.statusId = programId
+        vc?.statusName = programName
+        vc?.fromDate = fromDate
+        vc?.toDate = toDate
         vc?.delegate = self
         present(vc!, animated: true)
         
@@ -113,13 +145,18 @@ class HYP_SupportVC: BaseViewController, UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HR_Chatvc2ViewController") as! HR_Chatvc2ViewController
-//        vc.CustomerTicketIDchatvc = self.VM.queryList[indexPath.row].customerTicketID ?? 0
-//        print(vc.CustomerTicketIDchatvc, "CustomerChat ID")
-//        vc.helptopicid = self.VM.queryList[indexPath.row].helpTopicID ?? 0
-//        vc.helptopicName = self.VM.queryList[indexPath.row].helpTopic ?? ""
-//        vc.helptopicdetails = self.VM.queryList[indexPath.row].querySummary ?? ""
-//        vc.querydetails = self.VM.queryList[indexPath.row].queryDetails ?? ""
-//        vc.querysummary = self.VM.queryList[indexPath.row].querySummary ?? ""
+        vc.CustomerTicketIDchatvc = self.VM.queryList[indexPath.row].customerTicketID ?? 0
+        print(vc.CustomerTicketIDchatvc, "CustomerChat ID")
+        vc.helptopicid = self.VM.queryList[indexPath.row].helpTopicID ?? 0
+        vc.helptopicName = self.VM.queryList[indexPath.row].helpTopic ?? ""
+        vc.helptopicdetails = self.VM.queryList[indexPath.row].querySummary ?? ""
+        vc.querydetails = self.VM.queryList[indexPath.row].queryDetails ?? ""
+        vc.querysummary = self.VM.queryList[indexPath.row].querySummary ?? ""
+        if self.VM.queryList[indexPath.row].ticketStatus == "Closed"{
+            vc.ChatMessageEnable = true
+        }else{
+            vc.ChatMessageEnable = false
+        }
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

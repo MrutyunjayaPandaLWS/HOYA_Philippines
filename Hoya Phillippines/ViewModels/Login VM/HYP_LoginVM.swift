@@ -47,12 +47,13 @@ class HYP_HYP_LoginVM{
                         DispatchQueue.main.async{
                             self.VC?.stopLoading()
                             self.VC?.mobileNumberExistancy = -1
-                            self.VC?.view.makeToast("Mobile number is doesn't exists", duration: 2.0, position: .center)
+                            self.VC?.view.makeToast("Membership ID / Mobile number is doesn't exists", duration: 2.0, position: .center)
                         }
                     }else{
                         DispatchQueue.main.async{
                             self.VC?.mobileNumberExistancy = 1
                             self.VC?.stopLoading()
+                            self.VC?.sendOtptoRegisterNumber()
                         }
                     }
                      }catch{
@@ -115,34 +116,48 @@ class HYP_HYP_LoginVM{
                                 let data = result?.userList?[0]
                                 if data?.result != 1{
                                     if self.VC?.mobileNumberExistancy != 1{
-                                        self.VC?.view.makeToast("Mobile_number_is_doesn't_exists", duration: 2.0, position: .center)
+                                        self.VC?.view.makeToast("Membership ID / Mobile number is doesn't exists", duration: 2.0, position: .center)
                                         self.VC?.stopLoading()
                                     }else{
-                                        self.VC?.view.makeToast("Password_is_incorrect", duration: 2.0, position: .center)
+                                        self.VC?.view.makeToast("Password is incorrect", duration: 2.0, position: .center)
                                         self.VC?.stopLoading()
                                     }
                                 }else{
-                                    
-                                    self.VC?.stopLoading()
-                                    UserDefaults.standard.set(data?.customerTypeID, forKey: "customerTypeID")
-                                    UserDefaults.standard.set(data?.userName, forKey: "userName")
-                                    UserDefaults.standard.set(data?.userId, forKey: "userId")
-                                    UserDefaults.standard.set(data?.merchantName, forKey: "merchantName")
-                                    UserDefaults.standard.set(data?.merchantEmailID, forKey: "merchantEmailID")
-                                    UserDefaults.standard.set(data?.merchantMobileNo, forKey: "merchantMobileNo")
-                                    UserDefaults.standard.set(data?.mobile, forKey: "mobile")
-                                    UserDefaults.standard.set(data?.email, forKey: "email")
-                                    UserDefaults.standard.set(data?.custAccountNumber, forKey: "custAccountNumber")
-                                    UserDefaults.standard.set(data?.userImage, forKey: "userImage")
-                                    UserDefaults.standard.set(data?.locationName, forKey: "locationName")
-                                    UserDefaults.standard.set(true, forKey: "UserLoginStatus")
-                                    if #available(iOS 13.0, *) {
-                                        let sceneDelegate = self.VC?.view.window!.windowScene!.delegate as! SceneDelegate
-                                        sceneDelegate.setHomeAsRootViewController()
-                                    } else {
-                                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                                        appDelegate.setHomeAsRootViewController()
+                                    if data?.isUserActive == 1{
+                                        if data?.verifiedStatus == 4 {
+                                            self.VC?.stopLoading()
+                                                self.VC?.view.makeToast("Your account verification is pending, please contact to your administrator", duration: 2.0, position: .center)
+                                        }else if data?.verifiedStatus == 2 {
+                                            self.VC?.stopLoading()
+                                                self.VC?.view.makeToast("Your account login is faild, please contact to your administrator", duration: 2.0, position: .center)
+                                        }else{
+                                        self.VC?.stopLoading()
+                                        UserDefaults.standard.set(data?.customerTypeID, forKey: "customerTypeID")
+                                        UserDefaults.standard.set(data?.userName, forKey: "userName")
+                                        UserDefaults.standard.set(data?.userId, forKey: "userId")
+                                        UserDefaults.standard.set(data?.merchantName, forKey: "merchantName")
+                                        UserDefaults.standard.set(data?.merchantEmailID, forKey: "merchantEmailID")
+                                        UserDefaults.standard.set(data?.merchantMobileNo, forKey: "merchantMobileNo")
+                                        UserDefaults.standard.set(data?.mobile, forKey: "mobile")
+                                        UserDefaults.standard.set(data?.email, forKey: "email")
+                                        UserDefaults.standard.set(data?.custAccountNumber, forKey: "custAccountNumber")
+                                        UserDefaults.standard.set(data?.userImage, forKey: "userImage")
+                                        UserDefaults.standard.set(data?.locationName, forKey: "locationName")
+                                        UserDefaults.standard.set(true, forKey: "UserLoginStatus")
+                                        if #available(iOS 13.0, *) {
+                                            let sceneDelegate = self.VC?.view.window!.windowScene!.delegate as! SceneDelegate
+                                            sceneDelegate.setHomeAsRootViewController()
+                                        } else {
+                                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                                            appDelegate.setHomeAsRootViewController()
+                                        }
                                     }
+                                        
+                                    }else{
+                                        self.VC?.stopLoading()
+                                        self.VC?.view.makeToast("Your account is deactivate please contact to your administrator", duration: 2.0, position: .center)
+                                    }
+                                    
                                 }
                             }
                         }
@@ -169,7 +184,11 @@ class HYP_HYP_LoginVM{
                     if result != nil{
                         DispatchQueue.main.async {
                             self.timmer.invalidate()
-                            self.count = 10
+                            self.VC?.otpView1.isHidden =  false
+                            self.VC?.otpView.isUserInteractionEnabled = true
+                            self.VC?.otpBtnStatus = 1
+                            self.VC?.SubmitBtn.setTitle("Submit", for: .normal)
+                            self.count = 60
                             self.timmer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
 //                            self.VC?.sendotp = 1
                             self.otpNumber = result?.returnMessage ?? ""

@@ -25,7 +25,18 @@ class HYP_ProgramListVC: BaseViewController, UITableViewDelegate, UITableViewDat
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getPromotionList_Api()
+        if MyCommonFunctionalUtilities.isInternetCallTheApi() == false{
+            DispatchQueue.main.async{
+                let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "IOS_Internet_Check") as! IOS_Internet_Check
+                vc.modalTransitionStyle = .crossDissolve
+                vc.modalPresentationStyle = .overFullScreen
+                self.present(vc, animated: true)
+            }
+        }else{
+//            internet is working
+            getPromotionList_Api()
+            
+        }
     }
 
     @IBAction func didTappedNotificationbtn(_ sender: UIButton) {
@@ -62,6 +73,7 @@ class HYP_ProgramListVC: BaseViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "HYP_ClaimDetailsVC") as? HYP_ClaimDetailsVC
+        vc?.promotionData = self.VM.promotionList[indexPath.row]
         navigationController?.pushViewController(vc!, animated: true)
     }
 }

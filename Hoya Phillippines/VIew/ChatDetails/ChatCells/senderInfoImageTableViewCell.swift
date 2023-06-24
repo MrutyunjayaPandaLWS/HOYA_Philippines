@@ -14,11 +14,13 @@ class senderInfoImageTableViewCell: UITableViewCell {
     @IBOutlet var itemTime: UILabel!
     @IBOutlet var itemimage: UIImageView!
     @IBOutlet var itemtext: UILabel!
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
-        customView.roundCorners(corners: [.bottomLeft, .topLeft, .bottomRight], radius: 15.0)
+//        customView.roundCorners(corners: [.bottomLeft, .topLeft, .bottomRight], radius: 15.0)
+        customView.layer.maskedCorners = [.layerMaxXMaxYCorner,.layerMinXMaxYCorner,.layerMinXMinYCorner]
+        customView.backgroundColor = chatDetailsBgColor
 
     }
 

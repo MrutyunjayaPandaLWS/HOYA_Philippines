@@ -9,8 +9,23 @@ import UIKit
 import DPOTPView
 import Toast_Swift
 
-class HYP_LoginVC: BaseViewController {
+class HYP_LoginVC: BaseViewController, CheckBoxSelectDelegate {
+    func accept(_ vc: HYT_TermAndConditionsVC) {
+        checkMarkBtn.setImage(UIImage(named: "check-box"), for: .normal)
+        tcStatus = 1
+        textfieldsStatus = 1
+    }
+    
+    func decline(_ vc: HYT_TermAndConditionsVC) {
+        checkMarkBtn.setImage(UIImage(named: "check-box-empty"), for: .normal)
+        tcStatus = 0
+        textfieldsStatus = 1
+    }
+    
 
+    @IBOutlet weak var checkMarkBtn: UIButton!
+    @IBOutlet weak var termsAndCondLbl: UILabel!
+    @IBOutlet weak var otpView1: UIView!
     @IBOutlet weak var timmerLbl: UILabel!
     @IBOutlet weak var loginView: UIView!
     @IBOutlet weak var bottomView: UIView!
@@ -27,13 +42,16 @@ class HYP_LoginVC: BaseViewController {
     var VM = HYP_HYP_LoginVM()
     var otpBtnStatus = 0
     var mobileNumberExistancy = -1
+    var tcStatus = 0
+    var textfieldsStatus = 0
+    var pushID = UserDefaults.standard.string(forKey: "SMSDEVICE_TOKEN") ?? ""
     override func viewDidLoad() {
         super.viewDidLoad()
         self.VM.VC = self
         bottomView.layer.cornerRadius = 30
         bottomView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         bottomView.clipsToBounds = true
-
+        otpView1.isHidden =  true
         loginView.clipsToBounds = true
         loginView.layer.cornerRadius = 30
         loginView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
@@ -46,10 +64,20 @@ class HYP_LoginVC: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.VM.tokendata()
+        if textfieldsStatus == 1{
+            textfieldsStatus = 0
+        }else{
+            membershipIDTF.text = ""
+            otpView1.isHidden =  true
+            SubmitBtn.setTitle("Get OTP", for: .normal)
+            otpBtnStatus = 0
+            checkMarkBtn.setImage(UIImage(named: "check-box-empty"), for: .normal)
+            tcStatus = 0
+        }
     }
     
     @IBAction func selectMembersIDTF(_ sender: UITextField) {
-        mobileNumberExistancyApi()
+        
     }
     
     @IBAction func didTappedResendBtn(_ sender: UIButton) {
@@ -60,13 +88,14 @@ class HYP_LoginVC: BaseViewController {
         if otpBtnStatus == 0{
             if membershipIDTF.text?.count == 0{
                 self.view.makeToast("Enter membershipId/mobile number",duration: 2.0,position: .center)
-            }else if mobileNumberExistancy == -1{
-                self.view.makeToast("Enter a valid mobile Number",duration: 2.0,position: .center)
+            }
+//            else if mobileNumberExistancy == -1{
+//                self.view.makeToast("Enter a valid mobile Number",duration: 2.0,position: .center)
+//            }
+            else if tcStatus == 0{
+                self.view.makeToast("Accept the term & condition",duration: 2.0,position: .center)
             }else{
-                otpView.isUserInteractionEnabled = true
-                otpBtnStatus = 1
-                SubmitBtn.setTitle("Submit", for: .normal)
-                sendOtptoRegisterNumber()
+                mobileNumberExistancyApi()
             }
         }else{
             if otpView.text?.count == 0{
@@ -74,6 +103,8 @@ class HYP_LoginVC: BaseViewController {
             }else{
                 if otpView.text != "123456"{
                     self.view.makeToast("Enter wrong OTP",duration: 2.0,position: .center)
+                }else if tcStatus == 0{
+                    self.view.makeToast("Accept the term & condition",duration: 2.0,position: .center)
                 }else{
                     
                     loginSubmissionApi()
@@ -101,6 +132,14 @@ class HYP_LoginVC: BaseViewController {
         let vc = storyboard?.instantiateViewController(withIdentifier: "HYP_HelpVC") as? HYP_HelpVC
         navigationController?.pushViewController(vc!, animated: true)
     }
+    
+    
+    @IBAction func didTappedTermsAndCondBtn(_ sender: UIButton) {
+        let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HYT_TermAndConditionsVC") as! HYT_TermAndConditionsVC
+        vc.delegate = self
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
     func mobileNumberExistancyApi(){
         let parameter : [String : Any] = [
@@ -132,7 +171,7 @@ class HYP_LoginVC: BaseViewController {
                 "Browser": "Android",
                 "LoggedDeviceName": "Android",
                 "Password": "123456",
-                "PushID":"",
+                "PushID":"\(pushID)",
                 "SessionId": "HOYA",
                 "UserActionType": "GetPasswordDetails",
                 "UserName": membershipIDTF.text ?? "",

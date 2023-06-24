@@ -17,7 +17,14 @@ class HYP_ClaimsStatusVC: BaseViewController, UITableViewDelegate, UITableViewDa
         
     }
     
-
+    func didTappedResetFilterBtn(item: HYP_FilterVC) {
+        fromDate = ""
+        toDate = ""
+        promotionId = ""
+        promotionName = ""
+        self.VM.myEarningList.removeAll()
+        myEarningList_Api()
+    }
     
     @IBOutlet weak var emptyMessage: UILabel!
     @IBOutlet weak var calimsStatusTableView: UITableView!
@@ -38,7 +45,17 @@ class HYP_ClaimsStatusVC: BaseViewController, UITableViewDelegate, UITableViewDa
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        myEarningList_Api()
+        if MyCommonFunctionalUtilities.isInternetCallTheApi() == false{
+            DispatchQueue.main.async{
+                let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "IOS_Internet_Check") as! IOS_Internet_Check
+                vc.modalTransitionStyle = .crossDissolve
+                vc.modalPresentationStyle = .overFullScreen
+                self.present(vc, animated: true)
+            }
+        }else{
+//            internet is working
+            myEarningList_Api()
+        }
 
     }
     
@@ -50,6 +67,11 @@ class HYP_ClaimsStatusVC: BaseViewController, UITableViewDelegate, UITableViewDa
         vc?.modalTransitionStyle = .crossDissolve
         vc?.modalPresentationStyle = .overFullScreen
         vc?.flags = "promotionList"
+        vc?.fromDate = fromDate
+        vc?.toDate = toDate
+        vc?.statusId = promotionId
+        vc?.statusName = promotionName
+        vc?.tagName = 1
         vc?.delegate = self
         present(vc!, animated: true)
     }
@@ -84,10 +106,10 @@ class HYP_ClaimsStatusVC: BaseViewController, UITableViewDelegate, UITableViewDa
         cell.promotionNameTitleLbl.text = "Program Name"
         
         if self.VM.myEarningList[indexPath.row].salesReturn == 0 {
-            cell.salesReturnLbl.text = "Approved"
+            cell.productStatus.text = "Approved"
             cell.pointsView.backgroundColor = primaryColor
         }else{
-            cell.salesReturnLbl.text = "Cancel"
+            cell.productStatus.text = "Cancel"
             cell.pointsView.backgroundColor = .red
         }
         cell.pointsLbl.text = "\(Int(self.VM.myEarningList[indexPath.row].creditedPoint ?? 0))"

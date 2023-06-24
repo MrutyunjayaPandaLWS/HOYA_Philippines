@@ -19,7 +19,7 @@ class HYP_MyRedemptionVM{
                 if result != nil{
                     let myRedeemptionListArray = result?.objCatalogueRedemReqList ?? []
                     if myRedeemptionListArray.isEmpty == false || myRedeemptionListArray.count != 0 {
-                        self.myRedeemptionList = myRedeemptionListArray
+                        self.myRedeemptionList = self.myRedeemptionList + myRedeemptionListArray
                         DispatchQueue.main.async {
                             self.VC?.noOfElement = self.myRedeemptionList.count
                             if self.myRedeemptionList.count != 0{
@@ -27,22 +27,31 @@ class HYP_MyRedemptionVM{
                                 self.VC?.redeemptionTableView.reloadData()
                                 self.VC?.stopLoading()
                             }else{
-                                self.VC?.emptyMessage.isHidden = false
                                 self.VC?.noOfElement = 0
                                 self.VC?.startIndex = 1
+                                self.VC?.emptyMessage.isHidden = false
+                                self.VC?.emptyMessage.text = "No data found!"
                                 self.VC?.redeemptionTableView.reloadData()
-                                self.VC?.emptyMessage.text = "No data found"
                                 self.VC?.stopLoading()
                             }
                         }
                     }else{
                         DispatchQueue.main.async {
+                            if self.myRedeemptionList.count == 0{
+                                self.VC?.noOfElement = 0
+                                self.VC?.startIndex = 1
+                                self.VC?.emptyMessage.isHidden = false
+                                self.VC?.emptyMessage.text = "No data found!"
+                                self.VC?.redeemptionTableView.reloadData()
+                            }
                             self.VC?.stopLoading()
                         }
                     }
                 }else{
                     DispatchQueue.main.async {
-                        self.VC?.emptyMessage.text = "No data found"
+                        self.VC?.emptyMessage.isHidden = false
+                        self.VC?.emptyMessage.text = "No data found!"
+                        self.VC?.redeemptionTableView.reloadData()
                         self.VC?.stopLoading()
                     }
                 }

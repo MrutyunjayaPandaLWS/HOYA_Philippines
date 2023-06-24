@@ -10,8 +10,38 @@ import Lottie
 import AVFoundation
 import Photos
 import ImageSlideshow
+import SDWebImage
 
-class HYP_DashboardVC: BaseViewController, UITableViewDelegate, UITableViewDataSource,UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class HYP_DashboardVC: BaseViewController, UITableViewDelegate, UITableViewDataSource,UIImagePickerControllerDelegate, UINavigationControllerDelegate, popMessage2Delegate{
+    func didTappedOKBtn(item: SuccessMessage2) {
+        if item.flags == "1"{
+            let domain = Bundle.main.bundleIdentifier!
+            UserDefaults.standard.removePersistentDomain(forName: domain)
+            UserDefaults.standard.synchronize()
+            if #available(iOS 13.0, *){
+                let sceneDelegate = self.view.window?.windowScene?.delegate as! SceneDelegate
+                sceneDelegate.setInitialViewAsRootViewController()
+            }else{
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.setInitialViewAsRootViewController()
+            }
+        }
+    }
+     func successMessage3(item: HYP_SuccessMessageVC) {
+        if item.itsComeFrom == "1"{
+            let domain = Bundle.main.bundleIdentifier!
+            UserDefaults.standard.removePersistentDomain(forName: domain)
+            UserDefaults.standard.synchronize()
+            if #available(iOS 13.0, *){
+                let sceneDelegate = self.view.window?.windowScene?.delegate as! SceneDelegate
+                sceneDelegate.setInitialViewAsRootViewController()
+            }else{
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.setInitialViewAsRootViewController()
+            }
+
+        }
+    }
 
     @IBOutlet weak var offersSlideShow: ImageSlideshow!
     @IBOutlet weak var bottomViewTopConstraints: NSLayoutConstraint!
@@ -42,8 +72,8 @@ class HYP_DashboardVC: BaseViewController, UITableViewDelegate, UITableViewDataS
     
     var menuList : [MenuListModel] = [MenuListModel(menuName: "Claim Status", menuIcon: "refund"),
                                       MenuListModel(menuName: "My Earning", menuIcon: "balance_wallet_payment_cash"),
-                                      MenuListModel(menuName: "My Redemption", menuIcon: "Group 475"),
-                                      MenuListModel(menuName: "Points Expiry Report", menuIcon: "Group 8196")
+                                      MenuListModel(menuName: "My Redemption", menuIcon: "Group 475")
+//                                      MenuListModel(menuName: "Points Expiry Report", menuIcon: "Group 8196")
     ]
     
     var menuList2 : [MenuListModel] = [
@@ -55,6 +85,7 @@ class HYP_DashboardVC: BaseViewController, UITableViewDelegate, UITableViewDataS
     let imagePicker = UIImagePickerController()
     var VM = HYP_DashboardVM()
     var sourceArray = [AlamofireSource]()
+    var sourceArray1 = [SDWebImageSource]()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.VM.VC = self
@@ -71,7 +102,7 @@ class HYP_DashboardVC: BaseViewController, UITableViewDelegate, UITableViewDataS
         storeOwnerMenuListCollectionViewCell.register(UINib(nibName: "HYP_StoreOwnerMenuListCVCell", bundle: nil), forCellWithReuseIdentifier: "HYP_StoreOwnerMenuListCVCell")
 //        collectionViewHeight.constant = 72
         individualMenuListView.isHidden = true
-        if customerTypeID != 54{
+        if customerTypeID != 1{
             individualMenuListView.isHidden = false
             storeOwnerMenuListView.isHidden = true
             claimView.isHidden = false
@@ -89,12 +120,24 @@ class HYP_DashboardVC: BaseViewController, UITableViewDelegate, UITableViewDataS
             storeOwnerMenuListView.isHidden = false
         }
         imagePicker.delegate = self
-        dashboardOffersApi()
+//        dashboardOffersApi()
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
-        tokendata()
+        if MyCommonFunctionalUtilities.isInternetCallTheApi() == false{
+            DispatchQueue.main.async{
+                let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "IOS_Internet_Check") as! IOS_Internet_Check
+                vc.modalTransitionStyle = .crossDissolve
+                vc.modalPresentationStyle = .overFullScreen
+                self.present(vc, animated: true)
+            }
+        }else{
+            tokendata()
+            if sourceArray.count  == 0{
+                dashboardOffersApi()
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -103,16 +146,32 @@ class HYP_DashboardVC: BaseViewController, UITableViewDelegate, UITableViewDataS
     
     
     @IBAction func didTappedNotificationBtn(_ sender: UIButton) {
+        let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HistoryNotificationsViewController") as? HistoryNotificationsViewController
+        navigationController?.pushViewController(vc!, animated: true)
     }
     @IBAction func didTappedLogoutBtn(_ sender: UIButton) {
-        UserDefaults.standard.set(false, forKey: "UserLoginStatus")
-        if #available(iOS 13.0, *) {
-            let sceneDelegate = self.view.window!.windowScene!.delegate as! SceneDelegate
-            sceneDelegate.setInitialViewAsRootViewController()
-        } else {
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.setInitialViewAsRootViewController()
-        }
+        
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SuccessMessage2") as? SuccessMessage2
+        vc!.delegate = self
+        vc!.message = "Are you sure you want to Logout ?"
+        vc?.btnName = "Logout"
+        vc?.vcTitle = "Logout"
+        vc!.flags = "1"
+        vc!.modalPresentationStyle = .overCurrentContext
+        vc!.modalTransitionStyle = .crossDissolve
+        self.present(vc!, animated: true, completion: nil)
+        
+        
+        
+        
+//        UserDefaults.standard.set(false, forKey: "UserLoginStatus")
+//        if #available(iOS 13.0, *) {
+//            let sceneDelegate = self.view.window!.windowScene!.delegate as! SceneDelegate
+//            sceneDelegate.setInitialViewAsRootViewController()
+//        } else {
+//            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//            appDelegate.setInitialViewAsRootViewController()
+//        }
         
     }
     @IBAction func didTappedManageStaffBtn(_ sender: UIButton) {
@@ -167,7 +226,16 @@ class HYP_DashboardVC: BaseViewController, UITableViewDelegate, UITableViewDataS
         let parameter : [String : Any] = [
                 "ActorId": userId
         ]
-        self.VM.dashBoardApi(parameter: parameter)
+        self.VM.dashBoardApi(parameter: parameter, completion: {
+            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HYP_SuccessMessageVC") as? HYP_SuccessMessageVC
+            vc!.delegate = self
+            vc!.successMessage = "Your account is deactivate please contact to your administrator"
+            vc!.itsComeFrom = "1"
+            vc?.imageStatus = true
+            vc!.modalPresentationStyle = .overCurrentContext
+            vc!.modalTransitionStyle = .crossDissolve
+            self.present(vc!, animated: true, completion: nil)
+        })
     }
     
     
@@ -362,6 +430,32 @@ extension HYP_DashboardVC{
 
 extension HYP_DashboardVC{
     
+    func ImageSetups1(){
+        self.sourceArray1.removeAll()
+        if self.VM.dashboardOffers.count > 0 {
+            DispatchQueue.main.async { [self] in
+                for image in self.self.VM.dashboardOffers {
+                    print("\(PROMO_IMG1)\(image.proImage ?? ""), offerImgUrl")
+                    let imageURL = image.proImage ?? ""
+                    let filteredURLArray = imageURL.dropFirst(3)
+                    let replaceString = "\(PROMO_IMG1)\(filteredURLArray)".replacingOccurrences(of: " ", with: "%20")
+                    self.sourceArray1.append(SDWebImageSource(urlString: "\(replaceString)", placeholder: UIImage(named: "ic_default_img (1)"))!)
+                    //                self.sourceArray.append(AlamofireSource(urlString: "\(replaceString)", placeholder: UIImage(named: "ic_default_img (1)"))!)
+                }
+                offersSlideShow.setImageInputs(self.sourceArray1)
+                offersSlideShow.slideshowInterval = 3.0
+                offersSlideShow.zoomEnabled = true
+                offersSlideShow.contentScaleMode = .scaleToFill
+                offersSlideShow.pageControl.currentPageIndicatorTintColor = UIColor(red: 230/255, green: 27/255, blue: 34/255, alpha: 1)
+                offersSlideShow.pageControl.pageIndicatorTintColor = UIColor.lightGray
+            }
+        }else{
+            offersSlideShow.setImageInputs([
+                ImageSource(image: UIImage(named: "ic_default_img (1)")!)
+            ])
+        }
+    }
+//
     func ImageSetups(){
         self.sourceArray.removeAll()
         if self.VM.dashboardOffers.count > 0 {

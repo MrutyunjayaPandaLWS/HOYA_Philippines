@@ -8,20 +8,70 @@
 import UIKit
 import Toast_Swift
 
-class HYP_ProfileVC: BaseViewController, OtpDelegate, DropdownDelegate, DateSelectedDelegate {
+class HYP_ProfileVC: BaseViewController, OtpDelegate, DropdownDelegate, DateSelectedDelegate, popMessage2Delegate {
+    func didTappedOKBtn(item: SuccessMessage2) {
+        if item.flags == "1"{
+            let domain = Bundle.main.bundleIdentifier!
+            UserDefaults.standard.removePersistentDomain(forName: domain)
+            UserDefaults.standard.synchronize()
+            if #available(iOS 13.0, *){
+                let sceneDelegate = self.view.window?.windowScene?.delegate as! SceneDelegate
+                sceneDelegate.setInitialViewAsRootViewController()
+            }else{
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.setInitialViewAsRootViewController()
+            }
+
+        }else if item.flags == "0"{
+            
+            let parameters : [String : Any] = [
+            "ActionType": 1,
+            "userid":"\(self.userId)"
+        ] as [String : Any]
+        print(parameters)
+            self.VM.deleteAccount(parameters: parameters) { response in
+                DispatchQueue.main.async {
+                    print(response?.returnMessage ?? "-1")
+                    if response?.returnMessage ?? "-1" == "1"{
+                        DispatchQueue.main.async{
+                            DispatchQueue.main.async{
+                                let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HYT_SuccessMessageVC") as? HYP_SuccessMessageVC
+                                vc!.delegate = self
+                                vc!.successMessage = "Account deleted successfully"
+                                vc!.itsComeFrom = "0"
+                                vc!.modalPresentationStyle = .overCurrentContext
+                                vc!.modalTransitionStyle = .crossDissolve
+                                self.present(vc!, animated: true, completion: nil)
+                                }
+                            }
+                    }else{
+                        DispatchQueue.main.async{
+                            
+                            }
+                    }
+                  self.stopLoading()
+                    }
+            }
+        }
+
+    }
+    
     func didTappedIdCardType(item: HYP_DropDownVC) {}
     
     func acceptDate(_ vc: HYP_DatePickerVC) {
         if vc.isComeFrom == "DOB"{
             selectDOBLbl.text = vc.selectedDate
+            DOB = vc.selectedDate
         }else{
             selectDateOfAnniversary.text = vc.selectedDate
+            aniversaryDate = vc.selectedDate
         }
     }
     
     
     func didTappedGenderBtn(item: HYP_DropDownVC) {
         selectGenderLbl.text = item.genderName
+        gender = item.genderName
     }
     
     func didTappedAccountType(item: HYP_DropDownVC) {}
@@ -35,6 +85,11 @@ class HYP_ProfileVC: BaseViewController, OtpDelegate, DropdownDelegate, DateSele
     }
     
 
+    @IBOutlet weak var idCardNumberView: UIView!
+    @IBOutlet weak var logoutShadowView: UIView!
+    @IBOutlet weak var logoutView: UIView!
+    @IBOutlet weak var deleteAccountLbl: UILabel!
+    @IBOutlet weak var logoutLbl: UILabel!
     @IBOutlet weak var selectDateOfAnniversary: UILabel!
     @IBOutlet weak var backBtnWidth: NSLayoutConstraint!
     @IBOutlet weak var personalInfoLineLbl: UILabel!
@@ -59,27 +114,73 @@ class HYP_ProfileVC: BaseViewController, OtpDelegate, DropdownDelegate, DateSele
     @IBOutlet weak var personalInformationTopHeight: NSLayoutConstraint!
     var VM = HYP_ProfileVM()
     var registerationNo : Int = 0
-
+    var aniversaryDate = ""
+    var gender = ""
+    var DOB = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         self.VM.VC = self
-        personalInformationTopHeight.constant = 20
+//        personalInformationTopHeight.constant = 20
         backBtnWidth.constant = 0 //22
+        logoutView.layer.maskedCorners =  [.layerMinXMaxYCorner]
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        customerGeneralInfo()
-
-        personalInformationTopHeight.constant = 20
+        self.logoutView.isHidden = true
+        self.logoutShadowView.isHidden = true
+//        personalInformationTopHeight.constant = 20
         persionalInfoView.isHidden = true
         generalInfosView.isHidden = false
         updateBtn.isHidden = true
-        personalInfoBtn.titleLabel?.textColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.30)
-        generalInfoBtn.titleLabel?.textColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1)
+        personalInfoBtn.setTitleColor(UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.30), for: .normal)
+        generalInfoBtn.setTitleColor(UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1), for: .normal)
         personalInfoLineLbl.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.30)
         generalInfoLineLbl.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+    
+        if MyCommonFunctionalUtilities.isInternetCallTheApi() == false{
+            DispatchQueue.main.async{
+                let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "IOS_Internet_Check") as! IOS_Internet_Check
+                vc.modalTransitionStyle = .crossDissolve
+                vc.modalPresentationStyle = .overFullScreen
+                self.present(vc, animated: true)
+            }
+        }else{
+//            internet is working
+            customerGeneralInfo()
+        }
         
+    }
+    
+    
+    @IBAction func didTappedSettingBtn(_ sender: Any) {
+        logoutView.isHidden ? (logoutView.isHidden =  false) : (logoutView.isHidden = true)
+        logoutShadowView.isHidden ? (logoutShadowView.isHidden =  false) : (logoutShadowView.isHidden = true)
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first
+        if touch?.view == self.logoutShadowView{
+            self.logoutShadowView.isHidden = true
+            self.logoutView.isHidden = true
+        }
+    }
+    
+    @IBAction func didTappedDeleteAccount(_ sender: Any) {
+        deleteAccount()
+    }
+    
+    @IBAction func didTappedLogoutBtn(_ sender: Any) {
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SuccessMessage2") as? SuccessMessage2
+        vc!.delegate = self
+        vc!.message = "Are you sure you want to Logout ?"
+        vc?.btnName = "Logout"
+        vc?.vcTitle = "Logout"
+        vc!.flags = "1"
+        vc!.modalPresentationStyle = .overCurrentContext
+        vc!.modalTransitionStyle = .crossDissolve
+        self.present(vc!, animated: true, completion: nil)
     }
     
     @IBAction func didTappedUpdateBtn(_ sender: UIButton) {
@@ -89,12 +190,25 @@ class HYP_ProfileVC: BaseViewController, OtpDelegate, DropdownDelegate, DateSele
             self.view.makeToast("Enter Last Name",duration: 2.0,position: .center)
         }else if mobileNumberTF.text?.count == 0{
             self.view.makeToast("Enter mobile number",duration: 2.0,position: .center)
-        }else if selectDOBLbl.text == "Select DOB"{
-            self.view.makeToast("Select DOB",duration: 2.0,position: .center)
-        }else if selectGenderLbl.text == "Select gender"{
-            self.view.makeToast("Select gender",duration: 2.0,position: .center)
-        }else{
-            profileUpdate_Api()
+        }
+//        else if selectDOBLbl.text == "Select DOB"{
+//            self.view.makeToast("Select DOB",duration: 2.0,position: .center)
+//        }
+//        else if selectGenderLbl.text == "Select gender"{
+//            self.view.makeToast("Select gender",duration: 2.0,position: .center)
+//        }
+        else{
+            if MyCommonFunctionalUtilities.isInternetCallTheApi() == false{
+                DispatchQueue.main.async{
+                    let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "IOS_Internet_Check") as! IOS_Internet_Check
+                    vc.modalTransitionStyle = .crossDissolve
+                    vc.modalPresentationStyle = .overFullScreen
+                    self.present(vc, animated: true)
+                }
+            }else{
+    //            internet is working
+                profileUpdate_Api()
+            }
         }
        
     }
@@ -131,8 +245,8 @@ class HYP_ProfileVC: BaseViewController, OtpDelegate, DropdownDelegate, DateSele
         generalInfosView.isHidden = true
         personalInfoLineLbl.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         generalInfoLineLbl.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.30)
-        generalInfoBtn.titleLabel?.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.30)
-        personalInfoBtn.titleLabel?.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        generalInfoBtn.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 0.30), for: .normal)
+        personalInfoBtn.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
         updateBtn.isHidden = false
     }
     
@@ -141,8 +255,8 @@ class HYP_ProfileVC: BaseViewController, OtpDelegate, DropdownDelegate, DateSele
         generalInfosView.isHidden = false
         personalInfoLineLbl.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.30)
         generalInfoLineLbl.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-        generalInfoBtn.titleLabel?.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-        personalInfoBtn.titleLabel?.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.30)
+        generalInfoBtn.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+        personalInfoBtn.setTitleColor(UIColor(red: 1, green: 1, blue: 1, alpha: 0.30), for: .normal)
         updateBtn.isHidden = true
     }
     
@@ -177,6 +291,26 @@ class HYP_ProfileVC: BaseViewController, OtpDelegate, DropdownDelegate, DateSele
     func profileUpdate_Api(){
         let parameter : [String : Any] =
         
+//        [
+//            "ActionType": "4",
+//            "ActorId": userId,
+//            "ObjCustomerJson": [
+//                "Address1": "",
+//                "CustomerId": customerTypeID,
+//                "FirstName": firstNameTF.text ?? "",
+//                "lastname":lastNameTF.text ?? "",
+//                "Email": emailTF.text ?? "",
+//                "DOB": selectDOBLbl.text ?? "",
+//                "Mobile": mobileNumberTF.text ?? "",
+//                "RegistrationSource": registerationNo
+//            ],
+//            "ObjCustomerDetails": [
+//                "IsNewProfilePicture":0,
+//                "Anniversary":selectDateOfAnniversary.text ?? "",
+//                "Gender": selectGenderLbl.text ?? ""
+//            ]
+//        ]
+        
         [
             "ActionType": "4",
             "ActorId": userId,
@@ -186,17 +320,32 @@ class HYP_ProfileVC: BaseViewController, OtpDelegate, DropdownDelegate, DateSele
                 "FirstName": firstNameTF.text ?? "",
                 "lastname":lastNameTF.text ?? "",
                 "Email": emailTF.text ?? "",
-                "DOB": selectDOBLbl.text ?? "",
+                "DOB": DOB,
                 "Mobile": mobileNumberTF.text ?? "",
-                "RegistrationSource": registerationNo
-            ],
+                "RegistrationSource": "3",
+                "rELATED_PROJECT_TYPE" : "HOYA",
+                "customerTypeID": customerTypeID
+            ] as [String : Any],
             "ObjCustomerDetails": [
-                "IsNewProfilePicture":0,
-                "Anniversary":selectDateOfAnniversary.text ?? "",
-                "Gender": selectGenderLbl.text ?? ""
-            ]
+                "IsNewProfilePicture":1,
+                "Anniversary": aniversaryDate,
+                "Gender": gender
+            ] as [String : Any]
         ]
+        print(parameter,"profile update")
         
         self.VM.peofileUpdate(parameter: parameter)
+    }
+    
+    func deleteAccount(){
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SuccessMessage2") as? SuccessMessage2
+        vc!.delegate = self
+        vc!.message = "Are you sure you really want to delete your account?"
+        vc?.btnName = "Delete"
+        vc?.vcTitle = "Delete Account"
+        vc!.flags = "0"
+        vc!.modalPresentationStyle = .overCurrentContext
+        vc!.modalTransitionStyle = .crossDissolve
+        self.present(vc!, animated: true, completion: nil)
     }
 }

@@ -34,6 +34,16 @@ class HYP_CreateQueryVC: BaseViewController,TopicListDelegate,UIImagePickerContr
         self.VM.VC = self
         imagePicker.delegate = self
         topicNameLbl.text = queryName
+        if MyCommonFunctionalUtilities.isInternetCallTheApi() == false{
+            DispatchQueue.main.async{
+                let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "IOS_Internet_Check") as! IOS_Internet_Check
+                vc.modalTransitionStyle = .crossDissolve
+                vc.modalPresentationStyle = .overFullScreen
+                self.present(vc, animated: true)
+            }
+        }else{
+//            internet is working
+        }
     }
     
     @IBAction func didTappedSubmitBtn(_ sender: UIButton) {
@@ -45,7 +55,17 @@ class HYP_CreateQueryVC: BaseViewController,TopicListDelegate,UIImagePickerContr
         }else if queryDetailsTF.text?.count == 0{
             self.view.makeToast("Enter query details", duration: 2.0, position: .center)
         }else{
-            newQuerySubmission()
+            if MyCommonFunctionalUtilities.isInternetCallTheApi() == false{
+                DispatchQueue.main.async{
+                    let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "IOS_Internet_Check") as! IOS_Internet_Check
+                    vc.modalTransitionStyle = .crossDissolve
+                    vc.modalPresentationStyle = .overFullScreen
+                    self.present(vc, animated: true)
+                }
+            }else{
+    //            internet is working
+                newQuerySubmission()
+            }
         }
     }
     

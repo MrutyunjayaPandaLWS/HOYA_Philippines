@@ -9,8 +9,13 @@ import UIKit
 import CoreData
 import IQKeyboardManagerSwift
 
+import Firebase
+import FirebaseCore
+import UserNotificationsUI
+import FirebaseMessaging
+
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder,UIApplicationDelegate, UNUserNotificationCenterDelegate,MessagingDelegate{
 
     var window: UIWindow?
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -22,6 +27,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         let isUserLoggedIn: Bool = UserDefaults.standard.bool(forKey: "UserLoginStatus")
         print(isUserLoggedIn)
+        FirebaseApp.configure()
+        
+       //   Messaging.messaging().isAutoInitEnabled = true
+          application.registerForRemoteNotifications()
+          Messaging.messaging().delegate = self
+          Messaging.messaging().token { token, error in
+            if let error = error {
+              print("Error fetching FCM registration token: \(error)")
+            } else if let token = token {
+              print("FCM registration token: \(token)")
+              UserDefaults.standard.setValue(token, forKey: "UD_DEVICE_TOKEN")
+            }
+          }
         if isUserLoggedIn {
             self.setHomeAsRootViewController()
         } else {
@@ -50,6 +68,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
     }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        Messaging.messaging().apnsToken = deviceToken
+        Messaging.messaging().token { (token, error) in
+            if let error = error {
+                print("Error fetching remote instance ID: \(error.localizedDescription)")
+            } else if let token = token {
+                print("Token is \(token)")
+                UserDefaults.standard.setValue(token, forKey: "SMSDEVICE_TOKEN")
+            }
+        }
+    }
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
+    {
+        completionHandler([.alert, .badge, .sound])
+    }
+    //MessagingDelegate
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        print("Firebase token: \(fcmToken ?? "")")
+//        UserDefaults.standard.setValue(fcmToken ?? "", forKey: "SMSDEVICE_TOKEN")
+
+    }
+    
+    
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

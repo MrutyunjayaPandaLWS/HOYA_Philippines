@@ -28,5 +28,23 @@ class HYP_TabBarVC: UITabBarController {
         self.tabBar.layer.shadowOpacity = 0.16
         self.tabBar.layer.shadowRadius = 6
     }
+    
+    
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        if self.selectedIndex == 0 || self.selectedIndex == 1{
+            let rootView = self.viewControllers![self.selectedIndex] as! UINavigationController
+            rootView.popToRootViewController(animated: false)
+//            self.tabBarController?.selectedIndex = selectedIndex
+        }else if self.selectedIndex == 2{
+//            let rootView = self.viewControllers![self.selectedIndex] as! UINavigationController
+//            rootView.popToRootViewController(animated: false)
+            self.tabBarController?.selectedIndex = selectedIndex
+        }else if self.selectedIndex == 3{
+//            let rootView = self.viewControllers![self.selectedIndex] as! UINavigationController
+//            rootView.popToRootViewController(animated: false)
+            self.tabBarController?.selectedIndex = selectedIndex
+        }
+    }
+    
 
 }

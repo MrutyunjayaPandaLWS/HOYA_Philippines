@@ -21,7 +21,7 @@ class HYP_HelpVM{
                         self.queryMessage = result?.returnMessage ?? ""
                         DispatchQueue.main.async {
                             if self.queryMessage.contains("Saved Successfully"){
-                                self.VC?.successMessagePopUp(message: "querySubmit_success_message")
+                                self.VC?.successMessagePopUp(message: "Your query has been submitted successfully.")
                                 self.VC?.stopLoading()
                                 
                             }else{

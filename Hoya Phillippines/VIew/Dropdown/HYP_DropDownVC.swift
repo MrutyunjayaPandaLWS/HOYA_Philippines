@@ -7,12 +7,13 @@
 
 import UIKit
 
-protocol DropdownDelegate{
+@objc protocol DropdownDelegate{
     func didTappedIdCardType(item: HYP_DropDownVC)
     func didTappedGenderBtn(item: HYP_DropDownVC)
     func didTappedAccountType(item: HYP_DropDownVC)
     func didTappedRoleBtn(item: HYP_DropDownVC)
     func didTappedSalesRepresentative(item: HYP_DropDownVC)
+    @objc optional func didtappedDoccumnetType(item: HYP_DropDownVC)
 }
 
 protocol FilterStatusDelegate{
@@ -33,12 +34,15 @@ class HYP_DropDownVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
     var accountTypeList = ["Individual"]
     var roleList = ["Frontliner","Individual","Manager","Optician"]
     var salesRepresentativeList = ["tester user-1","tester user-2","tester user-3"]
-    var myRedeemptionStatus : [myredeemptionStatusModel] = [myredeemptionStatusModel(statusName: "Approved", statusID: 0),myredeemptionStatusModel(statusName: "Cancelled", statusID: 1)]
+    var myRedeemptionStatus : [myredeemptionStatusModel] = [myredeemptionStatusModel(statusName: "Pending", statusID: 0),myredeemptionStatusModel(statusName: "Delivered", statusID: 4),myredeemptionStatusModel(statusName: "Cancelled", statusID: 3)]
     var idcardTypeList = ["Pan Card","Adhar Card","Voter Card","Passport"]
     var genderName = ""
     var promotionName = ""
     var accountType = ""
     var roleName = ""
+    var roleId = 0
+    var doccumentID = 0
+    var doccumentName = ""
     var salesRepresentativeName = ""
     var statusName: String = ""
     var statusId:Int = 0
@@ -63,7 +67,7 @@ class HYP_DropDownVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
             rowNumber = genderList.count
             heightOfTableView.constant = CGFloat(40*rowNumber)
             dropdownTableView.reloadData()
-        case "promotionName":
+        case "promotionList":
             getPromotionList_Api()
         case "accountType":
             rowNumber = accountTypeList.count
@@ -78,9 +82,7 @@ class HYP_DropDownVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
         case "sales":
             salesRepresentativeAPI()
         case "idType":
-            rowNumber = idcardTypeList.count
-            heightOfTableView.constant = CGFloat(40*rowNumber)
-            dropdownTableView.reloadData()
+            doccumentType()
         case "queryStatus":
             queryStatusApi()
         default:
@@ -122,6 +124,14 @@ class HYP_DropDownVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
         self.VM.queryStatusListing(parameter: parameter)
     }
     
+    func doccumentType(){
+        let parameter = [
+            "ActionType": 187
+        ]
+        self.VM.doccumentListingApi(parameter: parameter)
+
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rowNumber
     }
@@ -132,7 +142,7 @@ class HYP_DropDownVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
         switch flags{
         case "gender":
             cell.nameLbl.text = genderList[indexPath.row]
-        case "promotionName":
+        case "promotionList":
             cell.nameLbl.text = self.VM.promotionList[indexPath.row].programName
         case "accountType":
             cell.nameLbl.text = accountTypeList[indexPath.row]
@@ -143,7 +153,7 @@ class HYP_DropDownVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
         case "sales":
             cell.nameLbl.text = self.VM.salesRepresentativeList[indexPath.row].attributeValue
         case "idType":
-            cell.nameLbl.text = idcardTypeList[indexPath.row]
+            cell.nameLbl.text = self.VM.duccumentTypeListArray[indexPath.row].attributeType
         case "queryStatus":
             cell.nameLbl.text = self.VM.queryStatusList[indexPath.row].attributeValue
         default:
@@ -158,7 +168,7 @@ class HYP_DropDownVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
             genderName = genderList[indexPath.row]
             delegate?.didTappedGenderBtn(item: self)
             
-        case "promotionName":
+        case "promotionList":
             statusName = self.VM.promotionList[indexPath.row].programName ?? ""
             statusId = self.VM.promotionList[indexPath.row].programId ?? 0
             delegate1?.didTappedFilterStatus(item: self)
@@ -171,6 +181,7 @@ class HYP_DropDownVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
             statusId = self.myRedeemptionStatus[indexPath.row].statusID ?? 0
             delegate1?.didTappedFilterStatus(item: self)
         case "role":
+            roleId = self.VM.roleListArray[indexPath.row].attributeId ?? 0
             roleName = self.VM.roleListArray[indexPath.row].attributeValue ?? "Select role"
             delegate?.didTappedRoleBtn(item: self)
         case "sales":
@@ -178,7 +189,8 @@ class HYP_DropDownVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
             salesRepId = self.VM.salesRepresentativeList[indexPath.row].attributeId ?? 0
             delegate?.didTappedSalesRepresentative(item: self)
         case "idType":
-            idTypeName = idcardTypeList[indexPath.row]
+            doccumentID = self.VM.duccumentTypeListArray[indexPath.row].attributeId ?? 0
+            doccumentName = self.VM.duccumentTypeListArray[indexPath.row].attributeType ?? ""
             delegate?.didTappedIdCardType(item: self)
         case "queryStatus":
             statusName = self.VM.queryStatusList[indexPath.row].attributeValue ?? ""

@@ -88,6 +88,8 @@ class HYP_RegisterVM{
                                // self.VC?.view.makeToast("This storeId allready exists", duration: 2.0, position: .center)
                                 self.VC?.storeIdStatus = 1
                                 self.VC?.locationCode = "\(result?.lstAttributesDetails?[0].attributeId ?? 0)"
+                                self.VC?.storeId = "\(result?.lstAttributesDetails?[0].attributeId ?? 0)"
+                                self.VC?.storeCode = "\(result?.lstAttributesDetails?[0].attributeNames ?? "")"
                                 self.VC?.selectSalesLbl.text = "Select sales representative"
                                 self.VC?.storeNameTF.text = result?.lstAttributesDetails?[0].attributeValue
                                 self.VC?.storeNameTF.textColor = .black
@@ -155,16 +157,18 @@ class HYP_RegisterVM{
         requestAPIs.checkStoreUserNameExistancy(parameters: parameter) { result, error in
             if error == nil{
                 if result != nil{
-                    
                     if result?.returnValue == 1{
                         DispatchQueue.main.async {
-                            self.VC?.view.makeToast("Store User Name already register used different store id", duration: 2.0, position: .center)
                             self.VC?.storeUserNameExistancy = 1
                             self.VC?.stopLoading()
                         }
-                    }else{
-                        self.VC?.storeUserNameExistancy = 0
-                        self.VC?.stopLoading()
+                    }else{ 
+                        DispatchQueue.main.async {
+                            self.VC?.view.makeToast("Store User Name already register used different store id", duration: 2.0, position: .center)
+                            self.VC?.storeUserNameExistancy = 0
+                            self.VC?.stopLoading()
+                        }
+                        
                     }
                     
                 }else{
@@ -180,6 +184,41 @@ class HYP_RegisterVM{
             }
         }
     }
+    //   MARK: - chechIdNumberExistancyApi
+        func checkIdcardExistancy(parameter : JSON){
+            print(parameter)
+            self.VC?.startLoading()
+            requestAPIs.chechIdNumberExistancyApi(parameters: parameter) { result, error in
+                if error == nil{
+                    if result != nil{
+                        print(result?.lstAttributesDetails?[0].attributeId,"id existancy")
+                        result?.lstAttributesDetails?[0].attributeId
+                        if result?.lstAttributesDetails?[0].attributeId == 0{
+                            DispatchQueue.main.async {
+                                
+                                self.VC?.idCardValidationStatus = 1
+                                self.VC?.stopLoading()
+                            }
+                        }else{
+                            DispatchQueue.main.async {
+                                self.VC?.idCardValidationStatus = 2
+                                self.VC?.view.makeToast("Id Number already exist !", duration: 2.0, position: .center)
+                                self.VC?.idCardNumberTF.text = ""
+                                self.VC?.stopLoading()
+                            }
+                        }
+                    }else{
+                        DispatchQueue.main.async {
+                            self.VC?.stopLoading()
+                        }
+                    }
+                }else{
+                    DispatchQueue.main.async {
+                        self.VC?.stopLoading()
+                    }
+                }
+            }
+        }
     
     func checkIdcardValidation(parameter : JSON){
         self.VC?.startLoading()
@@ -192,6 +231,7 @@ class HYP_RegisterVM{
                             
                             self.VC?.idCardValidationStatus = 1
                             self.VC?.stopLoading()
+                            self.VC?.checkIDcardExiistancy()
                         }
                     }else{
                         DispatchQueue.main.async {

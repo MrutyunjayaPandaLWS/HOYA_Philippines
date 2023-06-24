@@ -8,6 +8,12 @@
 import UIKit
 
 class HYP_PointsExpiryReportVC: BaseViewController, UITableViewDelegate, UITableViewDataSource, FilterProtocolDelegate {
+    func didTappedResetFilterBtn(item: HYP_FilterVC) {
+        fromDate = ""
+        toDate = ""
+        getPointExpireReportDetails()
+    }
+    
     func didTappedFilterBtn(item: HYP_FilterVC) {
         fromDate = item.fromDate
         toDate = item.toDate
@@ -36,14 +42,28 @@ class HYP_PointsExpiryReportVC: BaseViewController, UITableViewDelegate, UITable
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getPointExpireReportDetails()
+        if MyCommonFunctionalUtilities.isInternetCallTheApi() == false{
+            DispatchQueue.main.async{
+                let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "IOS_Internet_Check") as! IOS_Internet_Check
+                vc.modalTransitionStyle = .crossDissolve
+                vc.modalPresentationStyle = .overFullScreen
+                self.present(vc, animated: true)
+            }
+        }else{
+//            internet is working.
+            getPointExpireReportDetails()
+            
+        }
     }
     
     @IBAction func selectFilterBtn(_ sender: UIButton) {
         let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HYP_FilterVC") as? HYP_FilterVC
         vc?.modalTransitionStyle = .crossDissolve
         vc?.modalPresentationStyle = .overFullScreen
-        vc?.flags = ""
+        vc?.promotionNameHeight = 0
+        vc?.bottomConstraintsValue = 0
+        vc?.fromDate = fromDate
+        vc?.toDate = toDate
         vc?.delegate = self
         present(vc!, animated: true)
     }

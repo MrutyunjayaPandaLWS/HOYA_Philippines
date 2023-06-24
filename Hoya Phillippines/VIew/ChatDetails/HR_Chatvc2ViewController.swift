@@ -8,7 +8,6 @@ import Toast_Swift
 
 class HR_Chatvc2ViewController: UIViewController, UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIDocumentPickerDelegate{
     
-    @IBOutlet weak var ticketDetailsHeight: NSLayoutConstraint!
     @IBOutlet var supportHeadingLabel: UILabel!
     @IBOutlet weak var textfieldview: UIView!
     @IBOutlet weak var querySummarylabel: UILabel!
@@ -26,16 +25,16 @@ class HR_Chatvc2ViewController: UIViewController, UITextFieldDelegate,UITableVie
     var helptopicName = ""
     var querysummary = ""
     var querydetails = ""
-//    var requestAPIs = RestAPI_Requests()
+    var ChatMessageEnable = true
+    var requestAPIs = RestAPI_Requests()
     let reachability = Reach()
     let picker = UIImagePickerController()
     var FileType = ""
     var strBase64 = ""
-//    var chatlistingArray = [ObjQueryResponseJsonList]()
+    var chatlistingArray = [ObjQueryResponseJsonList]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ticketDetailsHeight.constant = 0
         self.supportHeadingLabel.text = "Support"
         self.querySummarylabel.text = "Ticket Details"
         tableview12.register(UINib(nibName: "senderInfoTableViewCell", bundle: nil), forCellReuseIdentifier: "senderInfoTableViewCell")
@@ -46,11 +45,12 @@ class HR_Chatvc2ViewController: UIViewController, UITextFieldDelegate,UITableVie
         tableview12.register(UINib(nibName: "otherInfoImageTableViewCell", bundle: nil), forCellReuseIdentifier: "otherInfoImageTableViewCell")
         print(CustomerTicketIDchatvc)
         self.commenttextfield.delegate = self
-//        NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification1012(notification:)), name: Notification.Name("NotificationIdentifierinternet"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification1012(notification:)), name: Notification.Name("NotificationIdentifierinternet"), object: nil)
         picker.delegate = self
         tableview12?.delegate = self
         tableview12?.dataSource = self
         print(CustomerTicketIDchatvc)
+        textfieldview.isHidden = ChatMessageEnable
 //        if reachability.connectionStatus() == .offline {
 //            DispatchQueue.main.async{
 //                let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HR_PopUpVC") as? HR_PopUpVC
@@ -75,109 +75,109 @@ class HR_Chatvc2ViewController: UIViewController, UITextFieldDelegate,UITableVie
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10//chatlistingArray.count
+        return chatlistingArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let verifyusertype = self.chatlistingArray[indexPath.row].userType ?? ""
-//        print(verifyusertype, "Customer TYpe")
-//        print(self.chatlistingArray[indexPath.item].imageUrl ?? "", "Image URL")
-//        print(self.chatlistingArray[indexPath.row].queryResponseInfo ?? "", "ResponseText")
-//        if verifyusertype == "Customer" || verifyusertype == "CUSTOMER"{
-//            if self.chatlistingArray[indexPath.row].queryResponseInfo != nil  && self.chatlistingArray[indexPath.row].imageUrl == nil ||  self.chatlistingArray[indexPath.row].queryResponseInfo != ""  && self.chatlistingArray[indexPath.row].imageUrl == "" {
-//                let cell = tableView.dequeueReusableCell(withIdentifier: "senderInfoTableViewCell") as? senderInfoTableViewCell
-//                cell?.itemTime.text = self.chatlistingArray[indexPath.row].jCreatedDate ?? ""
-//                cell?.itemcustomer.text = self.chatlistingArray[indexPath.row].repliedBy ?? ""
-//                cell?.itemText.text = self.chatlistingArray[indexPath.row].queryResponseInfo ?? ""
-//                cell?.layoutIfNeeded()
-//                print(cell?.frame.height)
-//                print(cell?.itemText.frame.height)
-//
-//                return cell!
-//            }else if self.chatlistingArray[indexPath.row].queryResponseInfo == nil  && self.chatlistingArray[indexPath.row].imageUrl != nil || self.chatlistingArray[indexPath.row].queryResponseInfo == ""  && self.chatlistingArray[indexPath.row].imageUrl != ""{
-//                print("Imageasdfasdfs")
-//                let cell = tableView.dequeueReusableCell(withIdentifier: "senderImageTableViewCell") as? senderImageTableViewCell
-//                cell?.itemTime.text = self.chatlistingArray[indexPath.row].jCreatedDate ?? ""
-//                cell?.itemcustomer.text = self.chatlistingArray[indexPath.row].repliedBy ?? ""
-//                var secondaryIMG = (self.chatlistingArray[indexPath.item].imageUrl ?? "").dropFirst(2)
-//                let splited = secondaryIMG
-//                print("\(PROMO_IMG1)\(splited)")
-//                cell?.itemimage.sd_setImage(with: URL(string: "\(PROMO_IMG1)\(splited)"), placeholderImage: UIImage(named: "default"))
-//                return cell!
-//            }else if self.chatlistingArray[indexPath.row].queryResponseInfo != nil  && self.chatlistingArray[indexPath.row].imageUrl != nil || self.chatlistingArray[indexPath.row].queryResponseInfo != ""  && self.chatlistingArray[indexPath.row].imageUrl != ""{
-//                print("Check Again")
-//                let cell = tableView.dequeueReusableCell(withIdentifier: "otherInfoImageTableViewCell") as? otherInfoImageTableViewCell
-//                cell?.itemTime.text = self.chatlistingArray[indexPath.row].jCreatedDate ?? ""
-//                cell?.itemcustomer.text = self.chatlistingArray[indexPath.row].repliedBy ?? ""
-//                cell?.itemtext.text = self.chatlistingArray[indexPath.row].queryResponseInfo ?? ""
-//                var secondaryIMG = self.chatlistingArray[indexPath.item].imageUrl ?? ""
-//                let splited = secondaryIMG.dropFirst(2)
-//                cell?.itemimage.sd_setImage(with: URL(string: "\(PROMO_IMG1)\(splited)"), placeholderImage: UIImage(named: "default"))
-//                return cell!
-//            }else{
-//                let cell = tableView.dequeueReusableCell(withIdentifier: "senderInfoTableViewCell") as? senderInfoTableViewCell
-//                cell?.itemTime.text = self.chatlistingArray[indexPath.row].jCreatedDate ?? ""
-//                cell?.itemcustomer.text = self.chatlistingArray[indexPath.row].repliedBy ?? ""
-//                cell?.itemText.text = self.chatlistingArray[indexPath.row].queryResponseInfo ?? ""
-//                return cell!
-//            }
-//        }else if verifyusertype == "Merchant" || verifyusertype == "SuperAdmin" || verifyusertype == "User" || verifyusertype == "Location" || verifyusertype == "" {
-//            if self.chatlistingArray[indexPath.row].queryResponseInfo != nil  && self.chatlistingArray[indexPath.row].imageUrl == nil{
-//                let cell = tableView.dequeueReusableCell(withIdentifier: "otherInfoTableViewCell") as? otherInfoTableViewCell
-//                cell?.itemTime.text = self.chatlistingArray[indexPath.row].createdDate ?? ""
-//                cell?.itemcustomer.text = self.chatlistingArray[indexPath.row].repliedBy ?? ""
-//                cell?.itemText.text = self.chatlistingArray[indexPath.row].queryResponseInfo ?? ""
-//                return cell!
-//            }else if self.chatlistingArray[indexPath.row].queryResponseInfo != nil  && self.chatlistingArray[indexPath.row].imageUrl != nil{
-                let cell = tableView.dequeueReusableCell(withIdentifier: "senderInfoImageTableViewCell") as? senderInfoImageTableViewCell
-                cell?.itemTime.text = "12:32:18"//self.chatlistingArray[indexPath.row].createdDate ?? ""
-                cell?.itemcustomer.text = "testing"//self.chatlistingArray[indexPath.row].repliedBy ?? ""
-                cell?.itemtext.text = "testing-1" //self.chatlistingArray[indexPath.row].queryResponseInfo ?? ""
-//                var secondaryIMG = self.chatlistingArray[indexPath.item].imageUrl ?? ""
-//                let splited = secondaryIMG.components(separatedBy: "~")
-//                cell?.itemimage.sd_setImage(with: URL(string: "\(PROMO_IMG1)\(splited[1])"), placeholderImage: UIImage(named: "default"))
+        let verifyusertype = self.chatlistingArray[indexPath.row].userType ?? ""
+        print(verifyusertype, "Customer TYpe")
+        print(self.chatlistingArray[indexPath.item].imageUrl ?? "", "Image URL")
+        print(self.chatlistingArray[indexPath.row].queryResponseInfo ?? "", "ResponseText")
+        if verifyusertype == "Customer" || verifyusertype == "CUSTOMER"{
+            if self.chatlistingArray[indexPath.row].queryResponseInfo != nil  && self.chatlistingArray[indexPath.row].imageUrl == nil ||  self.chatlistingArray[indexPath.row].queryResponseInfo != ""  && self.chatlistingArray[indexPath.row].imageUrl == "" {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "senderInfoTableViewCell") as? senderInfoTableViewCell
+                cell?.itemTime.text = self.chatlistingArray[indexPath.row].jCreatedDate ?? ""
+                cell?.itemcustomer.text = self.chatlistingArray[indexPath.row].repliedBy ?? ""
+                cell?.itemText.text = self.chatlistingArray[indexPath.row].queryResponseInfo ?? ""
+                cell?.layoutIfNeeded()
+                print(cell?.frame.height)
+                print(cell?.itemText.frame.height)
+
                 return cell!
-//            }else if self.chatlistingArray[indexPath.row].queryResponseInfo == nil  && self.chatlistingArray[indexPath.row].imageUrl != nil{
-//                let cell = tableView.dequeueReusableCell(withIdentifier: "otherImageTableViewCell") as? otherImageTableViewCell
-//                cell?.itemTime.text = self.chatlistingArray[indexPath.row].createdDate ?? ""
-//                cell?.itemcustomer.text = self.chatlistingArray[indexPath.row].repliedBy ?? ""
-//                var secondaryIMG = self.chatlistingArray[indexPath.item].imageUrl ?? ""
-//                let splited = secondaryIMG.components(separatedBy: "~")
-//                cell?.itemimage.sd_setImage(with: URL(string: "\(PROMO_IMG1)\(splited[1])"), placeholderImage: UIImage(named: "default"))
-//                return cell!
-//            }else{
-//                let cell = tableView.dequeueReusableCell(withIdentifier: "otherInfoTableViewCell") as? otherInfoTableViewCell
-//                cell?.itemTime.text = self.chatlistingArray[indexPath.row].jCreatedDate ?? ""
-//                cell?.itemcustomer.text = self.chatlistingArray[indexPath.row].repliedBy ?? ""
-//                cell?.itemText.text = self.chatlistingArray[indexPath.row].queryResponseInfo ?? ""
-//                return cell!
-//            }
-//
-//        }else{
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "otherInfoTableViewCell") as? otherInfoTableViewCell
-//            cell?.itemTime.text = convertDateFormater(self.chatlistingArray[indexPath.row].jCreatedDate ?? "")
-//            cell?.itemcustomer.text = self.chatlistingArray[indexPath.row].repliedBy ?? ""
-//            cell?.itemText.text = self.chatlistingArray[indexPath.row].queryResponseInfo ?? ""
-//            return cell!
-//        }
+            }else if self.chatlistingArray[indexPath.row].queryResponseInfo == nil  && self.chatlistingArray[indexPath.row].imageUrl != nil || self.chatlistingArray[indexPath.row].queryResponseInfo == ""  && self.chatlistingArray[indexPath.row].imageUrl != ""{
+                print("Imageasdfasdfs")
+                let cell = tableView.dequeueReusableCell(withIdentifier: "senderImageTableViewCell") as? senderImageTableViewCell
+                cell?.itemTime.text = self.chatlistingArray[indexPath.row].jCreatedDate ?? ""
+                cell?.itemcustomer.text = self.chatlistingArray[indexPath.row].repliedBy ?? ""
+                var secondaryIMG = (self.chatlistingArray[indexPath.item].imageUrl ?? "").dropFirst(2)
+                let splited = secondaryIMG
+                print("\(PROMO_IMG1)\(splited)")
+                cell?.itemimage.sd_setImage(with: URL(string: "\(PROMO_IMG1)\(splited)"), placeholderImage: UIImage(named: "ic_default_img (1)"))
+                return cell!
+            }else if self.chatlistingArray[indexPath.row].queryResponseInfo != nil  && self.chatlistingArray[indexPath.row].imageUrl != nil || self.chatlistingArray[indexPath.row].queryResponseInfo != ""  && self.chatlistingArray[indexPath.row].imageUrl != ""{
+                print("Check Again")
+                let cell = tableView.dequeueReusableCell(withIdentifier: "otherInfoImageTableViewCell") as? otherInfoImageTableViewCell
+                cell?.itemTime.text = self.chatlistingArray[indexPath.row].jCreatedDate ?? ""
+                cell?.itemcustomer.text = self.chatlistingArray[indexPath.row].repliedBy ?? ""
+                cell?.itemtext.text = self.chatlistingArray[indexPath.row].queryResponseInfo ?? ""
+                var secondaryIMG = self.chatlistingArray[indexPath.item].imageUrl ?? ""
+                let splited = secondaryIMG.dropFirst(2)
+                cell?.itemimage.sd_setImage(with: URL(string: "\(PROMO_IMG1)\(splited)"), placeholderImage: UIImage(named: "ic_default_img (1)"))
+                return cell!
+            }else{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "senderInfoTableViewCell") as? senderInfoTableViewCell
+                cell?.itemTime.text = self.chatlistingArray[indexPath.row].jCreatedDate ?? ""
+                cell?.itemcustomer.text = self.chatlistingArray[indexPath.row].repliedBy ?? ""
+                cell?.itemText.text = self.chatlistingArray[indexPath.row].queryResponseInfo ?? ""
+                return cell!
+            }
+        }else if verifyusertype == "Merchant" || verifyusertype == "SuperAdmin" || verifyusertype == "User" || verifyusertype == "Location" || verifyusertype == "" {
+            if self.chatlistingArray[indexPath.row].queryResponseInfo != nil  && self.chatlistingArray[indexPath.row].imageUrl == nil{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "otherInfoTableViewCell") as? otherInfoTableViewCell
+                cell?.itemTime.text = self.chatlistingArray[indexPath.row].createdDate ?? ""
+                cell?.itemcustomer.text = self.chatlistingArray[indexPath.row].repliedBy ?? ""
+                cell?.itemText.text = self.chatlistingArray[indexPath.row].queryResponseInfo ?? ""
+                return cell!
+            }else if self.chatlistingArray[indexPath.row].queryResponseInfo != nil  && self.chatlistingArray[indexPath.row].imageUrl != nil{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "senderInfoImageTableViewCell") as? senderInfoImageTableViewCell
+                cell?.itemTime.text = self.chatlistingArray[indexPath.row].createdDate ?? ""
+                cell?.itemcustomer.text = self.chatlistingArray[indexPath.row].repliedBy ?? ""
+                cell?.itemtext.text = self.chatlistingArray[indexPath.row].queryResponseInfo ?? ""
+                var secondaryIMG = self.chatlistingArray[indexPath.item].imageUrl ?? ""
+                let splited = secondaryIMG.components(separatedBy: "~")
+                cell?.itemimage.sd_setImage(with: URL(string: "\(PROMO_IMG1)\(splited[1])"), placeholderImage: UIImage(named: "ic_default_img (1)"))
+                return cell!
+            }else if self.chatlistingArray[indexPath.row].queryResponseInfo == nil  && self.chatlistingArray[indexPath.row].imageUrl != nil{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "otherImageTableViewCell") as? otherImageTableViewCell
+                cell?.itemTime.text = self.chatlistingArray[indexPath.row].createdDate ?? ""
+                cell?.itemcustomer.text = self.chatlistingArray[indexPath.row].repliedBy ?? ""
+                var secondaryIMG = self.chatlistingArray[indexPath.item].imageUrl ?? ""
+                let splited = secondaryIMG.components(separatedBy: "~")
+                cell?.itemimage.sd_setImage(with: URL(string: "\(PROMO_IMG1)\(splited[1])"), placeholderImage: UIImage(named: "ic_default_img (1)"))
+                return cell!
+            }else{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "otherInfoTableViewCell") as? otherInfoTableViewCell
+                cell?.itemTime.text = self.chatlistingArray[indexPath.row].jCreatedDate ?? ""
+                cell?.itemcustomer.text = self.chatlistingArray[indexPath.row].repliedBy ?? ""
+                cell?.itemText.text = self.chatlistingArray[indexPath.row].queryResponseInfo ?? ""
+                return cell!
+            }
+
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "otherInfoTableViewCell") as? otherInfoTableViewCell
+            cell?.itemTime.text = convertDateFormater(self.chatlistingArray[indexPath.row].jCreatedDate ?? "")
+            cell?.itemcustomer.text = self.chatlistingArray[indexPath.row].repliedBy ?? ""
+            cell?.itemText.text = self.chatlistingArray[indexPath.row].queryResponseInfo ?? ""
+            return cell!
+        }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print(self.chatlistingArray[indexPath.item].imageUrl ?? "0", "Image URL")
-//        if self.chatlistingArray[indexPath.item].imageUrl != nil{
-//            let secondaryIMG = String(self.chatlistingArray[indexPath.item].imageUrl ?? "").dropFirst(2)
-//            let splited = secondaryIMG
-//            print("\(PROMO_IMG1)\(splited)")
-//            expandedimageview.sd_setImage(with: URL(string: "\(PROMO_IMG1)\(splited)"), placeholderImage: UIImage(named: "d2.jpg"))
-//            expandedview.isHidden = false
-//            return
-//        }else{
-//            return
-//        }
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(self.chatlistingArray[indexPath.item].imageUrl ?? "0", "Image URL")
+        if self.chatlistingArray[indexPath.item].imageUrl != nil{
+            let secondaryIMG = String(self.chatlistingArray[indexPath.item].imageUrl ?? "").dropFirst(2)
+            let splited = secondaryIMG
+            print("\(PROMO_IMG1)\(splited)")
+            expandedimageview.sd_setImage(with: URL(string: "\(PROMO_IMG1)\(splited)"), placeholderImage: UIImage(named: "ic_default_img (1)"))
+            expandedview.isHidden = false
+            return
+        }else{
+            return
+        }
+    }
     
     @IBAction func closeexpandedview(_ sender: Any) {
         expandedview.isHidden = true
@@ -209,8 +209,8 @@ class HR_Chatvc2ViewController: UIViewController, UITextFieldDelegate,UITableVie
     }
     func chatListingAPI(){
         self.commenttextfield.text = ""
-//        self.chatlistingArray.removeAll()
-//        startLoading()
+        self.chatlistingArray.removeAll()
+        startLoading()
         let parameterJSON = [
             "ActionType":"171",
             "ActorId":"\(userID)",
@@ -218,80 +218,78 @@ class HR_Chatvc2ViewController: UIViewController, UITextFieldDelegate,UITableVie
             
         ] as [String:Any]
         print(parameterJSON)
-//        self.requestAPIs.chatQuery_Post_API(parameters: parameterJSON) { (result, error) in
-//            if error == nil {
-//                if result != nil{
-//                    DispatchQueue.main.async {
-//                        self.chatlistingArray = (result?.objQueryResponseJsonList)!
-////                        self.tableview12.reloadData()
-//                        if self.chatlistingArray.count != 0{
-//                            self.tableview12.reloadData()
-//                            self.scrollToBottom()
-//                        }
-//                        self.stopLoading()
-//                    }
-//                }else{
-//                    print("NO RESPONSE")
-//                    DispatchQueue.main.async {
-//                        self.stopLoading()
-//                    }
-//                }
-//            }else{
-//                print("ERROR_ \(error)")
-//                DispatchQueue.main.async {
-//                    self.stopLoading()
-//                }
-//
-//            }
-//        }
+        self.requestAPIs.chatQuery_Post_API(parameters: parameterJSON) { (result, error) in
+            if error == nil {
+                if result != nil{
+                    DispatchQueue.main.async {
+                        self.chatlistingArray = (result?.objQueryResponseJsonList)!
+//                        self.tableview12.reloadData()
+                        if self.chatlistingArray.count != 0{
+                            self.tableview12.reloadData()
+                            self.scrollToBottom()
+                        }
+                        self.stopLoading()
+                    }
+                }else{
+                    print("NO RESPONSE")
+                    DispatchQueue.main.async {
+                        self.stopLoading()
+                    }
+                }
+            }else{
+                print("ERROR_ \(error)")
+                DispatchQueue.main.async {
+                    self.stopLoading()
+                }
+                
+            }
+        }
     }
     func scrollToBottom(){
         DispatchQueue.main.async {
-//            let indexPath = IndexPath(row:  self.chatlistingArray.count-1, section: 0)
-//            self.tableview12.scrollToRow(at: indexPath, at: .bottom, animated: true)
+            let indexPath = IndexPath(row:  self.chatlistingArray.count-1, section: 0)
+            self.tableview12.scrollToRow(at: indexPath, at: .bottom, animated: true)
         }
     }
     
     func submitHelptopic(parameters:JSON){
-//        self.startLoading()
-//        self.requestAPIs.newQueryTicket_API(parameters: parameters) { (result, error) in
-//            if error == nil {
-//                if result != nil{
-//                    DispatchQueue.main.async {
-//                        let response = result?.returnMessage ?? "-1~failed~QE13"
-//                        let responsearray = response.split(separator: "~")
-//                        if responsearray[0] == "-1"{
-//                            let alertController = UIAlertController(title: "", message: "Submission Failed", preferredStyle: .alert)
-//                            let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
-//                                UIAlertAction in
-//                                self.navigationController?.popViewController(animated: true)
-//                            }
-//                            alertController.addAction(okAction)
-//                            // Present the controller
-//                            self.present(alertController, animated: true, completion: nil)
-//                        }else{
-//                            self.chatListingAPI()
-//                        }
-//                        self.stopLoading()
-//                    }
-//                }else{
-//                    print("NO RESPONSE")
-//                    DispatchQueue.main.async {
-//                        self.stopLoading()
-//                    }
-//                }
-//            }else{
-//                print("ERROR_ \(error)")
-//                DispatchQueue.main.async {
-//                    self.stopLoading()
-//                }
-//
-//            }
-//        }
+        self.startLoading()
+        self.requestAPIs.newQueryTicket_API(parameters: parameters) { (result, error) in
+            if error == nil {
+                if result != nil{
+                    DispatchQueue.main.async {
+                        let response = result?.returnMessage ?? "-1~failed~QE13"
+                        let responsearray = response.split(separator: "~")
+                        if responsearray[0] == "-1"{
+                            let alertController = UIAlertController(title: "", message: "Submission Failed", preferredStyle: .alert)
+                            let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
+                                UIAlertAction in
+                                self.navigationController?.popViewController(animated: true)
+                            }
+                            alertController.addAction(okAction)
+                            // Present the controller
+                            self.present(alertController, animated: true, completion: nil)
+                        }else{
+                            self.chatListingAPI()
+                        }
+                        self.stopLoading()
+                    }
+                }else{
+                    print("NO RESPONSE")
+                    DispatchQueue.main.async {
+                        self.stopLoading()
+                    }
+                }
+            }else{
+                print("ERROR_ \(error)")
+                DispatchQueue.main.async {
+                    self.stopLoading()
+                }
+                
+            }
+        }
     }
     
-    @IBAction func notificationbutton(_ sender: Any) {
-    }
     @IBAction func backbutton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -311,7 +309,7 @@ class HR_Chatvc2ViewController: UIViewController, UITextFieldDelegate,UITableVie
 //                    self.present(vc!, animated: true, completion: nil)
 //                }
          //   } else {
-//            startLoading()
+            startLoading()
             let parameterJSON = [
                 "ActionType":"4",
                 "ActorId":"\(userID)",
@@ -498,7 +496,7 @@ extension HR_Chatvc2ViewController{
         dismiss(animated: true, completion: nil)
     }
     func profileupdaterequest(){
-//        startLoading()
+        startLoading()
         let parameterJSON = [
                 "ActionType": "4",
                 "FileType": "\(FileType)",
@@ -511,53 +509,53 @@ extension HR_Chatvc2ViewController{
                 "QueryStatus": "1"
         ] as! [String:Any]
 //         print(parameterJSON)
-//        self.requestAPIs.newQueryTicket_API(parameters: parameterJSON) { (result, error) in
-//            if error == nil {
-//                if result != nil{
-//                    DispatchQueue.main.async {
-//                        let response = result?.returnMessage ?? ""
-//                        print(response)
-//                        let responsearray = response.split(separator: "~")
-//                        if responsearray.count != 0{
-//                        if responsearray[0] == "-1"{
-//                            let alertController = UIAlertController(title: "", message: "ImageSubmissionFailed", preferredStyle: .alert)
-//                            let okAction = UIAlertAction(title: "ok", style: UIAlertAction.Style.default) {
-//                                UIAlertAction in
-//                                self.navigationController?.popViewController(animated: true)
-//                            }
-//                            alertController.addAction(okAction)
-//                            // Present the controller
-//                            self.present(alertController, animated: true, completion: nil)
-//                        }else{
-//                            self.chatListingAPI()
-//                            
-//                        }
-//                        }else{
-//                            let alertController = UIAlertController(title: "", message: "ImageSubmissionFailed", preferredStyle: .alert)
-//                            let okAction = UIAlertAction(title: "ok", style: UIAlertAction.Style.default) {
-//                                UIAlertAction in
-//                                self.navigationController?.popViewController(animated: true)
-//                            }
-//                            alertController.addAction(okAction)
-//                            // Present the controller
-//                            self.present(alertController, animated: true, completion: nil)
-//                        }
-//                        self.stopLoading()
-//                    }
-//                }else{
-//                    print("NO RESPONSE")
-//                    DispatchQueue.main.async {
-//                        self.stopLoading()
-//                    }
-//                }
-//            }else{
-//                print("ERROR_ \(error)")
-//                DispatchQueue.main.async {
-//                    self.stopLoading()
-//                }
-//                
-//            }
-//        }
+        self.requestAPIs.newQueryTicket_API(parameters: parameterJSON) { (result, error) in
+            if error == nil {
+                if result != nil{
+                    DispatchQueue.main.async {
+                        let response = result?.returnMessage ?? ""
+                        print(response)
+                        let responsearray = response.split(separator: "~")
+                        if responsearray.count != 0{
+                        if responsearray[0] == "-1"{
+                            let alertController = UIAlertController(title: "", message: "ImageSubmissionFailed", preferredStyle: .alert)
+                            let okAction = UIAlertAction(title: "ok", style: UIAlertAction.Style.default) {
+                                UIAlertAction in
+                                self.navigationController?.popViewController(animated: true)
+                            }
+                            alertController.addAction(okAction)
+                            // Present the controller
+                            self.present(alertController, animated: true, completion: nil)
+                        }else{
+                            self.chatListingAPI()
+                            
+                        }
+                        }else{
+                            let alertController = UIAlertController(title: "", message: "ImageSubmissionFailed", preferredStyle: .alert)
+                            let okAction = UIAlertAction(title: "ok", style: UIAlertAction.Style.default) {
+                                UIAlertAction in
+                                self.navigationController?.popViewController(animated: true)
+                            }
+                            alertController.addAction(okAction)
+                            // Present the controller
+                            self.present(alertController, animated: true, completion: nil)
+                        }
+                        self.stopLoading()
+                    }
+                }else{
+                    print("NO RESPONSE")
+                    DispatchQueue.main.async {
+                        self.stopLoading()
+                    }
+                }
+            }else{
+                print("ERROR_ \(error)")
+                DispatchQueue.main.async {
+                    self.stopLoading()
+                }
+                
+            }
+        }
     }
     
     func convertDateFormater(_ date: String) -> String

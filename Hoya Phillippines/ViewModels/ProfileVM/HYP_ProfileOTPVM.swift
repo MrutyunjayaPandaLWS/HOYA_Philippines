@@ -24,7 +24,13 @@ class HYP_ProfileOTPVM{
                             self.timmer.invalidate()
                             self.count = 60
                             self.timmer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
-//                            self.VC?.sendotp = 1
+                            self.VC?.otpBtnStatus = 1
+                            self.VC?.otpView.isHidden = false
+                            self.VC?.enterOtpLbl.isHidden = false
+                            self.VC?.timerLbl.isHidden = false
+                            self.VC?.otpBtnTopConstraints.constant = CGFloat(134)
+                            self.VC?.getOtpBtn.setTitle("Verify OTP", for: .normal)
+                            self.VC?.newNumberTF.isUserInteractionEnabled = false
                             self.otpNumber = result?.returnMessage ?? ""
                             print("OTP - " , self.otpNumber)
                             self.VC?.stopLoading()

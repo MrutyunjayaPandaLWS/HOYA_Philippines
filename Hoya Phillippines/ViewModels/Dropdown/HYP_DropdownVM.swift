@@ -15,7 +15,7 @@ class HYP_DropdownVM{
     var salesRepresentativeList = [LstAttributesDetails3]()
     var queryStatusList = [LstAttributesDetails5]()
     var promotionList = [LtyPrgBaseDetails]()
-    
+    var duccumentTypeListArray = [DoccumentType]()
     func roleListinApi(parameter: JSON){
         self.roleListArray.removeAll()
         self.VC?.startLoading()
@@ -89,7 +89,38 @@ class HYP_DropdownVM{
         }
     }
     
-
+    func doccumentListingApi(parameter: JSON){
+        self.salesRepresentativeList.removeAll()
+        self.VC?.startLoading()
+        requestAPIs.getDoccumentTypeListApi(parameters: parameter) { result, error in
+            if error == nil{
+                if result != nil{
+                    self.duccumentTypeListArray = result?.lstAttributesDetails ?? []
+                    DispatchQueue.main.async {
+                        if result?.lstAttributesDetails?.count != 0{
+                            self.VC?.heightOfTableView.constant = CGFloat(45*self.duccumentTypeListArray.count)
+                            self.VC?.rowNumber = self.duccumentTypeListArray.count
+                            self.VC?.dropdownTableView.reloadData()
+                            self.VC?.stopLoading()
+                            
+                        }else{
+                            self.VC?.stopLoading()
+                        }
+                    }
+                }else{
+                    DispatchQueue.main.async {
+                        self.VC?.stopLoading()
+                    }
+                }
+            }else{
+                DispatchQueue.main.async {
+                    self.VC?.stopLoading()
+                    print("salesRepresentativeAPi error",error?.localizedDescription)
+                }
+            }
+        }
+    }
+    
     func queryStatusListing(parameter: JSON){
         self.queryStatusList.removeAll()
         self.VC?.startLoading()

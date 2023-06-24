@@ -21,6 +21,7 @@ class HYP_MyRedemptionTVCell: UITableViewCell {
     var downloadVoucher:String = ""
     var delegate : myRedeemptionDelegate?
     var productName = ""
+    var pdfLink = ""
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,7 +29,7 @@ class HYP_MyRedemptionTVCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        delegate?.downloadVoucher(item: self)
         // Configure the view for the selected state
     }
 
