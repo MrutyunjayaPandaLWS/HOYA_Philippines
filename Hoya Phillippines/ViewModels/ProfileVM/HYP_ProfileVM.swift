@@ -44,7 +44,7 @@ class HYP_ProfileVM{
                             self.VC?.gender = self.generalInfo[0].gender ?? ""
                             let DOB = self.generalInfo[0].jdob?.split(separator: " ")
                             self.VC?.selectDOBLbl.text = String(DOB?[0] ?? "Select DOB")
-                            let DOA = self.generalInfo[0].jAnniversary?.split(separator: " ")
+                            let DOA = self.generalInfo[0].anniversary?.split(separator: " ")
                             self.VC?.selectDateOfAnniversary.text = String(DOA?[0] ?? "Select Date")
                             self.VC?.registerationNo = self.generalInfo[0].registrationSource ?? 0
                             self.VC?.idCardNumberTF.text = self.generalInfo[0].identificationNo ?? "-"

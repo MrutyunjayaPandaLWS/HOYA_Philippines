@@ -13,10 +13,11 @@ class HYP_MyRedemptionVC: BaseViewController, UITableViewDelegate, UITableViewDa
         self.downloadVoucherShadowView.isHidden =  false
         let request =  URLRequest(url: URL(string: item.pdfLink)!)
         self.voucherDetailsWebview.load(request)
-        self.pdfLink = item.pdfLink ?? ""
+        self.pdfLink = item.pdfLink
         self.pdfFileName =  item.productName
-        
     }
+    
+
     func didTappedResetFilterBtn(item: HYP_FilterVC) {
         fromDate = ""
         toDate = ""
@@ -58,7 +59,7 @@ class HYP_MyRedemptionVC: BaseViewController, UITableViewDelegate, UITableViewDa
         redeemptionTableView.delegate = self
         redeemptionTableView.dataSource = self
         emptyMessage.isHidden = true
-        self.redeemptionTableView.contentInset = UIEdgeInsets(top: 0,left: 0,bottom: 50,right: 0)
+        self.redeemptionTableView.contentInset = UIEdgeInsets(top: 0,left: 0,bottom: 80,right: 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -153,6 +153,7 @@ class HYP_VouchersVC: BaseViewController,VoucherDelegate, UITableViewDelegate, U
         emptyMessage.isHidden = true
         voucherListTableView.delegate = self
         voucherListTableView.dataSource = self
+        self.voucherListTableView.contentInset = UIEdgeInsets(top: 0,left: 0,bottom: 80,right: 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -255,7 +256,7 @@ class HYP_VouchersVC: BaseViewController,VoucherDelegate, UITableViewDelegate, U
             cell.dropdownIconView.isHidden = false
             cell.enterAmountView.isHidden = true
             if self.VM.voucherListArray[indexPath.row].selectedAmount == 0{
-                cell.selectAmountLbl.text = "Select Amount"
+//                cell.selectAmountLbl.text = "Select Amount"
             }else{
                 cell.selectAmountLbl.text = "\(self.VM.voucherListArray[indexPath.row].selectedAmount)"
             }

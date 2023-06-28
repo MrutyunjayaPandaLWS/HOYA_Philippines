@@ -19,6 +19,7 @@ class HYP_ProgramListVC: BaseViewController, UITableViewDelegate, UITableViewDat
         self.VM.VC = self
         programListTableView.delegate  = self
         programListTableView.dataSource = self
+        self.programListTableView.contentInset = UIEdgeInsets(top: 0,left: 0,bottom: 80,right: 0)
 
         
     }

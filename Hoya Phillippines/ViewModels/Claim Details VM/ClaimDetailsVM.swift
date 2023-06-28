@@ -13,7 +13,7 @@ class ClaimDetailsVM: SuccessMessageDelegate{
     
     weak var VC: HYP_ClaimDetailsVC?
     var requestAPIs = RestAPI_Requests()
-    
+    var token = UserDefaults.standard.string(forKey: "TOKEN") ?? ""
     var promotionProductList = [LsrProductDetails]()
     
     
@@ -124,7 +124,7 @@ class ClaimDetailsVM: SuccessMessageDelegate{
                     DispatchQueue.main.async {
                         if ((result?.returnMessage?.contains("1")) != nil){
                             self.VC?.stopLoading()
-                            let vc = self.VC?.storyboard?.instantiateViewController(withIdentifier: "HYT_SuccessMessageVC") as? HYP_SuccessMessageVC
+                            let vc = self.VC?.storyboard?.instantiateViewController(withIdentifier: "HYP_SuccessMessageVC") as? HYP_SuccessMessageVC
                             vc?.modalTransitionStyle = .crossDissolve
                             vc?.modalPresentationStyle = .overFullScreen
                             vc?.delegate = self
@@ -152,7 +152,7 @@ class ClaimDetailsVM: SuccessMessageDelegate{
     
     func hoyaValidationApi(paramters: JSON){
         self.VC?.startLoading()
-        let urlString = "https://hoyatserv.loyltwo3ks.com/Mobile/ValidateAInvoiceNumber"
+        let urlString = hoyaValidationUrl
         let url = URL(string: urlString)!
         let session = URLSession.shared
         var request = URLRequest(url: url)
@@ -165,7 +165,7 @@ class ClaimDetailsVM: SuccessMessageDelegate{
         }
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue("Bearer \(UserDefaults.standard.string(forKey: "TOKEN") ?? "")", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
 
         let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
             guard error == nil else {
@@ -182,10 +182,14 @@ class ClaimDetailsVM: SuccessMessageDelegate{
                         self.VC?.productAndInvoiceValidation = "false"
                             self.VC?.stopLoading()
                         self.VC?.view.makeToast("Invalid claim request", duration: 2.0, position: .center)
-                    }else{
+                    }else if str == "true"{
                         self.VC?.productAndInvoiceValidation = "true"
                             self.VC?.stopLoading()
                             self.VC?.claimSubmission_Api()
+                    }else{
+                        self.VC?.productAndInvoiceValidation = "false"
+                            self.VC?.stopLoading()
+                        self.VC?.view.makeToast("Invalid claim request", duration: 2.0, position: .center)
                     }
                 }
             }catch{

@@ -7,64 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "26CA90B5-C788-486C-9EEB-8F5DE208A896"
+            uuid = "EB58C8EB-8ECA-4E98-AACF-8C6FA2243680"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Hoya Phillippines/Resources/Networking/RestAPI_Requests.swift"
+            filePath = "Hoya Phillippines/ViewModels/Claim Details VM/ClaimDetailsVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "salesRepresentative_API(parameters:completion:)"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
+            landmarkName = "hoyaValidationApi(paramters:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "281D1578-9D47-40F5-B8D1-FF7FEEFBE26A"
+            uuid = "28263BD0-61EC-4680-B77A-64B6B733BB01"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Hoya Phillippines/Resources/Networking/RestAPI_Requests.swift"
+            filePath = "Hoya Phillippines/VIew/Claims Status/HYP_ClaimsStatusVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "salesRepresentative_API(parameters:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "84D80C99-954F-4A2D-8F8B-82B5907617F2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Hoya Phillippines/VIew/Support/QueryList/HYP_SupportVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6CA10682-5CC8-4F1F-885C-32A38E82A4C7"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Hoya Phillippines/VIew/Support/Query TopicList/HYP_QueryTopicListVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "helpTopicList_Api()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -53,6 +53,7 @@ class HYP_ClaimDetailsVC: BaseViewController, FilterStatusDelegate, UITextFieldD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.VM.VC = self
         invoiceNumberTF.delegate = self
         programName.text = promotionData?.programName ?? "-"
         validDate.text = "Validity until: \(promotionData?.jEndDate?.prefix(10) ?? "-")"
@@ -70,6 +71,7 @@ class HYP_ClaimDetailsVC: BaseViewController, FilterStatusDelegate, UITextFieldD
             self.view.makeToast("Enter Product Name", duration: 2.0, position: .center)
         }else{
             productValidationApi(productId: productCode)
+            tokendata()
         }
         
     }
@@ -241,6 +243,44 @@ class HYP_ClaimDetailsVC: BaseViewController, FilterStatusDelegate, UITextFieldD
             self.VM.productListApi(parameter: parameter)
         }
         
+    func tokendata(){
+            if MyCommonFunctionalUtilities.isInternetCallTheApi() == false{
+            }else{
+                let parameters : Data = "username=\(username)&password=\(password)&grant_type=password".data(using: .utf8)!
+
+            let url = URL(string: tokenURL)!
+            let session = URLSession.shared
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+
+            do {
+                 request.httpBody = parameters
+            } catch let error {
+                print(error.localizedDescription)
+            }
+            request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+           
+            let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+
+                guard error == nil else {
+                    return
+                }
+                guard let data = data else {
+                    return
+                }
+                do{
+                    let parseddata = try JSONDecoder().decode(TokenModels.self, from: data)
+                        print(parseddata.access_token ?? "")
+                        UserDefaults.standard.setValue(parseddata.access_token ?? "", forKey: "TOKEN")
+                     }catch let parsingError {
+                    print("Error", parsingError)
+                }
+            })
+            task.resume()
+        }
+        }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         self.invoiceNumberTF.text = self.invoiceNumberTF.text?.uppercased()
         return true

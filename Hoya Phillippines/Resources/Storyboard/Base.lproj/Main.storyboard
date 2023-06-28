@@ -1236,11 +1236,11 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2De-x9-PpX">
                                                                         <rect key="frame" x="20" y="896" width="353" height="40"/>
                                                                         <subviews>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter ID card number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mPJ-Mv-06I">
+                                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter ID card number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mPJ-Mv-06I">
                                                                                 <rect key="frame" x="20" y="0.0" width="333" height="40"/>
                                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <fontDescription key="fontDescription" name="GalanoGrotesque-Medium" family="GalanoGrotesque-Medium" pointSize="12"/>
-                                                                                <textInputTraits key="textInputTraits"/>
+                                                                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no"/>
                                                                                 <connections>
                                                                                     <action selector="selectIdCardNumberTF:" destination="CWN-J5-TaN" eventType="editingDidEnd" id="ssi-7m-AIP"/>
                                                                                 </connections>
@@ -3870,7 +3870,7 @@ UmFuZ2UgOiALA
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Invoice Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zpJ-mO-Hg0">
                                                         <rect key="frame" x="16" y="0.0" width="289" height="50"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" name="PrimaryColor2"/>
@@ -4417,7 +4417,7 @@ UmFuZ2UgOiALA
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="hl1-ap-PZa" secondAttribute="trailing" id="06X-Xl-NVT"/>
                                                     <constraint firstItem="hl1-ap-PZa" firstAttribute="top" secondItem="Ksi-VW-KCO" secondAttribute="top" id="74L-uc-oxS"/>
@@ -5876,7 +5876,7 @@ UmFuZ2UgOiALA
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Claim Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4iE-el-ONK">
                                                                             <rect key="frame" x="50" y="0.0" width="251" height="46"/>
-                                                                            <fontDescription key="fontDescription" name="GalanoGrotesque-Medium" family="GalanoGrotesque-Medium" pointSize="12"/>
+                                                                            <fontDescription key="fontDescription" name="GalanoGrotesque-SemiBold" family="GalanoGrotesque-SemiBold" pointSize="14"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
@@ -6009,7 +6009,7 @@ UmFuZ2UgOiALA
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DYx-Uz-cT1">
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DYx-Uz-cT1">
                                         <rect key="frame" x="20" y="0.0" width="353" height="258"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GCJ-Ps-Slu">
@@ -9971,7 +9971,7 @@ UmFuZ2UgOiALA
         <!--History Notifications View Controller-->
         <scene sceneID="xiz-gQ-Uaj">
             <objects>
-                <viewController storyboardIdentifier="HistoryNotificationsViewController" id="uuO-No-jO6" customClass="HistoryNotificationsViewController" customModule="FleetGuard_Retailer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HistoryNotificationsViewController" id="uuO-No-jO6" customClass="HistoryNotificationsViewController" customModule="Hoya_Phillippines" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pl0-wB-tCW">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

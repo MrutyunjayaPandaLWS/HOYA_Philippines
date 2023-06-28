@@ -53,7 +53,7 @@ class HYP_HYP_LoginVM{
                         DispatchQueue.main.async{
                             self.VC?.mobileNumberExistancy = 1
                             self.VC?.stopLoading()
-                            self.VC?.sendOtptoRegisterNumber()
+                            self.VC?.loginSubmissionApi()
                         }
                     }
                      }catch{
@@ -144,13 +144,7 @@ class HYP_HYP_LoginVM{
                                         UserDefaults.standard.set(data?.userImage, forKey: "userImage")
                                         UserDefaults.standard.set(data?.locationName, forKey: "locationName")
                                         UserDefaults.standard.set(true, forKey: "UserLoginStatus")
-                                        if #available(iOS 13.0, *) {
-                                            let sceneDelegate = self.VC?.view.window!.windowScene!.delegate as! SceneDelegate
-                                            sceneDelegate.setHomeAsRootViewController()
-                                        } else {
-                                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                                            appDelegate.setHomeAsRootViewController()
-                                        }
+                                            self.VC?.sendOtptoRegisterNumber()
                                     }
                                         
                                     }else{

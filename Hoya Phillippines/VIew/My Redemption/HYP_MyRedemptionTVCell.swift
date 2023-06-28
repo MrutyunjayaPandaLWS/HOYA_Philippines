@@ -29,10 +29,11 @@ class HYP_MyRedemptionTVCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        delegate?.downloadVoucher(item: self)
+        
         // Configure the view for the selected state
     }
 
     @IBAction func didTappedDownloadVoucher(_ sender: UIButton) {
+        delegate?.downloadVoucher(item: self)
     }
 }

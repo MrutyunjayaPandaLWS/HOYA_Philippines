@@ -18,6 +18,7 @@ class HYP_MyStaffVC: BaseViewController, UITableViewDelegate, UITableViewDataSou
         self.VM.VC = self
         myStaffListTableview.delegate = self
         myStaffListTableview.dataSource = self
+        self.myStaffListTableview.contentInset = UIEdgeInsets(top: 0,left: 0,bottom: 80,right: 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {

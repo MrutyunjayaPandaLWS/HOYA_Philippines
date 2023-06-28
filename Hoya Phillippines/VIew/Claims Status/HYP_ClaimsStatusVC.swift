@@ -41,6 +41,7 @@ class HYP_ClaimsStatusVC: BaseViewController, UITableViewDelegate, UITableViewDa
         calimsStatusTableView.dataSource = self
         calimsStatusTableView.register(UINib(nibName: "HYP_MyEarningTVCell", bundle: nil), forCellReuseIdentifier: "HYP_MyEarningTVCell")
         emptyMessage.isHidden = true
+        self.calimsStatusTableView.contentInset = UIEdgeInsets(top: 0,left: 0,bottom: 80,right: 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -83,7 +84,7 @@ class HYP_ClaimsStatusVC: BaseViewController, UITableViewDelegate, UITableViewDa
     func myEarningList_Api(){
         let parameter : [String : Any] = [
             
-                "ActionType": 7,
+                "ActionType": 12,
                 "ActiveStatus": 1,
                 "SalesPersonId": loyaltyId,
                 "FromDate": fromDate,
@@ -104,14 +105,15 @@ class HYP_ClaimsStatusVC: BaseViewController, UITableViewDelegate, UITableViewDa
         cell.pointsView.isHidden = true
         cell.remarksLbl.text = "Status"
         cell.promotionNameTitleLbl.text = "Program Name"
-        
-        if self.VM.myEarningList[indexPath.row].salesReturn == 0 {
-            cell.productStatus.text = "Approved"
-            cell.pointsView.backgroundColor = primaryColor
-        }else{
-            cell.productStatus.text = "Cancel"
-            cell.pointsView.backgroundColor = .red
-        }
+        cell.expireDateView.constant = 0
+        cell.productStatus.text = self.VM.myEarningList[indexPath.row].remarks ?? "-"
+//        if self.VM.myEarningList[indexPath.row].salesReturn == 0 {
+//            cell.productStatus.text = "Approved"
+//            cell.pointsView.backgroundColor = primaryColor
+//        }else{
+//            cell.productStatus.text = "Cancel"
+//            cell.pointsView.backgroundColor = .red
+//        }
         cell.pointsLbl.text = "\(Int(self.VM.myEarningList[indexPath.row].creditedPoint ?? 0))"
         cell.invoiceNumberLbl.text = self.VM.myEarningList[indexPath.row].invoiceNo
         cell.productNameLbl.text = self.VM.myEarningList[indexPath.row].productName

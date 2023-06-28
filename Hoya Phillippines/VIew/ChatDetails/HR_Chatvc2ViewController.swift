@@ -65,7 +65,7 @@ class HR_Chatvc2ViewController: UIViewController, UITextFieldDelegate,UITableVie
             chatListingAPI()
 //        }
         querySummarylabel.text = "\("Query summary") : \(querysummary)"
-        self.supportHeadingLabel.text = "Support"
+        self.supportHeadingLabel.text = "Chat with us"
         self.commenttextfield.placeholder = "\("Write Query Here")..."
 
     }

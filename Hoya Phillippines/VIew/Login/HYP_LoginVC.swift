@@ -107,7 +107,7 @@ class HYP_LoginVC: BaseViewController, CheckBoxSelectDelegate {
                     self.view.makeToast("Accept the term & condition",duration: 2.0,position: .center)
                 }else{
                     
-                    loginSubmissionApi()
+//                    loginSubmissionApi()
 //                    if #available(iOS 13.0, *) {
 //                        let sceneDelegate = self.view.window!.windowScene!.delegate as! SceneDelegate
 //                        sceneDelegate.setHomeAsRootViewController()
@@ -115,6 +115,13 @@ class HYP_LoginVC: BaseViewController, CheckBoxSelectDelegate {
 //                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
 //                        appDelegate.setHomeAsRootViewController()
 //                    }
+                    if #available(iOS 13.0, *) {
+                        let sceneDelegate = self.view.window!.windowScene!.delegate as! SceneDelegate
+                        sceneDelegate.setHomeAsRootViewController()
+                    } else {
+                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                        appDelegate.setHomeAsRootViewController()
+                    }
                     UserDefaults.standard.set(true, forKey: "UserLoginStatus")
                 }
             }

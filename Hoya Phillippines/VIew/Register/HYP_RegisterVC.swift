@@ -31,6 +31,7 @@ class HYP_RegisterVC: BaseViewController, DropdownDelegate, DateSelectedDelegate
     func acceptDate(_ vc: HYP_DatePickerVC) {
         if vc.isComeFrom == "DOB"{
             selectDOBLbl.text = vc.selectedDate
+            dob = vc.selectedDate
         }else{}
     }
     
@@ -148,6 +149,7 @@ class HYP_RegisterVC: BaseViewController, DropdownDelegate, DateSelectedDelegate
         mobileNumberTf.delegate = self
         storeNameTF.isUserInteractionEnabled = false
         selectUserTypeLbl.text = "Individual"
+        idCardNumberTF.delegate =  self
     }
     
     @IBAction func didTappedSelectUserTypeBtn(_ sender: UIButton) {
@@ -551,6 +553,10 @@ class HYP_RegisterVC: BaseViewController, DropdownDelegate, DateSelectedDelegate
         var maxLength : Int = 10
         if textField == mobileNumberTf{
             maxLength = 10
+        }
+        if textField == idCardNumberTF{
+            self.idCardNumberTF.text =  self.idCardNumberTF.text?.uppercased()
+            maxLength = 16
         }
         let currentString: NSString = textField.text! as NSString
         let newString: NSString =  currentString.replacingCharacters(in: range, with: string) as NSString

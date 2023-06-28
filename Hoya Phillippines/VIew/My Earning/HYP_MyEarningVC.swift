@@ -123,22 +123,24 @@ class HYP_MyEarningVC: BaseViewController, UITableViewDelegate, UITableViewDataS
         cell.selectionStyle = .none
 //        cell.remarksLbl.text = "Remarks"
 //        cell.promotionNameTitleLbl.text = "Promotion Name"
-        if self.VM.myEarningList[indexPath.row].remarks?.contains("Reward Adjustment") == true{
-            cell.expireDateView.constant = 0
-            cell.productStatus.text = "Reward Adjustment"
-            cell.pointsView.backgroundColor = primaryColor
-        }else if self.VM.myEarningList[indexPath.row].remarks?.contains("Points Credited") == true{
-            cell.expireDateView.constant = 40
-            let expDate = self.VM.myEarningList[indexPath.row].pointExpiryDate?.split(separator: " ")
-            cell.expiredateLbl.text = "\(expDate?[0] ?? "")"
-            cell.productStatus.text = "Point credited"
-            cell.pointsView.backgroundColor = primaryColor
-        }else{
-            cell.expireDateView.constant = 0
-            cell.productStatus.text = "Sale Return"
-            cell.pointsView.backgroundColor = .red
-            
-        }
+        cell.expireDateView.constant = 0
+        cell.productStatus.text = self.VM.myEarningList[indexPath.row].remarks
+//        if self.VM.myEarningList[indexPath.row].remarks?.contains("Reward Adjustment") == true{
+//            cell.expireDateView.constant = 0
+//            cell.productStatus.text = "Reward Adjustment"
+//            cell.pointsView.backgroundColor = primaryColor
+//        }else if self.VM.myEarningList[indexPath.row].remarks?.contains("Points Credited") == true{
+//            cell.expireDateView.constant = 40
+//            let expDate = self.VM.myEarningList[indexPath.row].pointExpiryDate?.split(separator: " ")
+//            cell.expiredateLbl.text = "\(expDate?[0] ?? "")"
+//            cell.productStatus.text = "Point credited"
+//            cell.pointsView.backgroundColor = primaryColor
+//        }else{
+//            cell.expireDateView.constant = 0
+//            cell.productStatus.text = "Sale Return"
+//            cell.pointsView.backgroundColor = .red
+//            
+//        }
         cell.pointsLbl.text = "\(Int(self.VM.myEarningList[indexPath.row].creditedPoint ?? 0))"
         cell.invoiceNumberLbl.text = self.VM.myEarningList[indexPath.row].invoiceNo ?? "-"
         cell.productNameLbl.text = self.VM.myEarningList[indexPath.row].productName ?? "-"

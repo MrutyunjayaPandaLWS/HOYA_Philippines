@@ -450,9 +450,8 @@ extension HYP_DashboardVC{
                 offersSlideShow.pageControl.pageIndicatorTintColor = UIColor.lightGray
             }
         }else{
-            offersSlideShow.setImageInputs([
-                ImageSource(image: UIImage(named: "ic_default_img (1)")!)
-            ])
+            offersSlideShow.contentScaleMode = .scaleToFill
+            offersSlideShow.setImageInputs([ImageSource(image: UIImage(named: "ic_default_img (1)")!)])
         }
     }
 //
@@ -473,9 +472,8 @@ extension HYP_DashboardVC{
             offersSlideShow.pageControl.currentPageIndicatorTintColor = UIColor(red: 230/255, green: 27/255, blue: 34/255, alpha: 1)
             offersSlideShow.pageControl.pageIndicatorTintColor = UIColor.lightGray
         }else{
-            offersSlideShow.setImageInputs([
-                ImageSource(image: UIImage(named: "ic_default_img (1)")!)
-            ])
+            offersSlideShow.contentScaleMode = .scaleToFill
+            offersSlideShow.setImageInputs([ImageSource(image: UIImage(named: "ic_default_img (1)")!)])
         }
     }
     

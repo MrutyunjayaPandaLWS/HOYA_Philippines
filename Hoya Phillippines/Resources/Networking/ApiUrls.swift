@@ -10,6 +10,7 @@ import Foundation
 //DEMO
 let tokenURL = "https://hoyapserv.loyltwo3ks.com/token"
 let baseURl = "https://hoyapserv.loyltwo3ks.com/Mobile/"
+let hoyaValidationUrl = "https://hoyapserv.loyltwo3ks.com/Mobile/ValidateAInvoiceNumber"
 var number = "6362630805"
 
 let PROMO_IMG1 = "https://hoyapdemo.loyltwo3ks.com/"

@@ -32,6 +32,7 @@ class HYP_VouchersTVCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         amountTF.keyboardType = .numberPad
+        selectAmountLbl.text = "2"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
