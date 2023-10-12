@@ -70,8 +70,8 @@ class HYP_ClaimDetailsVC: BaseViewController, FilterStatusDelegate, UITextFieldD
         }else if quantityTF.text?.count == 0{
             self.view.makeToast("Enter Product Name", duration: 2.0, position: .center)
         }else{
-            productValidationApi(productId: productCode)
             tokendata()
+            productValidationApi(productId: productCode)
         }
         
     }
@@ -183,7 +183,7 @@ class HYP_ClaimDetailsVC: BaseViewController, FilterStatusDelegate, UITextFieldD
                 "ActorId": userId,
                 "LoyaltyId": loyaltyId,
                 "InvoiceNumber": invoiceNumberTF.text ?? "",
-                "ProductCode": productNameLbl.text ?? "",
+                "ProductCode": productCode ,//productNameLbl.text ?? "",
                 "SellingPrice": 1,
                 "LoyaltyProgramId": promotionData?.programId ?? 0,
                 "VoucherImagePath": "",

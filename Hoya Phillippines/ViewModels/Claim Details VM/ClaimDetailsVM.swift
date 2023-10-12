@@ -44,7 +44,7 @@ class ClaimDetailsVM: SuccessMessageDelegate{
             }else{
                 DispatchQueue.main.async {
                     self.VC?.stopLoading()
-                    print("invoice number error",error?.localizedDescription)
+                    print("invoice number error",error?.localizedDescription ?? "")
                 }
             }
         }
@@ -56,7 +56,7 @@ class ClaimDetailsVM: SuccessMessageDelegate{
         requestAPIs.productNumberValidation_API(parameters: parameter) { result, error in
             if error == nil{
                 if result != nil{
-                    print("product",result?.lstAttributesDetails?[0].attributeId)
+                    print("product",result?.lstAttributesDetails?[0].attributeId ?? 0)
                     DispatchQueue.main.async {
                         if result?.lstAttributesDetails?[0].attributeId == 1{
                             self.VC?.stopLoading()
@@ -77,7 +77,7 @@ class ClaimDetailsVM: SuccessMessageDelegate{
             }else{
                 DispatchQueue.main.async {
                     self.VC?.stopLoading()
-                    print("invoice number error",error?.localizedDescription)
+                    print("invoice number error",error?.localizedDescription ?? "")
                 }
             }
         }
@@ -94,6 +94,8 @@ class ClaimDetailsVM: SuccessMessageDelegate{
                             self.VC?.stopLoading()
                             self.VC?.view.makeToast("This combination already exist",duration: 2.0,position: .center)
                             
+                        }else if result?.lstAttributesDetails?[0].attributeId == -2{
+                            self.VC?.view.makeToast("Invalid claim request",duration: 2.0,position: .center)
                         }else{
                             self.VC?.stopLoading()
                             self.VC?.hoyaValidationApi()
@@ -109,7 +111,7 @@ class ClaimDetailsVM: SuccessMessageDelegate{
             }else{
                 DispatchQueue.main.async {
                     self.VC?.stopLoading()
-                    print("invoice number error",error?.localizedDescription)
+                    print("invoice number error",error?.localizedDescription ?? "")
                 }
             }
         }
@@ -122,7 +124,7 @@ class ClaimDetailsVM: SuccessMessageDelegate{
             if error == nil{
                 if result != nil{
                     DispatchQueue.main.async {
-                        if ((result?.returnMessage?.contains("1")) != nil){
+                        if result?.returnMessage == "1"{
                             self.VC?.stopLoading()
                             let vc = self.VC?.storyboard?.instantiateViewController(withIdentifier: "HYP_SuccessMessageVC") as? HYP_SuccessMessageVC
                             vc?.modalTransitionStyle = .crossDissolve
@@ -144,7 +146,7 @@ class ClaimDetailsVM: SuccessMessageDelegate{
             }else{
                 DispatchQueue.main.async {
                     self.VC?.stopLoading()
-                    print("invoice number error",error?.localizedDescription)
+                    print("invoice number error",error?.localizedDescription ?? "")
                 }
             }
         }

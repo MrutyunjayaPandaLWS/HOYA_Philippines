@@ -8,31 +8,15 @@ class HYP_RedeemQuantity_VM{
     var pointsArray = [ObjCatalogueFixedPoints]()
     var filteredpointsArray = [ObjCatalogueFixedPoints]()
     
-//    func data(userID: String, productCode: String){
-//
-//
-//
-//
-//                    DispatchQueue.main.async {
-//                        self.pointsArray = self.VC?.voucherListArray.objCatalogueFixedPoints ?? []
-//                        for product in self.pointsArray{
-//                            if product.productCode == productCode{
-//                                self.filteredpointsArray.append(product)
-//                            }
-//                        }
-//                        self.VC?.tableViewHeight.constant = CGFloat(self.filteredpointsArray.count * 30)
-//                        self.VC?.pointsTableView.reloadData()
-//                        self.VC?.stopLoading()
-//                    }
-//
-//
-//    }
-    
     func myVouchersAPI(userID: String, productCode: String){
-        self.VC?.startLoading()
+//        self.VC?.startLoading()
+        var user = ""
+        if let userid = self.VC?.userId{
+            user = "\(userid)"
+        }
         let parameters = [
             "ActionType":"6",
-            "ActorId":"\(self.VC?.userId)",
+            "ActorId": user,
             "ObjCatalogueDetails":
                 [
                     "CatalogueType":"4",
@@ -54,16 +38,16 @@ class HYP_RedeemQuantity_VM{
                         }
                         self.VC?.tableViewHeight.constant = CGFloat(self.filteredpointsArray.count * 30)
                         self.VC?.pointsTableView.reloadData()
-                        self.VC?.stopLoading()
+//                        self.VC?.stopLoading()
                     }
                 }else{
                     DispatchQueue.main.async {
-                        self.VC?.stopLoading()
+//                        self.VC?.stopLoading()
                     }
                 }
             }else{
                 DispatchQueue.main.async {
-                    self.VC?.stopLoading()
+//                    self.VC?.stopLoading()
                 }
             }
         })

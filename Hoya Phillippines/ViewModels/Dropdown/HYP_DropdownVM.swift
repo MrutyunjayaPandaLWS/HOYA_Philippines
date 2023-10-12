@@ -34,16 +34,20 @@ class HYP_DropdownVM{
                             self.VC?.heightOfTableView.constant = CGFloat(45 * self.roleListArray.count)
                             self.VC?.rowNumber = self.roleListArray.count
                             
-                            
+                            self.VC?.noDataFoundLbl.isHidden = true
                             self.VC?.dropdownTableView.reloadData()
                             self.VC?.stopLoading()
                             
                         }else{
+                            self.VC?.noDataFoundLbl.isHidden = false
+                            self.VC?.heightOfTableView.constant = 45
                             self.VC?.stopLoading()
                         }
                     }
                 }else{
                     DispatchQueue.main.async {
+                        self.VC?.noDataFoundLbl.isHidden = false
+                        self.VC?.heightOfTableView.constant = 45
                         self.VC?.stopLoading()
                     }
                 }
@@ -69,14 +73,19 @@ class HYP_DropdownVM{
                             self.VC?.heightOfTableView.constant = CGFloat(45*self.salesRepresentativeList.count)
                             self.VC?.rowNumber = self.salesRepresentativeList.count
                             self.VC?.dropdownTableView.reloadData()
+                            self.VC?.noDataFoundLbl.isHidden = true
                             self.VC?.stopLoading()
                             
                         }else{
+                            self.VC?.noDataFoundLbl.isHidden = false
+                            self.VC?.heightOfTableView.constant = 45
                             self.VC?.stopLoading()
                         }
                     }
                 }else{
                     DispatchQueue.main.async {
+                        self.VC?.noDataFoundLbl.isHidden = false
+                        self.VC?.heightOfTableView.constant = 45
                         self.VC?.stopLoading()
                     }
                 }

@@ -186,6 +186,7 @@
 		840036612A45D5CC00471D56 /* Galano Grotesque Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 80C5982F299E04120096CFE4 /* Galano Grotesque Thin.otf */; };
 		840036622A45D5D000471D56 /* Galano Grotesque.otf in Resources */ = {isa = PBXBuildFile; fileRef = 80C59830299E04120096CFE4 /* Galano Grotesque.otf */; };
 		840036632A45D5D100471D56 /* Galano Grotesque.otf in Resources */ = {isa = PBXBuildFile; fileRef = 80C59830299E04120096CFE4 /* Galano Grotesque.otf */; };
+		844327A32AD69AE500492A9F /* loaderAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = 844327A22AD69AE400492A9F /* loaderAnimation.json */; };
 		845DF8922A40530700DC5A02 /* SuccessMessage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DF8912A40530700DC5A02 /* SuccessMessage2.swift */; };
 		845DF8972A4055F200DC5A02 /* SelectDealerDropDownVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DF8942A4055F200DC5A02 /* SelectDealerDropDownVC.swift */; };
 		845DF8982A4055F200DC5A02 /* SearchableDropDownVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845DF8952A4055F200DC5A02 /* SearchableDropDownVM.swift */; };
@@ -429,6 +430,7 @@
 		840036222A45A71600471D56 /* HistoryNotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryNotificationsViewModel.swift; sourceTree = "<group>"; };
 		840036252A45A7D500471D56 /* LstPushHistoryJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LstPushHistoryJson.swift; sourceTree = "<group>"; };
 		840036262A45A7D500471D56 /* NotificationModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationModels.swift; sourceTree = "<group>"; };
+		844327A22AD69AE400492A9F /* loaderAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loaderAnimation.json; sourceTree = "<group>"; };
 		845DF8912A40530700DC5A02 /* SuccessMessage2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessMessage2.swift; sourceTree = "<group>"; };
 		845DF8942A4055F200DC5A02 /* SelectDealerDropDownVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDealerDropDownVC.swift; sourceTree = "<group>"; };
 		845DF8952A4055F200DC5A02 /* SearchableDropDownVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchableDropDownVM.swift; sourceTree = "<group>"; };
@@ -1642,6 +1644,7 @@
 		84BF336C2A42FB0100CCFE23 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
+				844327A22AD69AE400492A9F /* loaderAnimation.json */,
 				84BF336D2A42FB3100CCFE23 /* no_internet_lottie.json */,
 			);
 			path = Animation;
@@ -1843,6 +1846,7 @@
 				84BF33632A42C8A100CCFE23 /* senderInfoTableViewCell.xib in Resources */,
 				84F5A8012A41886A00C8DD76 /* HYP_MyEarningTVCell.xib in Resources */,
 				80C59800299E001A0096CFE4 /* LaunchScreen.storyboard in Resources */,
+				844327A32AD69AE500492A9F /* loaderAnimation.json in Resources */,
 				8400364A2A45D59700471D56 /* Galano Grotesque Extra Light Italic.otf in Resources */,
 				84BF336B2A42C8A100CCFE23 /* senderImageTableViewCell.xib in Resources */,
 				840036462A45D59000471D56 /* Galano Grotesque Bold.otf in Resources */,

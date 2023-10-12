@@ -23,6 +23,7 @@ protocol FilterStatusDelegate{
 class HYP_DropDownVC: BaseViewController, UITableViewDelegate, UITableViewDataSource {
 
 
+    @IBOutlet weak var noDataFoundLbl: UILabel!
     @IBOutlet weak var heightOfTableView: NSLayoutConstraint!
     @IBOutlet weak var dropdownTableView: UITableView!
     var delegate: DropdownDelegate?

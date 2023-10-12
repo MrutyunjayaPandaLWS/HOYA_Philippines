@@ -138,7 +138,9 @@ class HYP_FilterVC: UIViewController, FilterStatusDelegate, DateSelectedDelegate
             selectPromotionNameLbl.text = "Select Promotion Name"
             statusTitle = "Select Promotion Name"
         }
-        delegate?.didTappedResetFilterBtn(item: self)
+        dismiss(animated: true){
+            self.delegate?.didTappedResetFilterBtn(item: self)
+        }
     }
 
     @IBAction func didTappedFilterBtn(_ sender: UIButton) {

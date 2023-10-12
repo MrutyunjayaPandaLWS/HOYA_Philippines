@@ -51,7 +51,7 @@ class HYP_VoucherDetailsVC: BaseViewController ,pointsDelegate{
         bottomView.clipsToBounds = true
         bottomView.layer.cornerRadius = 40
         bottomView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-        self.selectAmountLbl.text = "2"
+//        self.selectAmountLbl.text = "2"
         setUpdata()
     }
     
