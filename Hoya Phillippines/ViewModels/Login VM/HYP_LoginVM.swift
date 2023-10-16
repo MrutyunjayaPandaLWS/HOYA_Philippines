@@ -182,6 +182,7 @@ class HYP_HYP_LoginVM{
                             self.VC?.otpView.isUserInteractionEnabled = true
                             self.VC?.otpBtnStatus = 1
                             self.VC?.SubmitBtn.setTitle("Submit", for: .normal)
+                            self.VC?.membershipIDTF.isEnabled = false
                             self.count = 60
                             self.timmer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
 //                            self.VC?.sendotp = 1

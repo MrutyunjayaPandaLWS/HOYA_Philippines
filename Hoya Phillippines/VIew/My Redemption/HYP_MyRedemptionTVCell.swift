@@ -24,6 +24,7 @@ class HYP_MyRedemptionTVCell: UITableViewCell {
     var pdfLink = ""
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.statusLbl.clipsToBounds = true
         // Initialization code
     }
 

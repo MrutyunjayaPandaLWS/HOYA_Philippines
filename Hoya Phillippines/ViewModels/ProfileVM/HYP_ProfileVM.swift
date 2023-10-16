@@ -38,8 +38,22 @@ class HYP_ProfileVM{
                             }
                             if (self.generalInfo[0].customerTypeID ?? 0) == 1{
                                 self.VC?.idCardNumberView.isHidden = true
+                                self.VC?.idCardTypeView.isHidden = true
                             }else{
                                 self.VC?.idCardNumberView.isHidden = false
+                                self.VC?.idCardTypeView.isHidden = false
+                                let idCardType = self.generalInfo[0].lIdentificationType ?? 0
+                                if( idCardType == 1){
+                                    self.VC?.idCardTyprTF.text = "Passport"
+                                }else if(idCardType == 7){
+                                    self.VC?.idCardTyprTF.text = "SSS ID"
+                                }else if(idCardType == 8){
+                                    self.VC?.idCardTyprTF.text = "PRC ID"
+                                }else if(idCardType == 9){
+                                    self.VC?.idCardTyprTF.text = "Driving License"
+                                }else{
+                                    self.VC?.idCardTyprTF.text = "-"
+                                }
                             }
                             self.VC?.gender = self.generalInfo[0].gender ?? ""
                             let DOB = self.generalInfo[0].jdob?.split(separator: " ")

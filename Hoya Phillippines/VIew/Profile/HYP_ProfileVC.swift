@@ -85,6 +85,8 @@ class HYP_ProfileVC: BaseViewController, OtpDelegate, DropdownDelegate, DateSele
     }
     
 
+    @IBOutlet weak var idCardTyprTF: UITextField!
+    @IBOutlet weak var idCardTypeView: UIView!
     @IBOutlet weak var idCardNumberView: UIView!
     @IBOutlet weak var logoutShadowView: UIView!
     @IBOutlet weak var logoutView: UIView!

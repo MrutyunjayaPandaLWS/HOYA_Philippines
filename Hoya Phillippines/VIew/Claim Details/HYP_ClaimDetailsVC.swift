@@ -64,11 +64,11 @@ class HYP_ClaimDetailsVC: BaseViewController, FilterStatusDelegate, UITextFieldD
 
     @IBAction func didTappedSubmitBtn(_ sender: UIButton) {
         if invoiceNumberTF.text?.count == 0{
-            self.view.makeToast("Enter invoice number", duration: 2.0, position: .center)
-        }else if productNameLbl.text == "Select Lens Design"{
-            self.view.makeToast("Select Product Name", duration: 2.0, position: .center)
+            self.view.makeToast("Please enter invoice number", duration: 2.0, position: .center)
+        }else if productNameLbl.text == "Select Lens Design Code"{
+            self.view.makeToast("Please Select Lens Design Code", duration: 2.0, position: .center)
         }else if quantityTF.text?.count == 0{
-            self.view.makeToast("Enter Product Name", duration: 2.0, position: .center)
+            self.view.makeToast("Please enter quantity", duration: 2.0, position: .center)
         }else{
             tokendata()
             productValidationApi(productId: productCode)
@@ -283,6 +283,16 @@ class HYP_ClaimDetailsVC: BaseViewController, FilterStatusDelegate, UITextFieldD
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         self.invoiceNumberTF.text = self.invoiceNumberTF.text?.uppercased()
+        var maxLength : Int = 10
+        
+        if textField == quantityTF{
+            maxLength = 1
+            let currentString: NSString = textField.text! as NSString
+            let newString: NSString =  currentString.replacingCharacters(in: range, with: string) as NSString
+            return newString.length <= maxLength
+        }
+       
+        
         return true
     }
     

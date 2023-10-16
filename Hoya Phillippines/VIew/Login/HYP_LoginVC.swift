@@ -64,10 +64,12 @@ class HYP_LoginVC: BaseViewController, CheckBoxSelectDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.VM.tokendata()
+        self.otpView.text = ""
         if textfieldsStatus == 1{
             textfieldsStatus = 0
         }else{
             membershipIDTF.text = ""
+            membershipIDTF.isEnabled = true
             otpView1.isHidden =  true
             SubmitBtn.setTitle("Get OTP", for: .normal)
             otpBtnStatus = 0

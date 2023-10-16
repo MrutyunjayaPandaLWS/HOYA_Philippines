@@ -54,7 +54,7 @@ class HYP_DropdownVM{
             }else{
                 DispatchQueue.main.async {
                     self.VC?.stopLoading()
-                    print("roleListin error",error?.localizedDescription)
+                    print("roleListin error",error?.localizedDescription ?? "")
                 }
             }
         }
@@ -92,7 +92,7 @@ class HYP_DropdownVM{
             }else{
                 DispatchQueue.main.async {
                     self.VC?.stopLoading()
-                    print("salesRepresentativeAPi error",error?.localizedDescription)
+                    print("salesRepresentativeAPi error",error?.localizedDescription ?? "")
                 }
             }
         }
@@ -109,22 +109,29 @@ class HYP_DropdownVM{
                         if result?.lstAttributesDetails?.count != 0{
                             self.VC?.heightOfTableView.constant = CGFloat(45*self.duccumentTypeListArray.count)
                             self.VC?.rowNumber = self.duccumentTypeListArray.count
+                            self.VC?.noDataFoundLbl.isHidden = true
                             self.VC?.dropdownTableView.reloadData()
                             self.VC?.stopLoading()
                             
                         }else{
+                            self.VC?.noDataFoundLbl.isHidden = false
+                            self.VC?.heightOfTableView.constant = 45
                             self.VC?.stopLoading()
                         }
                     }
                 }else{
                     DispatchQueue.main.async {
+                        self.VC?.noDataFoundLbl.isHidden = false
+                        self.VC?.heightOfTableView.constant = 45
                         self.VC?.stopLoading()
                     }
                 }
             }else{
                 DispatchQueue.main.async {
                     self.VC?.stopLoading()
-                    print("salesRepresentativeAPi error",error?.localizedDescription)
+                    self.VC?.noDataFoundLbl.isHidden = false
+                    self.VC?.heightOfTableView.constant = 45
+                    print("salesRepresentativeAPi error",error?.localizedDescription ?? "")
                 }
             }
         }
@@ -141,21 +148,28 @@ class HYP_DropdownVM{
                         if result?.lstAttributesDetails?.count != 0{
                             self.VC?.heightOfTableView.constant = CGFloat(45*self.queryStatusList.count)
                             self.VC?.rowNumber = self.queryStatusList.count
+                            self.VC?.noDataFoundLbl.isHidden = true
                             self.VC?.dropdownTableView.reloadData()
                             self.VC?.stopLoading()
                         }else{
                             self.VC?.stopLoading()
+                            self.VC?.noDataFoundLbl.isHidden = false
+                            self.VC?.heightOfTableView.constant = 45
                         }
                     }
                 }else{
                     DispatchQueue.main.async {
                         self.VC?.stopLoading()
+                        self.VC?.noDataFoundLbl.isHidden = false
+                        self.VC?.heightOfTableView.constant = 45
                     }
                 }
             }else{
                 DispatchQueue.main.async {
                     self.VC?.stopLoading()
-                    print("salesRepresentativeAPi error",error?.localizedDescription)
+                    self.VC?.noDataFoundLbl.isHidden = false
+                    self.VC?.heightOfTableView.constant = 45
+                    print("salesRepresentativeAPi error",error?.localizedDescription ?? "")
                 }
             }
         }
@@ -174,17 +188,20 @@ class HYP_DropdownVM{
                         if result?.ltyPrgBaseDetails?.count != 0 && result?.ltyPrgBaseDetails != nil{
                             self.VC?.heightOfTableView.constant = CGFloat(45*self.promotionList.count)
                             self.VC?.rowNumber = self.promotionList.count
+                            self.VC?.noDataFoundLbl.isHidden = true
                             self.VC?.dropdownTableView.reloadData()
                             self.VC?.stopLoading()
                         }else{
-                            self.VC?.heightOfTableView.constant = CGFloat(45*self.promotionList.count)
-                            self.VC?.heightOfTableView.constant = CGFloat(45*self.promotionList.count)
+                            self.VC?.noDataFoundLbl.isHidden = false
+                            self.VC?.heightOfTableView.constant = 45
                             self.VC?.dropdownTableView.reloadData()
                             self.VC?.stopLoading()
                         }
                     }
                 }else{
                     DispatchQueue.main.async {
+                        self.VC?.noDataFoundLbl.isHidden = false
+                        self.VC?.heightOfTableView.constant = 45
                         self.VC?.stopLoading()
                     }
                 }
@@ -192,7 +209,9 @@ class HYP_DropdownVM{
             else{
                 DispatchQueue.main.async {
                     self.VC?.stopLoading()
-                    print("My Redeemption error",error?.localizedDescription)
+                    self.VC?.noDataFoundLbl.isHidden = false
+                    self.VC?.heightOfTableView.constant = 45
+                    print("My Redeemption error",error?.localizedDescription ?? "")
                 }
             }
         }

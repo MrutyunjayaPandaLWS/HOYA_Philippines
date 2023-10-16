@@ -113,7 +113,7 @@ class HYP_CreateQueryVC: BaseViewController,TopicListDelegate,UIImagePickerContr
                 "LoyaltyID": loyaltyId,
                 "QueryDetails": queryDetailsTF.text ?? "",
                 "QuerySummary": querySummeryTF.text ?? "",
-                "SourceType": "1"
+                "SourceType": "3"
 
         ]
         self.VM.newQuerySubmission(parameter: parameter)

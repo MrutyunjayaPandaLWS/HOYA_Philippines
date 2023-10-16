@@ -54,8 +54,8 @@ class HYP_DropDownVC: BaseViewController, UITableViewDelegate, UITableViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.VM.VC = self
+        self.noDataFoundLbl.isHidden = true
         dropdownTableView.delegate = self
         dropdownTableView.dataSource = self
     }

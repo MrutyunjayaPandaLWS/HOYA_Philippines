@@ -91,7 +91,8 @@ class HYP_RegisterVM{
                                 self.VC?.storeId = "\(result?.lstAttributesDetails?[0].attributeId ?? 0)"
                                 self.VC?.storeCode = "\(result?.lstAttributesDetails?[0].attributeNames ?? "")"
                                 self.VC?.selectSalesLbl.text = "Select sales representative"
-                                self.VC?.storeNameTF.text = result?.lstAttributesDetails?[0].attributeValue
+                                let storename = result?.lstAttributesDetails?[0].attributeValue?.split(separator: "(")
+                                self.VC?.storeNameTF.text = "\(storename?[0] ?? "")"
                                 self.VC?.storeNameTF.textColor = .black
                                 self.VC?.checkStoreUserNameExistancy()
                                 self.VC?.stopLoading()

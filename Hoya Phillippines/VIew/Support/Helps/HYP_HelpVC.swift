@@ -19,13 +19,24 @@ class HYP_HelpVC: BaseViewController ,UIImagePickerControllerDelegate, UINavigat
     }
     
 
+    @IBOutlet weak var uploadImageBtnView: UIView!
     @IBOutlet weak var backBtnWidth: NSLayoutConstraint!
     @IBOutlet weak var queryImage: UIImageView!
     @IBOutlet weak var bottonView: UIView!
     @IBOutlet weak var querySummeryTF: UITextField!
     @IBOutlet weak var selectQueryTopicLbl: UILabel!
     @IBOutlet weak var membershipIdTF: UITextField!
-    var strdata1 = ""
+    var strdata1 = ""{
+        didSet{
+            if strdata1 == ""{
+                self.queryImage.isHidden = true
+                self.uploadImageBtnView.isHidden = false
+            }else{
+                self.queryImage.isHidden = false
+                self.uploadImageBtnView.isHidden = true
+            }
+        }
+    }
     let imagePicker = UIImagePickerController()
     var VM = HYP_HelpVM()
     var mobileNumberExistancy: Int = -1
@@ -129,7 +140,7 @@ class HYP_HelpVC: BaseViewController ,UIImagePickerControllerDelegate, UINavigat
                 "LoyaltyID": membershipIdTF.text ?? "",
                 "QueryDetails": querySummeryTF.text ?? "",
                 "QuerySummary": "",
-                "SourceType": "1"
+                "SourceType": "3"
 
         ]
         self.VM.newQuerySubmission(parameter: parameter)

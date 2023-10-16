@@ -221,6 +221,7 @@
 		84BF337A2A430B3000CCFE23 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BF33792A430B3000CCFE23 /* NotificationService.swift */; };
 		84BF337E2A430B3000CCFE23 /* Notification Service.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 84BF33772A430B3000CCFE23 /* Notification Service.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		84BF33842A4316A500CCFE23 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84BF33832A4316A500CCFE23 /* GoogleService-Info.plist */; };
+		84D0BE1B2ADAD00D00F77DF6 /* UiViewx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D0BE1A2ADAD00D00F77DF6 /* UiViewx.swift */; };
 		84F5A7FC2A417D1200C8DD76 /* DoccumentTypeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F5A7FA2A417D1100C8DD76 /* DoccumentTypeModels.swift */; };
 		84F5A7FD2A417D1200C8DD76 /* DoccumentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F5A7FB2A417D1200C8DD76 /* DoccumentType.swift */; };
 		84F5A8002A41886A00C8DD76 /* HYP_MyEarningTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F5A7FE2A41886A00C8DD76 /* HYP_MyEarningTVCell.swift */; };
@@ -467,6 +468,7 @@
 		84BF33792A430B3000CCFE23 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		84BF337B2A430B3000CCFE23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84BF33832A4316A500CCFE23 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84D0BE1A2ADAD00D00F77DF6 /* UiViewx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UiViewx.swift; sourceTree = "<group>"; };
 		84F5A7FA2A417D1100C8DD76 /* DoccumentTypeModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoccumentTypeModels.swift; sourceTree = "<group>"; };
 		84F5A7FB2A417D1200C8DD76 /* DoccumentType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoccumentType.swift; sourceTree = "<group>"; };
 		84F5A7FE2A41886A00C8DD76 /* HYP_MyEarningTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HYP_MyEarningTVCell.swift; sourceTree = "<group>"; };
@@ -1328,6 +1330,7 @@
 		80C5980A299E00470096CFE4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				84D0BE192ADACFF300F77DF6 /* Design */,
 				84BF336C2A42FB0100CCFE23 /* Animation */,
 				805F349B29B1B83B002F33AE /* Base ViewController */,
 				80363B0229A0942C00C6A4D1 /* Localize */,
@@ -1665,6 +1668,14 @@
 				84BF337B2A430B3000CCFE23 /* Info.plist */,
 			);
 			path = "Notification Service";
+			sourceTree = "<group>";
+		};
+		84D0BE192ADACFF300F77DF6 /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				84D0BE1A2ADAD00D00F77DF6 /* UiViewx.swift */,
+			);
+			path = Design;
 			sourceTree = "<group>";
 		};
 		84F5A7F92A417CF600C8DD76 /* DoccumentTypeModels */ = {
@@ -2114,6 +2125,7 @@
 				806A137229BF5A3F00CD96E2 /* LstAttributesDetails5.swift in Sources */,
 				8012630C29C05B3400A4DF02 /* HYP_ProfileVM.swift in Sources */,
 				80C5981C299E028F0096CFE4 /* TextfieldExtension.swift in Sources */,
+				84D0BE1B2ADAD00D00F77DF6 /* UiViewx.swift in Sources */,
 				807DECD629C0AD14008EDEF6 /* VoucherRedeemptionModel.swift in Sources */,
 				80667BFC29C1825C0044C6D7 /* LstAttributesDetails1.swift in Sources */,
 				8064FA04299FBD1700A5A4CB /* HYP_ClaimsStatusVC.swift in Sources */,
@@ -2288,6 +2300,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = "Hoya Phillippines/Hoya Phillippines.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -2300,8 +2313,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2323,6 +2337,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = "Hoya Phillippines/Hoya Phillippines.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -2335,8 +2350,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
