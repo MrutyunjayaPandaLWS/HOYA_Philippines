@@ -109,7 +109,7 @@ extension SelectDealerDropDownVC: UITableViewDelegate, UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SelectDealerDropDownTVC", for: indexPath) as! SelectDealerDropDownTVC
-        cell.selectedTitleLbl.text = self.VM.promotionProductList[indexPath.row].productName
+        cell.selectedTitleLbl.text = self.VM.promotionProductList[indexPath.row].productCode
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -13,14 +13,14 @@ import Lottie
 class HYP_ClaimDetailsVC: BaseViewController, FilterStatusDelegate, UITextFieldDelegate, SearchableDropDownDelegate {
     func didTappedFilterStatus(item: HYP_DropDownVC) {
 //        productNameLbl.text = item.statusName
-        productNameLbl.text = item.statusName
+        productNameLbl.text = "\(item.statusId)"
         productNameLbl.textColor = .black
         productName = item.statusName
         productCode = "\(item.statusId)"
     }
     
     func selectedProductName(item: SelectDealerDropDownVC) {
-        productNameLbl.text = item.selectedStatusName
+        productNameLbl.text = "\(item.selectedStatusID)"
         productNameLbl.textColor = .black
         productName = item.selectedStatusName
         productCode = "\(item.selectedStatusID)"
@@ -58,6 +58,7 @@ class HYP_ClaimDetailsVC: BaseViewController, FilterStatusDelegate, UITextFieldD
         programName.text = promotionData?.programName ?? "-"
         validDate.text = "Validity until: \(promotionData?.jEndDate?.prefix(10) ?? "-")"
         quantityTF.keyboardType = .numberPad
+        quantityTF.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -210,7 +211,7 @@ class HYP_ClaimDetailsVC: BaseViewController, FilterStatusDelegate, UITextFieldD
             let parameter : [String : Any] = [
                 "Country": "Thailand",
                 "InvoiceNo":invoiceNumberTF.text ?? "",
-                "LenDesign": productNameLbl.text ?? "",
+                "LenDesign": productName,//productNameLbl.text ?? "",
                 "Quantity": quantityTF.text ?? ""
             ]
             print(parameter,"hoyaValidationApi")

@@ -233,6 +233,16 @@ class HYP_ProfileVC: BaseViewController, OtpDelegate, DropdownDelegate, DateSele
         present(vc!, animated: true)
     }
     
+    @IBAction func didEndEmailTF(_ sender: Any) {
+        let email = emailTF.text ?? ""
+        if email.isValidEmail{
+
+        }else{
+            emailTF.text = ""
+            self.view.makeToast("Enter a Valid Email",duration: 2.0,position: .center)
+            
+        }
+    }
     @IBAction func didTappedMobileNumberEditBtn(_ sender: UIButton) {
         let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HYP_OtpVC") as? HYP_OtpVC
         vc?.modalTransitionStyle = .crossDissolve
