@@ -100,7 +100,7 @@ class HYP_OtpVC: BaseViewController,UITextFieldDelegate{
     func sendOtptoRegisterNumber(){
         let parameter : [String : Any] = [
             
-                "MerchantUserName": "MSPDemoAdmin",
+                "MerchantUserName": MerchantUserName,
                 "MobileNo": "\(newNumberTF.text ?? "")",
                 "OTPType": "Enrollment",
                 "UserId": -1,

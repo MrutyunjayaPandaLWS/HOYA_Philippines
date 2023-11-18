@@ -75,7 +75,7 @@ class SelectDealerDropDownVC: BaseViewController,UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
             if self.VM.promotionProductList.count > 0 {
-                let arr = self.VM.promotionProductList1.filter{ ($0.productName!.localizedCaseInsensitiveContains(searchBar.text!))}
+                let arr = self.VM.promotionProductList1.filter{ ($0.productCode!.localizedCaseInsensitiveContains(searchBar.text!))}
                 if self.searchBar.text != ""{
                     if arr.count > 0 {
                         self.VM.promotionProductList.removeAll(keepingCapacity: true)

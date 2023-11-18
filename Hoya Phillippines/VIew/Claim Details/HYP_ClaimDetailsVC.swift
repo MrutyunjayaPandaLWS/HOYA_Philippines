@@ -38,7 +38,7 @@ class HYP_ClaimDetailsVC: BaseViewController, FilterStatusDelegate, UITextFieldD
     var isscannedOnce = false
     var qrList = [String]()
     var invoiceNumber = ""
-    var quantity = "1"
+    var quantity = "2"
     var scanCodeStatus = -1
     var productCodeStatus = -1
     var salesReturnStatus = -1
@@ -57,8 +57,10 @@ class HYP_ClaimDetailsVC: BaseViewController, FilterStatusDelegate, UITextFieldD
         invoiceNumberTF.delegate = self
         programName.text = promotionData?.programName ?? "-"
         validDate.text = "Validity until: \(promotionData?.jEndDate?.prefix(10) ?? "-")"
-        quantityTF.keyboardType = .numberPad
-        quantityTF.delegate = self
+//        quantityTF.keyboardType = .numberPad
+//        quantityTF.delegate = self
+        self.quantityTF.text = quantity
+        self.quantityTF.isEnabled = false
         // Do any additional setup after loading the view.
     }
     
@@ -189,7 +191,7 @@ class HYP_ClaimDetailsVC: BaseViewController, FilterStatusDelegate, UITextFieldD
                 "LoyaltyProgramId": promotionData?.programId ?? 0,
                 "VoucherImagePath": "",
                 "Domain": "Hoya",
-                "ClaimingQuantity": quantityTF.text ?? "0"
+                "ClaimingQuantity": quantityTF.text ?? "2"
             ]
             print(parameter,"claimSubmission_Api")
             if MyCommonFunctionalUtilities.isInternetCallTheApi() == false{
@@ -209,7 +211,7 @@ class HYP_ClaimDetailsVC: BaseViewController, FilterStatusDelegate, UITextFieldD
     //    MARK: - HOYA VALIDATION
         func hoyaValidationApi(){
             let parameter : [String : Any] = [
-                "Country": "Thailand",
+                "Country": "Phillippines",
                 "InvoiceNo":invoiceNumberTF.text ?? "",
                 "LenDesign": productName,//productNameLbl.text ?? "",
                 "Quantity": quantityTF.text ?? ""

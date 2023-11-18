@@ -22,7 +22,7 @@ let forgotPasswordUrl = "https://hoyapserv.loyltwo3ks.com/Mobile/forgotPasswordM
 let username = "LtyHoyaPhilDemo"
 let password = "PH@!78HYH(78T756"
 let grant_type = "password"
-//let MerchantUserName = "DDMotorsDemoAdmin"
+let MerchantUserName = "HoyaPHDemo"
 //https://hoyapserv.loyltwo3ks.com/Mobile/SaveCustomerRegistrationDetailsMobileApp
 
 

@@ -34,6 +34,8 @@ final class WebClient {
         let request = URLRequest(baseUrl: baseUrl, path: path, method: method, params: params)
 
         // Sending request to the server.
+        debugPrint("URL:- ",request.url!)
+        debugPrint("Request:- ", params)
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             // Parsing incoming data
             var object: Any? = nil

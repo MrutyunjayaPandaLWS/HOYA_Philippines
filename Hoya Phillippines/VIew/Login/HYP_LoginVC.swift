@@ -59,6 +59,7 @@ class HYP_LoginVC: BaseViewController, CheckBoxSelectDelegate {
         resendBtn.isHidden = true
         SubmitBtn.setTitle("Get OTP", for: .normal)
         otpView.isUserInteractionEnabled = false
+        self.membershipIDTF.autocapitalizationType = .allCharacters
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -164,7 +165,7 @@ class HYP_LoginVC: BaseViewController, CheckBoxSelectDelegate {
     func sendOtptoRegisterNumber(){
         let parameter : [String : Any] = [
             
-                "MerchantUserName": "MSPDemoAdmin",
+                "MerchantUserName": MerchantUserName,
                 "MobileNo": membershipIDTF.text ?? "",
                 "OTPType": "Enrollment",
                 "UserId": -1,
@@ -187,7 +188,9 @@ class HYP_LoginVC: BaseViewController, CheckBoxSelectDelegate {
                 "UserType": "Customer"
             
         ]
+        debugPrint("Login Submission",parameter)
         VM.loginSubmissionApi(parameter: parameter)
+
     }
     
 }

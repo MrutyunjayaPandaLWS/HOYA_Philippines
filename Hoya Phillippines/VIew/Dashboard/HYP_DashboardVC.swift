@@ -463,7 +463,7 @@ extension HYP_DashboardVC{
                 let imageURL = image.proImage ?? ""
                 let filteredURLArray = imageURL.dropFirst(3)
                 let replaceString = "\(PROMO_IMG1)\(filteredURLArray)".replacingOccurrences(of: " ", with: "%20")
-                self.sourceArray.append(AlamofireSource(urlString: "\(replaceString)", placeholder: UIImage(named: "ic_default_img (1)"))!)
+                self.sourceArray.append(AlamofireSource(urlString: "\(replaceString)", placeholder: UIImage(named: "offer-banner"))!)
             }
             offersSlideShow.setImageInputs(self.sourceArray)
             offersSlideShow.slideshowInterval = 3.0
@@ -473,7 +473,7 @@ extension HYP_DashboardVC{
             offersSlideShow.pageControl.pageIndicatorTintColor = UIColor.lightGray
         }else{
             offersSlideShow.contentScaleMode = .scaleToFill
-            offersSlideShow.setImageInputs([ImageSource(image: UIImage(named: "ic_default_img (1)")!)])
+            offersSlideShow.setImageInputs([ImageSource(image: UIImage(named: "offer-banner")!)])
         }
     }
     
